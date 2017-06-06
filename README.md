@@ -3,9 +3,9 @@
 Semantic similarity measures has been used to compare different types of entities represented in a semantic-base. 
 This software package provides the basic functions to start using semantic similarity.
 
-The ssm.py file contains the function and some examples
+The ssm.py file contains the function and some examples.
 
-The semanticbase.db contains the entries and teh relations between those entries
+The semanticbase.db contains the entries and teh relations between those entries.
 
 Each time the semantic base is updated, the preprocessing.sql contains SQL commands required to run before using ssm.py.
 
