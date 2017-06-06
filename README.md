@@ -5,9 +5,11 @@ This software package provides the basic functions to start using semantic simil
 
 The ssm.py file contains the function and some examples.
 
-The semanticbase.db contains the entries and teh relations between those entries.
+The semanticbase.db contains the entries and the relations between those entries.
 
 Each time the semantic base is updated, the preprocessing.sql contains SQL commands required to run before using ssm.py.
+
+To use an ontology, such as the Gene Ontology, ChEBI or WordNet you just need to convert their entries to the SQL format provided in the file semanticbase.sql
 
 ## References: 
 
