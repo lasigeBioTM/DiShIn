@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#"
+     xml:base="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl"
+	 xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl">
+		<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Source: F. Couto and M. Silva, Disjunctive shared information between ontology concepts: application to Gene Ontology, Journal of Biomedical Semantics, vol. 2, no. 5, pp. 1-16, 2011</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Author: Francisco M. Couto</rdfs:comment>
+        <owl:versionIRI rdf:resource="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl"/>
+    </owl:Ontology>
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#metal">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Metal</rdfs:label>
+    </owl:Class>
+    
+	<owl:Class rdf:about="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#precious">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Precious</rdfs:label>
+		<rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#metal"/>
+    </owl:Class>
+    
+	<owl:Class rdf:about="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#coinage">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coinage</rdfs:label>
+		<rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#metal"/>
+    </owl:Class>
+
+	<owl:Class rdf:about="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#palladium">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Palladium</rdfs:label>
+		<rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#precious"/>
+    </owl:Class>
+	
+	<owl:Class rdf:about="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#platinum">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Platinum</rdfs:label>
+		<rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#precious"/>
+    </owl:Class>
+	
+	<owl:Class rdf:about="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#gold">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gold</rdfs:label>
+		<rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#precious"/>
+		<rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#coinage"/>
+    </owl:Class>
+	
+	<owl:Class rdf:about="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#silver">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver</rdfs:label>
+		<rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#precious"/>
+		<rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#coinage"/>
+    </owl:Class>
+	
+	<owl:Class rdf:about="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#copper">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Copper</rdfs:label>
+		<rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#coinage"/>
+    </owl:Class>
+	
+</rdf:RDF>
+
+

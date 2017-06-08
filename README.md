@@ -1,16 +1,19 @@
 # SSM: Semantic Similarity Measure
 
-Semantic similarity measures has been used to compare different types of entities represented in a semantic-base. 
-This software package provides the basic functions to start using semantic similarity.
 
-The ssm.py file contains the function and some examples.
 
-The semanticbase.db contains the entries and the relations between those entries.
+This software package provides the basic functions to start using semantic similarity directly from a rdf or owl file. 
 
-Each time the semantic base is updated, the preprocessing.sql contains SQL commands required to run before using ssm.py.
+- semanticbase.py : provides a function to produce the semantic-base as a SQLite database 
 
-To use an ontology, such as the Gene Ontology, ChEBI or WordNet you just need to convert their entries to the SQL format provided in the file semanticbase.sql
+- ssm.py : provides the functions to calculate semantic similarity based on teh SQLite database
 
+- metals.py : provides examples of semantric similarity for the metals.owl 
+
+- chebi.py : provides examples for the ChEBI ontology (in chebi_lite.owl)
+
+Notice that we should comment the semanticbase.create call after the .db file has been created, and only uncomment it when a new version of the owl file is available.
+ 
 ## References: 
 
 - F. Couto and H. Pinto, The next generation of similarity measures that fully explore the semantics in biomedical ontologies, Journal of Bioinformatics and Computational Biology, vol. 11, no. 1371001, pp. 1-12, 2013 (http://dx.doi.org/10.1142/S0219720013710017)

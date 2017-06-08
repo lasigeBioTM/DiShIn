@@ -3,8 +3,13 @@ import math
 
 intrinsic = False
 mica = False
+global connection
 
-connection = sqlite3.connect('semanticbase.db')
+def semantic_base (sb_file):
+    
+    global connection
+    connection = sqlite3.connect(sb_file)
+    
 
 def descendents (entry):
 
@@ -102,9 +107,9 @@ def information_content (entry):
 def num_paths (entry1, ancestor):
     
     rows = connection.execute('''
-        SELECT npaths
-        FROM num_paths p
-        WHERE p.entry1=? AND p.entry2=? 
+        SELECT COUNT(DISTINCT(path))
+        FROM transitive t
+        WHERE t.entry1=? AND t.entry2=? 
         ''', (entry1, ancestor, ))
 
     for row in rows:
@@ -124,7 +129,12 @@ def shared_ic_dca (entry1, entry2):
         
     values = dca.values()
 
-    return (float(sum(values)) / float(len(values)))
+    if len(values) > 0 :
+        ret = float(sum(values)) / float(len(values))
+    else:
+        ret = 0
+
+    return ret
     
 def shared_ic_mica (entry1, entry2):
 
@@ -152,24 +162,3 @@ def ssm_lin (entry1, entry2):
 
     return 2*shared_ic(entry1, entry2) / (information_content(entry1) + information_content(entry2))
 
-#################################
-# Examples
-#################################
-
-intrinsic = False
-
-mica = False
-
-print ssm_resnik (get_id('palatium'), get_id('gold'))
-
-print (-math.log(6.0/9.0)-math.log(9.0/9.0))/2
-
-mica = True
-
-print ssm_resnik (get_id('palatium'), get_id('gold'))
-
-print -math.log(6.0/9.0)
-
-print ssm_lin (get_id('palatium'), get_id('gold'))
-
-print (2*-math.log(6.0/9.0))/(-math.log(2.0/9.0)-math.log(2.0/9.0))
