@@ -55,7 +55,7 @@ def create (owl_file, sb_file, name_prefix):
             entry2 = row[0]
          #print (str(entry1) + ":" + str(entry2))
          rows = connection.execute('''  
-            INSERT INTO relation (entry1,entry2) VALUES (?,?)
+            INSERT OR IGNORE INTO relation (entry1,entry2) VALUES (?,?)
          ''', (entry1,entry2,))
          connection.commit()
 
