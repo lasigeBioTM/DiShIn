@@ -72,23 +72,23 @@ def common_ancestors (entry1, entry2):
 
 
 def information_content_extrinsic (entry):
-
-    rows = connection.execute('''
+	#print entry
+	rows = connection.execute('''
         SELECT e.freq
         FROM entry e
         WHERE e.id = ?
         ''', (entry,))
-    for row in rows:
-        freq = row[0] + 1.0 
-    
-    rows = connection.execute('''
+	for row in rows:
+		freq = row[0] + 1.0
+	#print freq
+	rows = connection.execute('''
         SELECT MAX(e.freq)
         FROM entry e
         ''')
-    for row in rows:
-        maxfreq = row[0] + 1.0 
-
-    return -math.log(freq/maxfreq)
+	for row in rows:
+		maxfreq = row[0] + 1.0 
+	
+	return -math.log(freq/maxfreq)
 
 def information_content_intrinsic (entry):
 
@@ -107,7 +107,7 @@ def information_content (entry):
 def num_paths (entry1, ancestor):
     
     rows = connection.execute('''
-        SELECT COUNT(DISTINCT(path))
+        SELECT COUNT(*)
         FROM transitive t
         WHERE t.entry1=? AND t.entry2=? 
         ''', (entry1, ancestor, ))
