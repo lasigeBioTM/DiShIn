@@ -14,7 +14,7 @@ ssm.mica = False
 platinum = ssm.get_id('platinum')
 
 gold = ssm.get_id('gold')
-
+hp
 silver = ssm.get_id('silver')
 
 copper = ssm.get_id('copper')

@@ -3,12 +3,12 @@ import math
 import ssm
 import semanticbase
 
-#semanticbase.create('chebi_lite.owl', 'chebi_lite.db', 'http://purl.obolibrary.org/obo/')
+#semanticbase.create('go.owl', 'go.db', 'http://purl.obolibrary.org/obo/')
 
-ssm.semantic_base('chebi_lite.db')
+ssm.semantic_base('go.db')
 
-t1 = ssm.get_id('CHEBI_31236') # aripiprazole
-t2 = ssm.get_id('CHEBI_3131') # bithionol
+t1 = ssm.get_id('GO_0000024') # maltose biosynthetic process
+t2 = ssm.get_id('GO_0000025') # maltose catabolic process
 
 print ('The id of t1 is ' + str(t1))
 print ('The id of t2 is ' + str(t2))
