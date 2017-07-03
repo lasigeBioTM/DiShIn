@@ -3,9 +3,9 @@ import math
 import ssm
 import semanticbase
 
-#semanticbase.create('chebi_lite.owl', 'chebi_lite.db', 'http://purl.obolibrary.org/obo/')
+semanticbase.create('chebi.owl', 'chebi.db', 'http://purl.obolibrary.org/obo/', 'http://www.w3.org/2000/01/rdf-schema#subClassOf')
 
-ssm.semantic_base('chebi_lite.db')
+ssm.semantic_base('chebi.db')
 
 t1 = ssm.get_id('CHEBI_31236') # aripiprazole
 t2 = ssm.get_id('CHEBI_3131') # bithionol

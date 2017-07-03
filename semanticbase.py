@@ -1,7 +1,7 @@
 import rdflib
 import sqlite3
 
-def create (owl_file, sb_file, name_prefix):
+def create (owl_file, sb_file, name_prefix, relation):
     connection = sqlite3.connect(sb_file)
     
     connection.isolation_level = None #auto_commit
@@ -38,7 +38,7 @@ def create (owl_file, sb_file, name_prefix):
     g.load(owl_file)
 
     for s,p,o in g:
-        if str(p) == 'http://www.w3.org/2000/01/rdf-schema#subClassOf':
+        if str(p) == relation : 
             s = str(s)
             o = str(o)
             if len(s)>len(name_prefix) and len(o)>len(name_prefix):
@@ -77,6 +77,8 @@ def create (owl_file, sb_file, name_prefix):
     ''')
 
     connection.execute('CREATE INDEX t2 ON transitive(entry2,distance);')
+
+    connection.execute('CREATE INDEX tt ON transitive(entry1,entry2);')
     
     connection.execute('''
     INSERT INTO transitive (entry1, entry2, distance)

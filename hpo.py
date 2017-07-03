@@ -3,10 +3,9 @@ import math
 import ssm
 import semanticbase
 
-#semanticbase.create('hpo.owl', 'hpo.db', 'http://purl.obolibrary.org/obo/')
+# semanticbase.create('hpo.owl', 'hpo.db', 'http://purl.obolibrary.org/obo/', 'http://www.w3.org/2000/01/rdf-schema#subClassOf')
 
 ssm.semantic_base('hpo.db')
-
 
 t1 = ssm.get_id('HP_0000588') # Optic nerve coloboma
 t2 = ssm.get_id('HP_0001093') # Optic nerve dysplasia

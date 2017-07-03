@@ -64,10 +64,9 @@ def common_ancestors (entry1, entry2):
         FROM transitive t1, transitive t2
         WHERE t1.entry1=? AND t2.entry1=? AND t1.entry2=t2.entry2
         ''', (entry1, entry2, ))
-
+    
     for row in rows:
-       ancestors.append(row[0])
-
+        ancestors.append(row[0])
     return ancestors
 
 
