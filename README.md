@@ -10,7 +10,8 @@ This software package provides the basic functions to start using semantic simil
 
 - metals.py : provides examples of semantric similarity for the metals.owl 
 
-- chebi.py : provides examples for the ChEBI ontology (OWL file:  ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/)
+- chebi.py : provides examples for the ChEBI ontology
+-- OWL file:  ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/
 
 - go.py : provides examples for the Gene Ontology (GO) ontology (OWL file: http://geneontology.org/page/download-ontology#go.obo_and_go.owl)
 
