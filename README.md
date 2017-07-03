@@ -10,7 +10,11 @@ This software package provides the basic functions to start using semantic simil
 
 - metals.py : provides examples of semantric similarity for the metals.owl 
 
-- chebi.py : provides examples for the ChEBI ontology (in chebi_lite.owl)
+- chebi.py : provides examples for the ChEBI ontology (OWL file:  ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/)
+
+- go.py : provides examples for the Gene Ontology (GO) ontology (OWL file: http://geneontology.org/page/download-ontology#go.obo_and_go.owl)
+
+- hpo.py : provides examples for the Human Phenotype ontology (HPO) (OWL file: http://human-phenotype-ontology.github.io/downloads.html)
 
 Notice that we should comment the semanticbase.create call after the .db file has been created, and only uncomment it when a new version of the owl file is available.
  
