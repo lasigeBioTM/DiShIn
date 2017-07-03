@@ -1,6 +1,4 @@
-# SSM: Semantic Similarity Measure
-
-
+# SSM: Semantic Similarity Measures
 
 This software package provides the basic functions to start using semantic similarity directly from a rdf or owl file. 
 
