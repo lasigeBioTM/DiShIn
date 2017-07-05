@@ -117,7 +117,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
         for row in rows:
             id = row[0]
             name = row[1]
-            count = file.count(name)
+            count = file.count(name.replace('_',':',1))
             # print(name + " - " + str(count))
             connection.execute('''UPDATE entry SET refs = ? WHERE id=?''',(count,id,))
     else:
