@@ -1,7 +1,7 @@
 import rdflib
 import sqlite3
 
-def create (owl_file, sb_file, name_prefix, relation):
+def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     connection = sqlite3.connect(sb_file)
     
     connection.isolation_level = None #auto_commit
@@ -111,11 +111,18 @@ def create (owl_file, sb_file, name_prefix, relation):
         n_entries = row[0]
       
     # Calculate the frequency of each entry based on the number of references
-
-    connection.execute('''
-      UPDATE entry SET refs = 1;
-    ''')
-
+    if annotation_file != '' :
+        file  = open(annotation_file, 'r').read()
+        rows=connection.execute('''SELECT id, name FROM entry''')
+        for row in rows:
+            id = row[0]
+            name = row[1]
+            count = file.count(name)
+            # print(name + " - " + str(count))
+            connection.execute('''UPDATE entry SET refs = ? WHERE id=?''',(count,id,))
+    else:
+        connection.execute('''UPDATE entry SET refs = 1''')
+        
     connection.commit()
 
     connection.execute('''

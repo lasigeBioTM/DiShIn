@@ -3,7 +3,7 @@ import math
 import ssm
 import semanticbase
 
-semanticbase.create('metals.owl', 'metals.db', 'https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#', 'http://www.w3.org/2000/01/rdf-schema#subClassOf')
+semanticbase.create('metals.owl', 'metals.db', 'https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#', 'http://www.w3.org/2000/01/rdf-schema#subClassOf','metals.txt')
 
 ssm.semantic_base('metals.db')
 

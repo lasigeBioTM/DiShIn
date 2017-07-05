@@ -79,7 +79,7 @@ def information_content_extrinsic (entry):
         ''', (entry,))
 	for row in rows:
 		freq = row[0] + 1.0
-	#print freq
+	#print (freq)
 	rows = connection.execute('''
         SELECT MAX(e.freq)
         FROM entry e

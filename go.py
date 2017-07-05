@@ -3,7 +3,7 @@ import math
 import ssm
 import semanticbase
 
-semanticbase.create('go.owl', 'go.db', 'http://purl.obolibrary.org/obo/', 'http://www.w3.org/2000/01/rdf-schema#subClassOf')
+semanticbase.create('go.owl', 'go.db', 'http://purl.obolibrary.org/obo/', 'http://www.w3.org/2000/01/rdf-schema#subClassOf','go.gaf')
 
 ssm.semantic_base('go.db')
 
