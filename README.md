@@ -1,4 +1,4 @@
-# SSM: Semantic Similarity Measures
+# DiShIn: Semantic Similarity Measures using Disjunctive Shared Information
 
 This software package provides the basic functions to start using semantic similarity directly from a rdf or owl file. 
 
