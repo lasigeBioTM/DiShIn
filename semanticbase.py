@@ -158,8 +158,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     connection.execute('''UPDATE entry SET desc = 
                                (SELECT COUNT(DISTINCT t.entry1)
                                 FROM transitive t
-                                WHERE t.entry2=?)
-                          WHERE id=?''',(id,id,))
+                                WHERE t.entry2=entry.id)''')
         
     connection.commit()
 
