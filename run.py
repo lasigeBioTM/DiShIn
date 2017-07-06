@@ -27,27 +27,85 @@
 
 import ssm
 import semanticbase
+import sys
 
-#semanticbase.create('hpo.owl', 'hpo.db', 'http://purl.obolibrary.org/obo/', 'http://www.w3.org/2000/01/rdf-schema#subClassOf', '')
+if  len(sys.argv) == 4:
 
-ssm.semantic_base('hpo.db')
+    semanticbase = sys.argv[1]
 
-e1 = ssm.get_id('HP_0000588') # Optic nerve coloboma
-e2 = ssm.get_id('HP_0001093') # Optic nerve dysplasia
+    ssm.semantic_base(semanticbase)
 
-print ('The id of Optic nerve coloboma is ' + str(e1))
-print ('The id of Optic nerve dysplasia is ' + str(e2))
+    name1 = sys.argv[2]
+    name2 = sys.argv[3]
 
-ssm.intrinsic = True
+    e1 = ssm.get_id(name1)
+    e2 = ssm.get_id(name2)
 
-ssm.mica = False
+    ssm.intrinsic = True
 
-print ('resnik dishin intrinsic similarity = ' + str(ssm.ssm_resnik (e1,e2)))
+    ssm.mica = False
 
-ssm.mica = True
+    print("Resnik \t DiShIn \t intrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
 
-print ('resnink mica intrinsic similarity = ' + str(ssm.ssm_resnik (e1,e2)))
+    ssm.mica = True
 
-print ('lin mica intrinsic similarity = ' + str(ssm.ssm_lin (e1,e2)))
+    print("Resnik \t MICA \t intrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
+
+    ssm.intrinsic = False
+
+    ssm.mica = False
+
+    print("Resnik \t DiShIn \t extrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
+
+    ssm.mica = True
+
+    print("Resnik \t MICA \t extrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
+
+    ssm.intrinsic = True
+
+    ssm.mica = False
+
+    print("Lin \t DiShIn \t intrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
+
+    ssm.mica = True
+
+    print("Lin \t MICA \t intrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
+
+    ssm.intrinsic = False
+
+    ssm.mica = False
+
+    print("Lin \t DiShIn \t extrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
+
+    ssm.mica = True
+
+    print("Lin \t MICA \t extrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
+
+    ssm.intrinsic = True
+
+    ssm.mica = False
+
+    print("Jiang&Conrath \t DiShIn \t intrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
+
+    ssm.mica = True
+
+    print("Jiang&Conrath \t MICA \t intrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
+
+    ssm.intrinsic = False
+
+    ssm.mica = False
+
+    print("Jiang&Conrath \t DiShIn \t extrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
+
+    ssm.mica = True
+
+    print("Jiang&Conrath \t MICA \t extrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
+
+
+
+else:
+
+    print ('Usage: python run.py <semanticbase> <term1> <term2>')
+   
 
 
