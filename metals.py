@@ -26,12 +26,14 @@ print ('                            mathematical formula = ' + str((-math.log(6.
 
 ssm.mica = True
 
-print ('  resnik mica extrinsic similarity platinum gold = ' + str(ssm.ssm_resnik (platinum, gold)))
-print ('                            mathematical formula = ' + str(-math.log(6.0/9.0)))
+print ('       resnik mica extrinsic similarity platinum gold = ' + str(ssm.ssm_resnik (platinum, gold)))
+print ('                                 mathematical formula = ' + str(-math.log(6.0/9.0)))
 
-print ('     lin mica extrinsic similarity platinum gold = ' + str(ssm.ssm_lin (platinum, gold)))
-print ('                            mathematical formula = ' + str((2*-math.log(6.0/9.0))/(-math.log(2.0/9.0)-math.log(2.0/9.0))))
+print ('          lin mica extrinsic similarity platinum gold = ' + str(ssm.ssm_lin (platinum, gold)))
+print ('                                 mathematical formula = ' + str((2*-math.log(6.0/9.0))/(-math.log(2.0/9.0)-math.log(2.0/9.0))))
 
+print ('jiang-conrath mica extrinsic similarity platinum gold = ' + str(ssm.ssm_jiang_conrath (platinum, gold)))
+print ('                                 mathematical formula = ' + str(1 / ( -math.log(2.0/9.0) -math.log(2.0/9.0) - 2*-math.log(6.0/9.0)) ))
 
 print ('resnik **mica** extrinsic similarity:')
 print ('   platinum copper    = ' + str(ssm.ssm_resnik (platinum, copper)))

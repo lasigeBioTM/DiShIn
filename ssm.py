@@ -161,3 +161,7 @@ def ssm_lin (entry1, entry2):
 
     return 2*shared_ic(entry1, entry2) / (information_content(entry1) + information_content(entry2))
 
+def ssm_jiang_conrath (entry1, entry2):
+
+    return  1 / (information_content(entry1) + information_content(entry2) - 2*shared_ic(entry1, entry2))
+
