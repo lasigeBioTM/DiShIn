@@ -148,17 +148,18 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
             name = row[1]
             count = file.count(name.replace('_',':',1))
             # print(name + " - " + str(count))
-            connection.execute('''UPDATE entry SET refs = ? WHERE id=?''',(count,id,))
-
-            
-            connection.execute('''UPDATE entry SET desc = 
-                                    (SELECT COUNT(DISTINCT t.entry1)
-                                    FROM transitive t
-                                    WHERE t.entry2=?)
-                                  WHERE id=?''',(id,id,))
-
+            connection.execute('''UPDATE entry SET refs = ? WHERE id=?''',(count,id,))            
     else:
         connection.execute('''UPDATE entry SET refs = 1''')
+
+    connection.commit()
+
+    # Calculate the number of descendents 
+    connection.execute('''UPDATE entry SET desc = 
+                               (SELECT COUNT(DISTINCT t.entry1)
+                                FROM transitive t
+                                WHERE t.entry2=?)
+                          WHERE id=?''',(id,id,))
         
     connection.commit()
 
