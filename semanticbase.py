@@ -58,7 +58,8 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
             id   INTEGER PRIMARY KEY AUTOINCREMENT,
             name  VARCHAR(255) UNIQUE,
             refs  INTEGER,
-            freq  INTEGER
+            freq  INTEGER,
+            desc  INTEGER
             )''')
 
                 
@@ -148,6 +149,14 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
             count = file.count(name.replace('_',':',1))
             # print(name + " - " + str(count))
             connection.execute('''UPDATE entry SET refs = ? WHERE id=?''',(count,id,))
+
+            
+            connection.execute('''UPDATE entry SET desc = 
+                                    (SELECT COUNT(DISTINCT t.entry1)
+                                    FROM transitive t
+                                    WHERE t.entry2=?)
+                                  WHERE id=?''',(id,id,))
+
     else:
         connection.execute('''UPDATE entry SET refs = 1''')
         

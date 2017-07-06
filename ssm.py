@@ -38,22 +38,6 @@ def semantic_base (sb_file):
     global connection
     connection = sqlite3.connect(sb_file)
     
-
-def descendents (entry):
-
-    descendents = []
-    
-    rows = connection.execute('''
-        SELECT DISTINCT t.entry1
-        FROM transitive t
-        WHERE t.entry2=? 
-        ''', (entry, ))
-
-    for row in rows:
-       descendents.append(row[0])
-
-    return descendents
-
 def get_id (name):
 
     iden = 0
@@ -99,30 +83,43 @@ def common_ancestors (entry1, entry2):
 
 
 def information_content_extrinsic (entry):
-	#print entry
-	rows = connection.execute('''
+    #print entry
+    rows = connection.execute('''
         SELECT e.freq
         FROM entry e
         WHERE e.id = ?
         ''', (entry,))
-	for row in rows:
-		freq = row[0] + 1.0
-	#print (freq)
-	rows = connection.execute('''
+    for row in rows:
+        freq = row[0] + 1.0
+    #print (freq)
+    rows = connection.execute('''
         SELECT MAX(e.freq)
         FROM entry e
         ''')
-	for row in rows:
-		maxfreq = row[0] + 1.0 
-	
-	return -math.log(freq/maxfreq)
+    for row in rows:
+        maxfreq = row[0] + 1.0 
+    
+    return -math.log(freq/maxfreq)
 
 def information_content_intrinsic (entry):
 
-    freq = len(descendents(entry)) + 1.0
-
-    maxfreq = num_entries ()
-
+	#print entry
+    rows = connection.execute('''
+        SELECT e.desc
+        FROM entry e
+        WHERE e.id = ?
+        ''', (entry,))
+    for row in rows:
+        freq = row[0] + 1.0
+		
+    #print (freq)
+    rows = connection.execute('''
+        SELECT MAX(e.desc)
+        FROM entry e
+        ''')
+    for row in rows:
+        maxfreq = row[0] + 1.0 
+    
     return -math.log(freq/maxfreq)
 
 def information_content (entry):
@@ -191,5 +188,9 @@ def ssm_lin (entry1, entry2):
 
 def ssm_jiang_conrath (entry1, entry2):
 
-    return  1 / (information_content(entry1) + information_content(entry2) - 2*shared_ic(entry1, entry2))
+    distance = information_content(entry1) + information_content(entry2) - 2*shared_ic(entry1, entry2)
+    if distance > 0:
+        return  1 / distance
+    else:
+        return 1
 

@@ -34,7 +34,7 @@ semanticbase.create('metals.owl', 'metals.db', 'https://raw.githubusercontent.co
 
 ssm.semantic_base('metals.db')
 
-ssm.intrinsic = False
+ssm.intrinsic = True
 
 ssm.mica = False
 

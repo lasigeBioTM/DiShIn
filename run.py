@@ -41,71 +41,74 @@ if  len(sys.argv) == 4:
     e1 = ssm.get_id(name1)
     e2 = ssm.get_id(name2)
 
-    ssm.intrinsic = True
+    if e1>0 and e2>0:
+        # ssm.intrinsic = True
 
-    ssm.mica = False
+        # ssm.mica = False
 
-    print("Resnik \t DiShIn \t intrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
+        # print("Resnik \t DiShIn \t intrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
 
-    ssm.mica = True
+        # ssm.mica = True
 
-    print("Resnik \t MICA \t intrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
+        # print("Resnik \t MICA \t intrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
 
-    ssm.intrinsic = False
+        # ssm.intrinsic = False
 
-    ssm.mica = False
+        # ssm.mica = False
 
-    print("Resnik \t DiShIn \t extrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
+        # print("Resnik \t DiShIn \t extrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
 
-    ssm.mica = True
+        # ssm.mica = True
 
-    print("Resnik \t MICA \t extrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
+        # print("Resnik \t MICA \t extrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
 
-    ssm.intrinsic = True
+        ssm.intrinsic = True
 
-    ssm.mica = False
+        ssm.mica = False
 
-    print("Lin \t DiShIn \t intrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
+        #print("Lin \t DiShIn \t intrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
 
-    ssm.mica = True
+        ssm.mica = True
 
-    print("Lin \t MICA \t intrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
+        #print("Lin \t MICA \t intrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
 
-    ssm.intrinsic = False
+        ssm.intrinsic = False
 
-    ssm.mica = False
+        ssm.mica = False
 
-    print("Lin \t DiShIn \t extrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
+        print("Lin \t DiShIn \t extrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
 
-    ssm.mica = True
+        ssm.mica = True
 
-    print("Lin \t MICA \t extrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
+        # print("Lin \t MICA \t extrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
 
-    ssm.intrinsic = True
+        # ssm.intrinsic = True
 
-    ssm.mica = False
+        # ssm.mica = False
 
-    print("Jiang&Conrath \t DiShIn \t intrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
+        # print("Jiang&Conrath \t DiShIn \t intrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
 
-    ssm.mica = True
+        # ssm.mica = True
 
-    print("Jiang&Conrath \t MICA \t intrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
+        # print("Jiang&Conrath \t MICA \t intrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
 
-    ssm.intrinsic = False
+        # ssm.intrinsic = False
 
-    ssm.mica = False
+        # ssm.mica = False
 
-    print("Jiang&Conrath \t DiShIn \t extrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
+        # print("Jiang&Conrath \t DiShIn \t extrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
 
-    ssm.mica = True
+        # ssm.mica = True
 
-    print("Jiang&Conrath \t MICA \t extrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
+        # print("Jiang&Conrath \t MICA \t extrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
 
+    else:
 
-
+        print ('Error: entry unknown')
+        
 else:
 
-    print ('Usage: python run.py <semanticbase> <term1> <term2>')
+    print ('Usage: python run.py <semanticbase> <entry1> <entry2>')
    
 
 
