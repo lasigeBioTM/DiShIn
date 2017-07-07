@@ -28,7 +28,7 @@
 import ssm
 import semanticbase
 
-#semanticbase.create('chebi.owl', 'chebi.db', 'http://purl.obolibrary.org/obo/', 'http://www.w3.org/2000/01/rdf-schema#subClassOf', '')
+semanticbase.create('chebi_lite.owl', 'chebi.db', 'http://purl.obolibrary.org/obo/', 'http://www.w3.org/2000/01/rdf-schema#subClassOf', '')
 
 ssm.semantic_base('chebi.db')
 

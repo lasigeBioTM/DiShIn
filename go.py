@@ -28,7 +28,7 @@
 import ssm
 import semanticbase
 
-#semanticbase.create('go.owl', 'go.db', 'http://purl.obolibrary.org/obo/', 'http://www.w3.org/2000/01/rdf-schema#subClassOf','goa_uniprot_all_noiea.gaf')
+semanticbase.create('go.owl', 'go.db', 'http://purl.obolibrary.org/obo/', 'http://www.w3.org/2000/01/rdf-schema#subClassOf','goa_uniprot_all_noiea.gaf')
 
 ssm.semantic_base('go.db')
 
