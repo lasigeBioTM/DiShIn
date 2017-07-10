@@ -192,5 +192,5 @@ def ssm_jiang_conrath (entry1, entry2):
     if distance > 0:
         return  1 / distance
     else:
-        return 1
+        return 1.0
 
