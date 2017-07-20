@@ -46,7 +46,7 @@ print ('resnik dishin intrinsic similarity = ' + str(ssm.ssm_resnik (e1,e2)))
 
 ssm.mica = True
 
-print ('resnink mica intrinsic similarity = ' + str(ssm.ssm_resnik (e1,e2)))
+print ('resnik mica intrinsic similarity = ' + str(ssm.ssm_resnik (e1,e2)))
 
 print ('lin mica intrinsic similarity = ' + str(ssm.ssm_lin (e1,e2)))
 
@@ -58,7 +58,7 @@ print ('resnik dishin extrinsic similarity = ' + str(ssm.ssm_resnik (e1,e2)))
 
 ssm.mica = True
 
-print ('resnink mica extrinsic similarity = ' + str(ssm.ssm_resnik (e1,e2)))
+print ('resnik mica extrinsic similarity = ' + str(ssm.ssm_resnik (e1,e2)))
 
 print ('lin mica extrinsic similarity = ' + str(ssm.ssm_lin (e1,e2)))
 

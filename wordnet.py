@@ -28,15 +28,15 @@
 import ssm
 import semanticbase
 
-semanticbase.create('chebi_lite.owl', 'chebi.db', 'http://purl.obolibrary.org/obo/', 'http://www.w3.org/2000/01/rdf-schema#subClassOf', '')
+#semanticbase.create('wordnet-hyponym.rdf', 'wordnet.db', 'http://www.w3.org/2006/03/wn/wn20/instances/synset-', 'http://www.w3.org/2006/03/wn/wn20/schema/hyponymOf', '')
 
-ssm.semantic_base('chebi.db')
+ssm.semantic_base('wordnet.db')
 
-e1 = ssm.get_id('CHEBI_31236') # aripiprazole
-e2 = ssm.get_id('CHEBI_3131') # bithionol
+e1 = ssm.get_id('gold-noun-1') 
+e2 = ssm.get_id('silver-noun-2') 
 
-print ('The id of aripiprazole is ' + str(e1))
-print ('The id of bithionol is ' + str(e2))
+print ('The id of gold is ' + str(e1))
+print ('The id of silver is ' + str(e2))
 
 ssm.intrinsic = True
 

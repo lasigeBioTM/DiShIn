@@ -67,7 +67,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     g.load(owl_file)
 
     for s,p,o in g:
-        if str(p) == relation : 
+        if str(p) == relation :
             s = str(s)
             o = str(o)
             if len(s)>len(name_prefix) and len(o)>len(name_prefix):
