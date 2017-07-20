@@ -14,7 +14,7 @@ This software package provides the basic functions to start using semantic simil
 
 - hpo.py : provides examples for the Human Phenotype ontology (HPO); OWL file: http://human-phenotype-ontology.github.io/downloads.html
 
-- wordnet.py : provides examples for the WordNet; OWL file: <http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf>
+- wordnet.py : provides examples for the WordNet; OWL file: http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
 
 Notice that we should comment the semanticbase.create call after the .db file has been created, and only uncomment it when a new version of the owl file is available.
 
