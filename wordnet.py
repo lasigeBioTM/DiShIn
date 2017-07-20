@@ -32,8 +32,8 @@ import semanticbase
 
 ssm.semantic_base('wordnet.db')
 
-e1 = ssm.get_id('gold-noun-1') 
-e2 = ssm.get_id('silver-noun-2') 
+e1 = ssm.get_id('ambulance-noun-1') 
+e2 = ssm.get_id('motorcycle-noun-1') 
 
 print ('The id of gold is ' + str(e1))
 print ('The id of silver is ' + str(e2))
