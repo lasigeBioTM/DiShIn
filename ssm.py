@@ -171,12 +171,27 @@ def shared_ic_mica (entry1, entry2):
 
     return ic
 
+shared_ic_mica_cache = {}
+shared_ic_dca_cache = {}
 
 def shared_ic (entry1, entry2):
+
+    value = 0 
     if mica:
-        return shared_ic_mica (entry1, entry2)
+        value = shared_ic_mica_cache.get(str(entry1)+':'+str(entry2),-1)
+        if value == -1 :
+           value = shared_ic_mica (entry1, entry2)
+           shared_ic_mica_cache[str(entry1)+':'+str(entry2)]=value
+           shared_ic_mica_cache[str(entry2)+':'+str(entry1)]=value
+        return value 
     else:
-        return shared_ic_dca (entry1, entry2)
+        value = shared_ic_dca_cache.get(str(entry1)+':'+str(entry2),-1)
+        if value == -1 :
+           value = shared_ic_dca (entry1, entry2)
+           shared_ic_dca_cache[str(entry1)+':'+str(entry2)]=value
+           shared_ic_dca_cache[str(entry2)+':'+str(entry1)]=value
+    return value 
+
 
 def ssm_resnik (entry1, entry2):
 
