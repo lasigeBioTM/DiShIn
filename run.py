@@ -39,7 +39,7 @@ if  len(sys.argv) == 4:
 	name1 = sys.argv[2]
 	name2 = sys.argv[3]
 
-	if semantic_base == 'go.db' and not(name1.startswith('GO:')) :
+	if semantic_base == 'go.db' and not(name1.startswith('GO')) :
 	
 		e1 = semanticbase.get_uniprot_annotations(name1)
 		e2 = semanticbase.get_uniprot_annotations(name2)
@@ -84,9 +84,9 @@ if  len(sys.argv) == 4:
 
 				print("Resnik \t DiShIn \t intrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
 
-				ssm.mica = True
+			ssm.mica = True
 
-				print("Resnik \t MICA \t intrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
+			print("Resnik \t MICA \t intrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
 			
 			if semantic_base != 'wordnet.db' :
 			
@@ -94,9 +94,9 @@ if  len(sys.argv) == 4:
 
 				print("Lin \t DiShIn \t intrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
 
-				ssm.mica = True
+			ssm.mica = True
 
-				print("Lin \t MICA \t intrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
+			print("Lin \t MICA \t intrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
 
 			if semantic_base != 'wordnet.db' :
 				
@@ -104,9 +104,9 @@ if  len(sys.argv) == 4:
 
 				print("Jiang&Conrath \t DiShIn \t intrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
 
-				ssm.mica = True
+			ssm.mica = True
 
-				print("Jiang&Conrath \t MICA \t intrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
+			print("Jiang&Conrath \t MICA \t intrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
 
 			if semantic_base == 'go.db' :
 				
