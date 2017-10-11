@@ -217,8 +217,8 @@ def ssm_multiple (m, entry1_list, entry2_list):
        for entry2 in entry2_list : 
           result=m(entry1, entry2)
           results_entry1.append(result)    
-       # average of all values for entry1
-       results.append(sum(results_entry1) / float(len(results_entry1)))   
+       # maximum of all values for entry1
+       results.append(max(results_entry1))   
     # average of all values for all entries
     avg = sum(results) / float(len(results))
     return avg 

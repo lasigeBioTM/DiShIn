@@ -26,6 +26,7 @@
 # @author Francisco M. Couto                                                  #
 ###############################################################################
 
+import ssm
 import rdflib
 import sqlite3
 
@@ -175,3 +176,19 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     connection.commit()
     connection.close()
    
+uniprot_link = 'http://www.uniprot.org/uniprot/'
+go_link = 'http://purl.obolibrary.org/obo/GO_'
+
+def get_uniprot_annotations (protein_acc) :
+
+	g=rdflib.Graph()
+	g.load('http://www.uniprot.org/uniprot/'+protein_acc+'.rdf')
+
+	entries = []
+	for s,p,o in g:
+		o = str(o)
+		if o.startswith('http://purl.obolibrary.org/obo/GO_') :
+			t = o[o.rfind('/')+1:]
+			e = ssm.get_id(t)
+			entries.append(e)
+	return entries

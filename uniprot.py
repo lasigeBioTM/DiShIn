@@ -27,33 +27,14 @@
 
 import ssm
 import semanticbase
-import rdflib
 
-uniprot_link = 'http://www.uniprot.org/uniprot/'
-go_link = 'http://purl.obolibrary.org/obo/GO_'
+ssm.semantic_base('go.db')
 
 p1 = 'Q12345' # Ino eighty subunit 3
 p2 = 'Q12346' # Uncharacterized membrane protein YPR071W
 
-ssm.semantic_base('go.db')
-
-def get_entries (protein_acc) :
-
-	g=rdflib.Graph()
-	g.load('http://www.uniprot.org/uniprot/'+p1+'.rdf')
-
-	entries = []
-	for s,p,o in g:
-		o = str(o)
-		if o.startswith('http://purl.obolibrary.org/obo/GO_') :
-			t = o[o.rfind('/')+1:]
-			e = ssm.get_id(t)
-			entries.append(e)
-	return entries
-
-
-e1 = get_entries(p1)
-e2 = get_entries(p2)
+e1 = semanticbase.get_uniprot_annotations(p1)
+e2 = semanticbase.get_uniprot_annotations(p2)
 
 ssm.intrinsic = True
 
