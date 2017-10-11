@@ -177,15 +177,18 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     connection.close()
    
 
-#python2 import urllib2
+#python2 
+#import urllib2
+#python3
 import urllib.request
-
 
 def get_uniprot_annotations (protein_acc) :
 
 	url='http://www.uniprot.org/uniprot/'+protein_acc+'.txt'
-	#python2 response = urllib2.urlopen(url)
-	#python2 data = response.read()
+	#python2 
+	#response = urllib2.urlopen(url)
+	#data = response.read()
+	#python3
 	response = urllib.request.urlopen(url)
 	data = response.read().decode('ascii')
 	
@@ -195,9 +198,7 @@ def get_uniprot_annotations (protein_acc) :
 		tag = 'DR   GO;'
 		if l.startswith(tag) :
 			t = l[len(tag)+1 : l.find(';',len(tag))].replace(':','_')
-			print(t)
 			e = ssm.get_id(t)
-			print(e)
 			entries.append(e)
 
 	return entries
