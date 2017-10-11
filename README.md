@@ -12,7 +12,7 @@ This software package provides the basic functions to start using semantic simil
 
 - go.py : provides examples for the Gene Ontology (GO) ontology; OWL file: http://geneontology.org/page/download-ontology#go.obo_and_go.owl; Annotation files (extrinsic): http://www.geneontology.org/page/download-annotations
 
-- uniprot.py : provides examples of using GO annotations to calculate the semantic similarity between proteins stored in UniProt: http://www.uniprot.org/
+- uniprot.py : provides examples of using GO annotations to calculate the semantic similarity between a list of proteins in UniProt: http://www.uniprot.org/
 
 - hpo.py : provides examples for the Human Phenotype ontology (HPO); OWL file: http://human-phenotype-ontology.github.io/downloads.html
 
