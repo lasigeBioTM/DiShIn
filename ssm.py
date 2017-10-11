@@ -171,26 +171,22 @@ def shared_ic_mica (entry1, entry2):
 
     return ic
 
-shared_ic_mica_cache = {}
-shared_ic_dca_cache = {}
+shared_ic_cache = {}
 
 def shared_ic (entry1, entry2):
 
-    value = 0 
-    if mica:
-        value = shared_ic_mica_cache.get(str(entry1)+':'+str(entry2),-1)
-        if value == -1 :
-           value = shared_ic_mica (entry1, entry2)
-           shared_ic_mica_cache[str(entry1)+':'+str(entry2)]=value
-           shared_ic_mica_cache[str(entry2)+':'+str(entry1)]=value
-        return value 
-    else:
-        value = shared_ic_dca_cache.get(str(entry1)+':'+str(entry2),-1)
-        if value == -1 :
-           value = shared_ic_dca (entry1, entry2)
-           shared_ic_dca_cache[str(entry1)+':'+str(entry2)]=value
-           shared_ic_dca_cache[str(entry2)+':'+str(entry1)]=value
-    return value 
+	value = 0
+	key_cache = str(mica)+':'+str(intrinsic)+':'+str(max(entry1,entry2))+':'+str(min(entry1,entry2))
+	value = shared_ic_cache.get(key_cache,-1)
+	
+	if value == -1 :
+		if mica:
+			value = shared_ic_mica (entry1, entry2)
+		else:
+			value = shared_ic_dca (entry1, entry2)
+		shared_ic_cache[key_cache]=value
+	
+	return value 
 
 
 def ssm_resnik (entry1, entry2):
@@ -211,9 +207,9 @@ def ssm_jiang_conrath (entry1, entry2):
 
 def ssm_multiple (m, entry1_list, entry2_list):
 
-    results = [];
+    results = []
     for entry1 in entry1_list : 
-       results_entry1 = [];
+       results_entry1 = []
        for entry2 in entry2_list : 
           result=m(entry1, entry2)
           results_entry1.append(result)    

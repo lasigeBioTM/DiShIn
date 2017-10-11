@@ -43,7 +43,7 @@ if  len(sys.argv) == 4:
 	
 		e1 = semanticbase.get_uniprot_annotations(name1)
 		e2 = semanticbase.get_uniprot_annotations(name2)
-
+				
 		ssm.intrinsic = False
 
 		ssm.mica = False

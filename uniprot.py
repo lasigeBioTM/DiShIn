@@ -54,6 +54,7 @@ ssm.mica = False
 
 print ('resnik dishin extrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
 
+
 ssm.mica = True
 
 print ('resnik mica extrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
