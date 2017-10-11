@@ -194,3 +194,17 @@ def ssm_jiang_conrath (entry1, entry2):
     else:
         return 1.0
 
+def ssm_multiple (m, entry1_list, entry2_list):
+
+    results = [];
+    for entry1 in entry1_list : 
+       results_entry1 = [];
+       for entry2 in entry2_list : 
+          result=m(entry1, entry2)
+          results_entry1.append(result)    
+       # average of all values for entry1
+       results.append(sum(results_entry1) / float(len(results_entry1)))   
+    # average of all values for all entries
+    avg = sum(results) / float(len(results))
+    return avg 
+

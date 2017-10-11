@@ -27,38 +27,55 @@
 
 import ssm
 import semanticbase
+import rdflib
 
-#semanticbase.create('go.owl', 'go.db', 'http://purl.obolibrary.org/obo/', 'http://www.w3.org/2000/01/rdf-schema#subClassOf','goa_uniprot_all_noiea.gaf')
+uniprot_link = 'http://www.uniprot.org/uniprot/'
+go_link = 'http://purl.obolibrary.org/obo/GO_'
+
+p1 = 'Q12345' # Ino eighty subunit 3
+p2 = 'Q12346' # Uncharacterized membrane protein YPR071W
 
 ssm.semantic_base('go.db')
 
-e1 = ssm.get_id('GO_0000024') # maltose biosynthetic process
-e2 = ssm.get_id('GO_0000025') # maltose catabolic process
+def get_entries (protein_acc) :
 
-print ('The id of maltose biosynthetic process is ' + str(e1))
-print ('The id of maltose catabolic process is ' + str(e2))
+	g=rdflib.Graph()
+	g.load('http://www.uniprot.org/uniprot/'+p1+'.rdf')
+
+	entries = []
+	for s,p,o in g:
+		o = str(o)
+		if o.startswith('http://purl.obolibrary.org/obo/GO_') :
+			t = o[o.rfind('/')+1:]
+			e = ssm.get_id(t)
+			entries.append(e)
+	return entries
+
+
+e1 = get_entries(p1)
+e2 = get_entries(p2)
 
 ssm.intrinsic = True
 
 ssm.mica = False
 
-print ('resnik dishin intrinsic similarity = ' + str(ssm.ssm_resnik (e1,e2)))
+print ('resnik dishin intrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
 
 ssm.mica = True
 
-print ('resnik mica intrinsic similarity = ' + str(ssm.ssm_resnik (e1,e2)))
+print ('resnik mica intrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
 
-print ('lin mica intrinsic similarity = ' + str(ssm.ssm_lin (e1,e2)))
+print ('lin mica intrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_lin,e1,e2)))
 
 ssm.intrinsic = False
 
 ssm.mica = False
 
-print ('resnik dishin extrinsic similarity = ' + str(ssm.ssm_resnik (e1,e2)))
+print ('resnik dishin extrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
 
 ssm.mica = True
 
-print ('resnik mica extrinsic similarity = ' + str(ssm.ssm_resnik (e1,e2)))
+print ('resnik mica extrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
 
-print ('lin mica extrinsic similarity = ' + str(ssm.ssm_lin (e1,e2)))
+print ('lin mica extrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_lin,e1,e2)))
 
