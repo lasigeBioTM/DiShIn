@@ -30,34 +30,38 @@ import semanticbase
 
 ssm.semantic_base('go.db')
 
-p1 = 'Q12345' # Ino eighty subunit 3
-p2 = 'Q12346' # Uncharacterized membrane protein YPR071W
+proteins = ['Q12345', 'Q12346', 'Q12347']
 
-e1 = semanticbase.get_uniprot_annotations(p1)
-e2 = semanticbase.get_uniprot_annotations(p2)
+prot_entries = {}
+for p in proteins :
+ prot_entries[p]=semanticbase.get_uniprot_annotations(p)
 
-ssm.intrinsic = True
+for p1 in proteins :
+	for p2 in proteins[proteins.index(p1)+1:] :
+		e1 = prot_entries[p1]
+		e2 = prot_entries[p2]
+		print ('Similarity between '+ p1 + ' and ' + p2)
+		
+		ssm.intrinsic = True
+		ssm.mica = False
+		print ('resnik dishin intrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
 
-ssm.mica = False
+		ssm.mica = True
 
-print ('resnik dishin intrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
+		print ('resnik mica intrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
 
-ssm.mica = True
+		print ('lin mica intrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_lin,e1,e2)))
 
-print ('resnik mica intrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
+		ssm.intrinsic = False
 
-print ('lin mica intrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_lin,e1,e2)))
+		ssm.mica = False
 
-ssm.intrinsic = False
-
-ssm.mica = False
-
-print ('resnik dishin extrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
+		print ('resnik dishin extrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
 
 
-ssm.mica = True
+		ssm.mica = True
 
-print ('resnik mica extrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
+		print ('resnik mica extrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_resnik,e1,e2)))
 
-print ('lin mica extrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_lin,e1,e2)))
+		print ('lin mica extrinsic similarity = ' + str(ssm.ssm_multiple(ssm.ssm_lin,e1,e2)))
 
