@@ -2,7 +2,7 @@
 
 This software package provides the basic functions to start using semantic similarity measures directly from a rdf or owl file. 
 
-- semanticbase.py : provides a function to produce the semantic-base as a SQLite database 
+- semanticbase.py : provides a function to produce the semantic-base as a SQLite database (to work in python v2 please check the comments in the get_uniprot_annotations function)
 
 - ssm.py : provides the functions to calculate semantic similarity based on teh SQLite database
 
@@ -15,6 +15,8 @@ This software package provides the basic functions to start using semantic simil
 - uniprot.py : provides examples of using GO annotations to calculate the semantic similarity between a list of proteins in UniProt: http://www.uniprot.org/
 
 - hpo.py : provides examples for the Human Phenotype ontology (HPO); OWL file: http://human-phenotype-ontology.github.io/downloads.html
+
+- radlex.py : provides examples for the RadLex; RDF file: https://bioportal.bioontology.org/ontologies/RADLEX
 
 - wordnet.py : provides examples for the WordNet; OWL file: http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
 
