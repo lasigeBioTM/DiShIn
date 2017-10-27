@@ -31,7 +31,7 @@ import rdflib
 import sqlite3
 
 def create (owl_file, sb_file, name_prefix, relation, annotation_file):
-    connection = sqlite3.connect(sb_file)
+    connection = sqlite3.connect(':memory:')
     
     connection.isolation_level = None #auto_commit
     
@@ -74,7 +74,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
             if len(s)>len(name_prefix) and len(o)>len(name_prefix):
                  s = s[len(name_prefix):]
                  o = o[len(name_prefix):]
-                 #print (s,p,o)
+                 print (s,p,o)
                  connection.execute('''  
                     INSERT OR IGNORE INTO entry (name) VALUES (?)
                  ''', (s,))
@@ -174,21 +174,36 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     ''')
 
     connection.commit()
+    
+    script = ''.join(connection.iterdump())
+    connection_final = sqlite3.connect(sb_file)
+    connection_final.execute('''
+          DROP TABLE IF EXISTS relation
+          ''')
+    connection_final.execute('''
+          DROP TABLE IF EXISTS entry
+          ''')
+    connection_final.execute('''
+         DROP TABLE IF EXISTS transitive;
+    ''')
+    connection_final.executescript(script)
+    connection_final.commit()
+    
     connection.close()
+    connection_final.close()
    
 
-#python2 
+
+#python2: please uncomment the next line, and comment the following one 
 #import urllib2
-#python3
 import urllib.request
 
 def get_uniprot_annotations (protein_acc) :
 
 	url='http://www.uniprot.org/uniprot/'+protein_acc+'.txt'
-	#python2 
+	#python2: please uncomment the next two lines, and comment the following two 
 	#response = urllib2.urlopen(url)
 	#data = response.read()
-	#python3
 	response = urllib.request.urlopen(url)
 	data = response.read().decode('ascii')
 	
