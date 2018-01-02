@@ -87,6 +87,8 @@ def common_ancestors (entry1, entry2):
         SELECT DISTINCT t1.entry2
         FROM entry e, transitive t1, transitive t2
         WHERE t1.entry1=? AND t2.entry1=? AND t1.entry2=t2.entry2
+        AND e.id=t1.entry2
+        ORDER BY e.freq
         ''', (entry1, entry2, ))
     
     for row in rows:
