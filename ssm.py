@@ -53,6 +53,18 @@ def get_id (name):
 
     return iden
 
+def get_name(cid):
+    iden = 0
+    rows = connection.execute('''
+       SELECT name
+       FROM entry
+       WHERE id = ?
+    ''', (cid,))
+    for row in rows:
+       iden = row[0]
+    return iden
+
+
 def num_entries ():
 
     num = 0
@@ -73,7 +85,7 @@ def common_ancestors (entry1, entry2):
     
     rows = connection.execute('''
         SELECT DISTINCT t1.entry2
-        FROM transitive t1, transitive t2
+        FROM entry e, transitive t1, transitive t2
         WHERE t1.entry1=? AND t2.entry1=? AND t1.entry2=t2.entry2
         ''', (entry1, entry2, ))
     
