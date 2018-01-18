@@ -26,6 +26,8 @@ A web tool using this package is available at: http://labs.fc.ul.pt/dishin/
 
 ## References: 
 
+- F. Couto and A. Lamurias, “Semantic similarity definition,” in Encyclopedia of Bioinformatics and Computational Biology (S. Ranganathan, K. Nakai, M. Gribskov, and C. Schönbach, eds.), vol. (accepted), pp. 1--17, Elsevier, 2018 (http://webpages.fc.ul.pt/~fjcouto/files/chapter%20couto-encyclopedia2017%20abstract.pdf)
+
 - F. Couto and H. Pinto, The next generation of similarity measures that fully explore the semantics in biomedical ontologies, Journal of Bioinformatics and Computational Biology, vol. 11, no. 1371001, pp. 1-12, 2013 (http://dx.doi.org/10.1142/S0219720013710017)
 
 - F. Couto and M. Silva, Disjunctive shared information between ontology concepts: application to Gene Ontology, Journal of Biomedical Semantics, vol. 2, no. 5, pp. 1-16, 2011 (http://dx.doi.org/10.1186/2041-1480-2-5)
