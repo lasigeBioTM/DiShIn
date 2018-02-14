@@ -110,6 +110,8 @@ $ python3 newonto.py
 
 - hpo.py : provides examples for the Human Phenotype ontology (HPO); OWL file: http://human-phenotype-ontology.github.io/downloads.html
 
+- disease.py : provides examples for the Human Disease Ontology (DO); OWL file: https://github.com/DiseaseOntology/HumanDiseaseOntology/tree/master/src/ontology
+
 - radlex.py : provides examples for the RadLex; RDF file: https://bioportal.bioontology.org/ontologies/RADLEX
 
 - wordnet.py : provides examples for the WordNet; OWL file: http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
