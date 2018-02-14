@@ -28,7 +28,8 @@
 import ssm
 import semanticbase
 
-semanticbase.create('radlex.rdf', 'radlex.db', 'http://www.radlex.org/RID/#', 'http://www.radlex.org/RID/#Is_A', '')
+# uncomment to create a new semantic base
+# semanticbase.create('radlex.rdf', 'radlex.db', 'http://www.radlex.org/RID/#', 'http://www.radlex.org/RID/#Is_A', '')
 
 ssm.semantic_base('radlex.db')
 

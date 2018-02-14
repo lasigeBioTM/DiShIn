@@ -29,15 +29,15 @@ import ssm
 import semanticbase
 
 # uncomment to create a new semantic base
-# semanticbase.create('hp.owl', 'hpo.db', 'http://purl.obolibrary.org/obo/', 'http://www.w3.org/2000/01/rdf-schema#subClassOf', '')
+# semanticbase.create('doid-simple.owl', 'disease.db', 'http://purl.obolibrary.org/obo/', 'http://www.w3.org/2000/01/rdf-schema#subClassOf', '')
 
-ssm.semantic_base('hpo.db')
+ssm.semantic_base('disease.db')
 
-e1 = ssm.get_id('HP_0000588') # Optic nerve coloboma
-e2 = ssm.get_id('HP_0001093') # Optic nerve dysplasia
+e1 = ssm.get_id('DOID_2841') # Asthma
+e2 = ssm.get_id('DOID_552') # Pneumonia
 
-print ('The id of Optic nerve coloboma is ' + str(e1))
-print ('The id of Optic nerve dysplasia is ' + str(e2))
+print ('The id of Asthma is ' + str(e1))
+print ('The id of Pneumonia is ' + str(e2))
 
 ssm.intrinsic = True
 
