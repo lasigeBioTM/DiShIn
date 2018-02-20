@@ -121,7 +121,7 @@ Notice that we should comment the semanticbase.create call after the .db file ha
 
 ## References: 
 
-- F. Couto and A. Lamurias, “Semantic similarity definition,” in Encyclopedia of Bioinformatics and Computational Biology (S. Ranganathan, K. Nakai, M. Gribskov, and C. Schönbach, eds.), vol. (accepted), pp. 1--17, Elsevier, 2018 (http://webpages.fc.ul.pt/~fjcouto/files/chapter%20couto-encyclopedia2017%20abstract.pdf)
+- F. Couto and A. Lamurias, “Semantic similarity definition,” in Reference Module in Life Sciences (Encyclopedia of Bioinformatics and Computational Biology), pp. 1--17, Elsevier, 2018 (https://doi.org/10.1016/B978-0-12-809633-8.20401-9, https://www.researchgate.net/publication/323219905_Semantic_Similarity_Definition)
 
 - F. Couto and H. Pinto, The next generation of similarity measures that fully explore the semantics in biomedical ontologies, Journal of Bioinformatics and Computational Biology, vol. 11, no. 1371001, pp. 1-12, 2013 (http://dx.doi.org/10.1142/S0219720013710017)
 
