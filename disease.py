@@ -34,10 +34,10 @@ import semanticbase
 ssm.semantic_base('disease.db')
 
 e1 = ssm.get_id('DOID_2841') # Asthma
-e2 = ssm.get_id('DOID_552') # Pneumonia
+e2 = ssm.get_id('DOID_1324') # Lung cancer
 
 print ('The id of Asthma is ' + str(e1))
-print ('The id of Pneumonia is ' + str(e2))
+print ('The id of Lung cancer is ' + str(e2))
 
 ssm.intrinsic = True
 

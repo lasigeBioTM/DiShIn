@@ -65,10 +65,10 @@ $ wget https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/ma
 $ python3 disease.py
 
 The id of Asthma is 161
-The id of Pneumonia is 604
-resnik dishin intrinsic similarity = 3.9933387877484807
+The id of Lung cancer is 2858
+resnik dishin intrinsic similarity = 1.9966693938742404
 resnik mica intrinsic similarity = 3.9933387877484807
-lin mica intrinsic similarity = 0.60218242131915
+lin mica intrinsic similarity = 0.6453576268506813
 ```
 - do not forget to comment line semanticbase.create after the first execution
 
