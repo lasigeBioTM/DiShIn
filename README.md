@@ -268,3 +268,4 @@ JC 	 MICA 	 intrinsic 	0.167236367313
 
 - F. Couto and A. Lamurias, “Semantic similarity definition,” in Reference Module in Life Sciences (Encyclopedia of Bioinformatics and Computational Biology), pp. 1--17, Elsevier, 2018 (https://doi.org/10.1016/B978-0-12-809633-8.20401-9, https://www.researchgate.net/publication/323219905_Semantic_Similarity_Definition)
 
+
