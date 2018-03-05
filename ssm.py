@@ -209,7 +209,7 @@ def ssm_lin (entry1, entry2):
     if aux > 0 : 
         return 2*shared_ic(entry1, entry2) / aux
     else:
-        return 0
+        return 0.0
 
 def ssm_jiang_conrath (entry1, entry2):
 
