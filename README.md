@@ -42,17 +42,17 @@ python dishin.py metals.db copper gold
 Output:
 ```txt
 Resnik 	 DiShIn 	 intrinsic 	0.2938933324510595
-Resnik 	 MICA 	 intrinsic 	0.587786664902119
+Resnik 	 MICA 	 	 intrinsic 	0.587786664902119
 Lin 	 DiShIn 	 intrinsic 	0.19539774554219633
-Lin 	 MICA 	 intrinsic 	0.39079549108439265
+Lin 	 MICA 	 	 intrinsic 	0.39079549108439265
 JC 	 DiShIn 	 intrinsic 	0.41316029085112316
-JC 	 MICA 	 intrinsic 	0.5456783339686456
+JC 	 MICA 	 	 intrinsic 	0.5456783339686456
 Resnik 	 DiShIn 	 extrinsic 	0.22599256187152864
-Resnik 	 MICA 	 extrinsic 	0.45198512374305727
+Resnik 	 MICA 	 	 extrinsic 	0.45198512374305727
 Lin 	 DiShIn 	 extrinsic 	0.1504595366201814
-Lin 	 MICA 	 extrinsic 	0.3009190732403628
+Lin 	 MICA 	 	 extrinsic 	0.3009190732403628
 JC 	 DiShIn 	 extrinsic 	0.3918424740632774
-JC 	 MICA 	 extrinsic 	0.47617668319259754
+JC 	 MICA 	 	 extrinsic 	0.47617668319259754
 ```
 
 ### Gene Ontology (GO) and UniProt proteins Example
@@ -78,17 +78,17 @@ python dishin.py geneontology.db GO_0000024 GO_0000025
 Output:
 ```txt
 Resnik 	 DiShIn 	 intrinsic 	3.27686491515
-Resnik 	 MICA 	 intrinsic 	8.91092304331
+Resnik 	 MICA 	 	 intrinsic 	8.91092304331
 Lin 	 DiShIn 	 intrinsic 	0.341195434724
-Lin 	 MICA 	 intrinsic 	0.927827768394
+Lin 	 MICA 	 	 intrinsic 	0.927827768394
 JC 	 DiShIn 	 intrinsic 	0.0790238305229
-JC 	 MICA 	 intrinsic 	0.721347520444
+JC 	 MICA 	 	 intrinsic 	0.721347520444
 Resnik 	 DiShIn 	 extrinsic 	6.24018392019
-Resnik 	 MICA 	 extrinsic 	13.4448298467
+Resnik 	 MICA 	 	 extrinsic 	13.4448298467
 Lin 	 DiShIn 	 extrinsic 	0.405184611581
-Lin 	 MICA 	 extrinsic 	0.87299320483
+Lin 	 MICA 	 	 extrinsic 	0.87299320483
 JC 	 DiShIn 	 extrinsic 	0.0545812354476
-JC 	 MICA 	 extrinsic 	0.255622218635
+JC 	 MICA 	 	 extrinsic 	0.255622218635
 ```
 
 Now to calculate the similarity between proteins [Q12345](http://www.uniprot.org/uniprot/Q12345) and [Q12346](http://www.uniprot.org/uniprot/Q12346) execute:
@@ -100,17 +100,17 @@ python dishin.py geneontology.db Q12345 Q12346
 Output:
 ```txt
 Resnik 	 DiShIn 	 intrinsic 	0.716191626804
-Resnik 	 MICA 	 intrinsic 	0.864432485011
+Resnik 	 MICA 	 	 intrinsic 	0.864432485011
 Lin 	 DiShIn 	 intrinsic 	0.0820024443277
-Lin 	 MICA 	 intrinsic 	0.0989710020485
+Lin 	 MICA 	 	 intrinsic 	0.0989710020485
 JC 	 DiShIn 	 intrinsic 	0.0744612781029
-JC 	 MICA 	 intrinsic 	0.0746817790648
+JC 	 MICA 	 	 intrinsic 	0.0746817790648
 Resnik 	 DiShIn 	 extrinsic 	0.983006979289
-Resnik 	 MICA 	 extrinsic 	1.2045858634
+Resnik 	 MICA 	 	 extrinsic 	1.2045858634
 Lin 	 DiShIn 	 extrinsic 	0.109395081314
-Lin 	 MICA 	 extrinsic 	0.134114260655
+Lin 	 MICA 	 	 extrinsic 	0.134114260655
 JC 	 DiShIn 	 extrinsic 	0.073703048577
-JC 	 MICA 	 extrinsic 	0.0753867503734
+JC 	 MICA 	 	 extrinsic 	0.0753867503734
 ```
 
 
@@ -134,11 +134,11 @@ python dishin.py chemical.db CHEBI_31236 CHEBI_3131
 Output:
 ```txt
 Resnik 	 DiShIn 	 intrinsic 	1.34864156948
-Resnik 	 MICA 	 intrinsic 	5.34912740927
+Resnik 	 MICA 	 	 intrinsic 	5.34912740927
 Lin 	 DiShIn 	 intrinsic 	0.123972474646
-Lin 	 MICA 	 intrinsic 	0.491712977807
+Lin 	 MICA 	 	 intrinsic 	0.491712977807
 JC 	 DiShIn 	 intrinsic 	0.0524663655252
-JC 	 MICA 	 intrinsic 	0.0904252486264
+JC 	 MICA 	 	 intrinsic 	0.0904252486264
 ```
 
 ### Human Phenotype (HP) Example
@@ -161,11 +161,11 @@ python dishin.py phenotype.db HP_0000588 HP_0001093
 Output:
 ```txt
 Resnik 	 DiShIn 	 intrinsic 	3.05120683059
-Resnik 	 MICA 	 intrinsic 	6.08995149382
+Resnik 	 MICA 	 	 intrinsic 	6.08995149382
 Lin 	 DiShIn 	 intrinsic 	0.346806801862
-Lin 	 MICA 	 intrinsic 	0.692197126688
+Lin 	 MICA 	 	 intrinsic 	0.692197126688
 JC 	 DiShIn 	 intrinsic 	0.0870050196333
-JC 	 MICA 	 intrinsic 	0.184634686534
+JC 	 MICA 	 	 intrinsic 	0.184634686534
 ```
 
 ### Human Disease Ontology (HDO) Example
@@ -188,11 +188,11 @@ python dishin.py disease.db DOID_2841 DOID_1324
 Output:
 ```txt
 Resnik 	 DiShIn 	 intrinsic 	2.01382659386
-Resnik 	 MICA 	 intrinsic 	4.02765318772
+Resnik 	 MICA 	 	 intrinsic 	4.02765318772
 Lin 	 DiShIn 	 intrinsic 	0.323283569128
-Lin 	 MICA 	 intrinsic 	0.646567138257
+Lin 	 MICA 	 	 intrinsic 	0.646567138257
 JC 	 DiShIn 	 intrinsic 	0.118610966131
-JC 	 MICA 	 intrinsic 	0.227103923688
+JC 	 MICA 	 	 intrinsic 	0.227103923688
 ```
 
 ###  Radiology Lexicon (RadLex) Example
