@@ -240,12 +240,6 @@ Lin 	 MICA 	 intrinsic 	0.67923792924
 JC 	 MICA 	 intrinsic 	0.167236367313
 ```
 
-## Files
-
-- semanticbase.py : provides a function to produce the semantic-base as a SQLite database 
-
-- ssm.py : provides the functions to calculate semantic similarity based on the SQLite database
-
 ## Semantic Base Examples
 
 - ChEBI: ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/
@@ -260,6 +254,15 @@ JC 	 MICA 	 intrinsic 	0.167236367313
 
 - WordNet: http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
 
+## Files
+
+- semanticbase.py : provides a function to produce the semantic-base as a SQLite database 
+
+- ssm.py : provides the functions to calculate semantic similarity based on the SQLite database
+
+- annotations.py :  provides the functions to get the annotations for the given proteins 
+
+- dishin.py :  executes the functions according to the input given
 
 ## Reference: 
 
