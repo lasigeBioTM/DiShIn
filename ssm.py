@@ -13,15 +13,11 @@
 ###############################################################################
 #                                                                             #
 # Software developed based on the work published in the following articles:   #
-# - F. Couto and M. Silva, Disjunctive shared information between ontology    #
-#   concepts: application to Gene Ontology, Journal of Biomedical Semantics,  #
-#   vol. 2, no. 5, pp. 1-16, 2011                                             #
-#   http://dx.doi.org/10.1142/S0219720013710017                               #
-# - F. Couto and H. Pinto, The next generation of similarity measures that    # 
-#   fully explore the semantics in biomedical ontologies, Journal of          # 
-#   Bioinformatics and Computational Biology, vol. 11, no. 1371001,           # 
-#   pp. 1-12, 2013                                                            #
-#   http://dx.doi.org/10.1186/2041-1480-2-5                                   #
+# - F. Couto and A. Lamurias, "Semantic similarity definition," in Reference  #
+#   Module in Life Sciences (Encyclopedia of Bioinformatics and Computational #
+#   Biology), pp. 1--17, Elsevier, 2018                                       #
+#   https://doi.org/10.1016/B978-0-12-809633-8.20401-9,                       #
+#   https://www.researchgate.net/publication/323219905                        #
 #                                                                             #
 # @author Francisco M. Couto                                                  #
 ###############################################################################
@@ -233,3 +229,4 @@ def ssm_multiple (m, entry1_list, entry2_list):
     avg = sum(results) / float(len(results))
     return avg 
 
+   

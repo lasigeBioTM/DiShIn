@@ -13,15 +13,11 @@
 ###############################################################################
 #                                                                             #
 # Software developed based on the work published in the following articles:   #
-# - F. Couto and M. Silva, Disjunctive shared information between ontology    #
-#   concepts: application to Gene Ontology, Journal of Biomedical Semantics,  #
-#   vol. 2, no. 5, pp. 1-16, 2011                                             #
-#   http://dx.doi.org/10.1142/S0219720013710017                               #
-# - F. Couto and H. Pinto, The next generation of similarity measures that    # 
-#   fully explore the semantics in biomedical ontologies, Journal of          # 
-#   Bioinformatics and Computational Biology, vol. 11, no. 1371001,           # 
-#   pp. 1-12, 2013                                                            #
-#   http://dx.doi.org/10.1186/2041-1480-2-5                                   #
+# - F. Couto and A. Lamurias, "Semantic similarity definition," in Reference  #
+#   Module in Life Sciences (Encyclopedia of Bioinformatics and Computational #
+#   Biology), pp. 1--17, Elsevier, 2018                                       #
+#   https://doi.org/10.1016/B978-0-12-809633-8.20401-9,                       #
+#   https://www.researchgate.net/publication/323219905                        #
 #                                                                             #
 # @author Francisco M. Couto                                                  #
 ###############################################################################
@@ -29,11 +25,12 @@
 import ssm
 import rdflib
 import sqlite3
+import gc
 
 def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     connection = sqlite3.connect(':memory:')
     
-    connection.isolation_level = None #auto_commit
+    # connection.isolation_level = None #auto_commit
     
     
     connection.execute('''
@@ -74,7 +71,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
             if len(s)>len(name_prefix) and len(o)>len(name_prefix):
                  s = s[len(name_prefix):]
                  o = o[len(name_prefix):]
-                 print (s,p,o)
+                 #print (s,p,o)
                  connection.execute('''  
                     INSERT OR IGNORE INTO entry (name) VALUES (?)
                  ''', (s,))
@@ -92,6 +89,8 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
                     INSERT OR IGNORE INTO relation (entry1,entry2) VALUES (?,?)
                  ''', (entry1,entry2,))
                  connection.commit()
+
+    g.close()
 
     connection.execute('''
          DROP TABLE IF EXISTS transitive;
@@ -121,11 +120,14 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
       SELECT entry1, entry2, 1 FROM relation
     ''')
 
+    connection.commit()
+    
     n_entries = 0
     previous_n_entries = -1
     i = 1
       
     while n_entries > previous_n_entries:   
+
       connection.execute('''
          INSERT INTO transitive (entry1, entry2, distance)
             SELECT tc.entry1, r.entry2, tc.distance + 1
@@ -134,12 +136,13 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
             WHERE r.entry1 = tc.entry2 AND tc.distance=?
       ''',(i,))
       i = i + 1
-      print ("distance " +  str(i))
+      print ("transitive closure at distance: " +  str(i))
       previous_n_entries = n_entries
       rows=connection.execute('''SELECT COUNT(*) FROM transitive''')
       for row in rows:
         n_entries = row[0]
-      
+      connection.commit()
+
     # Calculate the frequency of each entry based on the number of references
     if annotation_file != '' :
         file  = open(annotation_file, 'r').read()
@@ -148,7 +151,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
             id = row[0]
             name = row[1]
             count = file.count(name.replace('_',':',1))
-            # print(name + " - " + str(count))
+            print("frequency of " + name + " - " + str(count))
             connection.execute('''UPDATE entry SET refs = ? WHERE id=?''',(count,id,))            
     else:
         connection.execute('''UPDATE entry SET refs = 1''')
@@ -194,26 +197,3 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
    
 
 
-#python2: please uncomment the next line, and comment the following one 
-#import urllib2
-import urllib.request
-
-def get_uniprot_annotations (protein_acc) :
-
-	url='http://www.uniprot.org/uniprot/'+protein_acc+'.txt'
-	#python2: please uncomment the next two lines, and comment the following two 
-	#response = urllib2.urlopen(url)
-	#data = response.read()
-	response = urllib.request.urlopen(url)
-	data = response.read().decode('ascii')
-	
-	lines = str.split(data, '\n')
-	entries = []
-	for l in lines:
-		tag = 'DR   GO;'
-		if l.startswith(tag) :
-			t = l[len(tag)+1 : l.find(';',len(tag))].replace(':','_')
-			e = ssm.get_id(t)
-			entries.append(e)
-
-	return entries

@@ -1,9 +1,10 @@
 gold
 silver
+gold
+silver
 copper
 platinum
 palladium
 metal
 coinage
 precious
-
