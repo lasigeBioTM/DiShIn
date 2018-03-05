@@ -201,7 +201,7 @@ def shared_ic (entry1, entry2):
 
 def ssm_resnik (entry1, entry2):
 
-    return shared_ic(entry1, entry2)
+    return abs(shared_ic(entry1, entry2))
 
 def ssm_lin (entry1, entry2):
     aux = (information_content(entry1) + information_content(entry2))
