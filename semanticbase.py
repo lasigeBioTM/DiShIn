@@ -61,6 +61,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
             )''')
 
                 
+    connection.commit()
     g=rdflib.Graph()
     g.load(owl_file)
 
@@ -91,7 +92,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
                  connection.commit()
 
     g.close()
-
+    
     connection.execute('''
          DROP TABLE IF EXISTS transitive;
     ''')
@@ -121,7 +122,8 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     ''')
 
     connection.commit()
-    
+    connection.execute('''VACUUM''')    
+
     n_entries = 0
     previous_n_entries = -1
     i = 1
@@ -142,6 +144,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
       for row in rows:
         n_entries = row[0]
       connection.commit()
+      connection.execute('''VACUUM''')
 
     # Calculate the frequency of each entry based on the number of references
     if annotation_file != '' :
@@ -157,6 +160,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
         connection.execute('''UPDATE entry SET refs = 1''')
 
     connection.commit()
+    connection.execute('''VACUUM''')
 
     # Calculate the number of descendents 
     connection.execute('''UPDATE entry SET desc = 
