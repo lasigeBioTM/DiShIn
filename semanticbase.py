@@ -46,7 +46,7 @@ def open_db (sb_file):
         connection = connection_disk
 
     connection.isolation_level = None #auto_commit
-    connection.execute('PRAGMA temp_store = 2') # temporary tables and indices kept in memory
+    # connection.execute('PRAGMA temp_store = 2') # temporary tables and indices kept in memory
 
 def close_db (sb_file):
 
@@ -176,6 +176,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
 
     while n_entries > 0 : 
         print ("transitive closure at distance: " +  str(i))
+        
         connection.execute('''
             CREATE TEMPORARY TABLE transitive'''+ str(i) + ''' AS
                 SELECT tc.entry1, r.entry2
@@ -191,10 +192,12 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
         
         rows=connection.execute('SELECT COUNT(*) FROM transitive' + str(i-1))
         n_entries = rows.fetchone()[0]
+        
         connection.execute('DROP TABLE transitive'''+ str(i-1))
+        connection.execute('''VACUUM''')
         
         i = i + 1
-        connection.execute('''VACUUM''')
+
 
     # Calculate the frequency of each entry based on the number of references
     if annotation_file != '' :
