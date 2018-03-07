@@ -30,14 +30,20 @@ memory_db = True
 def open_db (sb_file):
 
     global connection
+
+    connection_disk = sqlite3.connect(sb_file)
     
     if memory_db :
 
+        script = ''.join(connection_disk.iterdump())
         connection = sqlite3.connect(':memory:')
+        connection.executescript(script)
+        connection_disk.close()
+        connection.execute('''VACUUM''')
 
     else:
         
-        connection = sqlite3.connect(sb_file)
+        connection = connection_disk
 
     connection.isolation_level = None #auto_commit
     connection.execute('PRAGMA temp_store = 2') # temporary tables and indices kept in memory
@@ -49,15 +55,15 @@ def close_db (sb_file):
     if memory_db :
 
         script = ''.join(connection.iterdump())
-        connection_final = sqlite3.connect(sb_file)
-        connection_final.execute('DROP TABLE IF EXISTS relation')
-        connection_final.execute('DROP TABLE IF EXISTS entry')
-        connection_final.execute('DROP TABLE IF EXISTS transitive')
-        connection_final.executescript(script)
-        connection_final.commit()
+        connection_disk = sqlite3.connect(sb_file)
+        connection_disk.execute('DROP TABLE IF EXISTS relation')
+        connection_disk.execute('DROP TABLE IF EXISTS entry')
+        connection_disk.execute('DROP TABLE IF EXISTS transitive')
+        connection_disk.executescript(script)
+        connection_disk.commit()
         connection.close()
-        connection_final.execute('''VACUUM''')
-        connection_final.close()
+        connection_disk.execute('''VACUUM''')
+        connection_disk.close()
 
     else:
 
@@ -154,9 +160,11 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
 
 
     close_db(sb_file)
+
     global memory_db 
     # gene ontology is to large to calculate the transitive closure in a memory database
     memory_db = not(sb_file == 'geneontology.db')
+
     open_db(sb_file)
 
 
