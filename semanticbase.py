@@ -82,8 +82,8 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     connection.execute('''
           CREATE TABLE relation (
           id     INTEGER PRIMARY KEY AUTOINCREMENT,
-          entry1         INTEGER,
-          entry2          INTEGER,
+          entry1         MEDIUMINT UNSIGNED,
+          entry2         MEDIUMINT UNSIGNED,
           UNIQUE (entry1,entry2)
           )''')
     
@@ -95,9 +95,9 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
             CREATE TABLE entry (
             id   INTEGER PRIMARY KEY AUTOINCREMENT,
             name  VARCHAR(255) UNIQUE,
-            refs  INTEGER,
-            freq  INTEGER,
-            desc  INTEGER
+            refs  INTEGER UNSIGNED,
+            freq  INTEGER UNSIGNED,
+            desc  INTEGER UNSIGNED
             )''')
 
                 
@@ -136,16 +136,15 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
 
     connection.execute('''
     CREATE TABLE transitive (
-    id   INTEGER PRIMARY KEY AUTOINCREMENT,
-    entry1 INTEGER,
-    entry2 INTEGER,
-    distance INTEGER    
+    entry1 MEDIUMINT UNSIGNED,
+    entry2 MEDIUMINT UNSIGNED,
+    distance SMALLINT UNSIGNED
     )
     ''')
 
 
     connection.execute('CREATE INDEX ri ON relation(entry1);')
-    connection.execute('CREATE INDEX ti ON transitive(entry2,distance);')
+    connection.execute('CREATE INDEX ti ON transitive(entry2);')
     
     connection.execute('''
     INSERT INTO transitive (entry1, entry2, distance)
@@ -159,33 +158,43 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     ''')
 
 
-    close_db(sb_file)
+    #close_db(sb_file)
 
-    global memory_db 
-    # gene ontology is to large to calculate the transitive closure in a memory database
-    memory_db = not(sb_file.endswith('geneontology.db'))
+    #global memory_db 
+    # if gene ontology become too large to calculate the transitive closure in a memory database
+    #memory_db = not(sb_file.endswith('geneontology.db'))
 
-    open_db(sb_file)
+    #open_db(sb_file)
 
 
-    n_entries = 0
-    previous_n_entries = -1
+    n_entries = 1
     i = 1
-      
-    while n_entries > previous_n_entries:   
+    
+    connection.execute('''
+       CREATE TEMPORARY TABLE transitive0 AS
+              SELECT * FROM transitive''')
 
-      connection.execute('''
-         INSERT INTO transitive (entry1, entry2, distance)
-            SELECT tc.entry1, r.entry2, tc.distance + 1
-            FROM relation AS r,
-                transitive AS tc
-            WHERE r.entry1 = tc.entry2 AND tc.distance=?
-      ''',(i,))
-      i = i + 1
-      print ("transitive closure at distance: " +  str(i))
-      previous_n_entries = n_entries
-      rows=connection.execute('''SELECT COUNT(*) FROM transitive''')
-      n_entries = rows.fetchone()[0]
+    while n_entries > 0 : 
+        print ("transitive closure at distance: " +  str(i))
+        connection.execute('''
+            CREATE TEMPORARY TABLE transitive'''+ str(i) + ''' AS
+                SELECT tc.entry1, r.entry2
+                FROM relation AS r,
+                     transitive''' + str(i-1) +''' AS tc
+                WHERE r.entry1 = tc.entry2
+        ''')
+
+        connection.execute('''
+             INSERT INTO transitive (entry1, entry2, distance)
+                SELECT entry1, entry2, ?
+                FROM transitive'''+ str(i), (i,))
+        
+        rows=connection.execute('SELECT COUNT(*) FROM transitive' + str(i-1))
+        n_entries = rows.fetchone()[0]
+        connection.execute('DROP TABLE transitive'''+ str(i-1))
+        
+        i = i + 1
+        connection.execute('''VACUUM''')
 
     # Calculate the frequency of each entry based on the number of references
     if annotation_file != '' :
