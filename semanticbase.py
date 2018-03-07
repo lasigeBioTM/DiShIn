@@ -22,16 +22,56 @@
 # @author Francisco M. Couto                                                  #
 ###############################################################################
 
-import ssm
 import rdflib
 import sqlite3
-import gc
+
+memory_db = True
+
+def create_db (sb_file):
+
+    global connection
+    
+    if memory_db :
+
+        connection = sqlite3.connect(':memory:')
+
+        connection.execute('PRAGMA temp_store = 2') # temporary tables and indices kept in memory
+
+    else:
+        
+        connection_final = sqlite3.connect(sb_file)
+
+    connection.isolation_level = None #auto_commit
+
+def close_db (sb_file):
+
+    global connection
+
+    if memory_db :
+
+        script = ''.join(connection.iterdump())
+        connection_final = sqlite3.connect(sb_file)
+        connection_final.execute('DROP TABLE IF EXISTS relation')
+        connection_final.execute('DROP TABLE IF EXISTS entry')
+        connection_final.execute('DROP TABLE IF EXISTS transitive')
+        connection_final.executescript(script)
+        connection_final.commit()
+        connection.close()
+        connection_final.execute('''VACUUM''')
+        connection_final.close()
+
+    else:
+
+        connection.execute('VACUUM')   
+        connection.close()
+        
 
 def create (owl_file, sb_file, name_prefix, relation, annotation_file):
-    connection = sqlite3.connect(':memory:')
-    
-    # connection.isolation_level = None #auto_commit
-    
+
+    #if sb_file == 'geneontology.db' :
+    #    memory_db = False
+
+    create_db(sb_file)
     
     connection.execute('''
           DROP TABLE IF EXISTS relation
@@ -61,7 +101,6 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
             )''')
 
                 
-    connection.commit()
     g=rdflib.Graph()
     g.load(owl_file)
 
@@ -77,19 +116,16 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
                     INSERT OR IGNORE INTO entry (name) VALUES (?)
                  ''', (s,))
                  rows = connection.execute('SELECT id FROM entry WHERE name = ?', (s,))
-                 for row in rows:
-                    entry1 = row[0]
+                 entry1 = rows.fetchone()[0]
                  rows = connection.execute('''  
                     INSERT OR IGNORE INTO entry (name) VALUES (?)
                  ''', (o,))
                  rows = connection.execute('SELECT id FROM entry WHERE name = ?', (o,))
-                 for row in rows:
-                    entry2 = row[0]
+                 entry2 = rows.fetchone()[0]
                  #print (str(entry1) + ":" + str(entry2))
                  rows = connection.execute('''  
                     INSERT OR IGNORE INTO relation (entry1,entry2) VALUES (?,?)
                  ''', (entry1,entry2,))
-                 connection.commit()
 
     g.close()
     
@@ -106,9 +142,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     )
     ''')
 
-    connection.execute('CREATE INDEX t2 ON transitive(entry2,distance);')
-
-    connection.execute('CREATE INDEX tt ON transitive(entry1,entry2);')
+    connection.execute('CREATE INDEX tt ON transitive(entry2,distance);')
     
     connection.execute('''
     INSERT INTO transitive (entry1, entry2, distance)
@@ -121,7 +155,6 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
       SELECT entry1, entry2, 1 FROM relation
     ''')
 
-    connection.commit()
     connection.execute('''VACUUM''')    
 
     n_entries = 0
@@ -141,10 +174,9 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
       print ("transitive closure at distance: " +  str(i))
       previous_n_entries = n_entries
       rows=connection.execute('''SELECT COUNT(*) FROM transitive''')
-      for row in rows:
-        n_entries = row[0]
-      connection.commit()
-      connection.execute('''VACUUM''')
+      n_entries = rows.fetchone()[0]
+      if i%10 == 1 : 
+          connection.execute('''VACUUM''')
 
     # Calculate the frequency of each entry based on the number of references
     if annotation_file != '' :
@@ -159,8 +191,6 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     else:
         connection.execute('''UPDATE entry SET refs = 1''')
 
-    connection.commit()
-    connection.execute('''VACUUM''')
 
     # Calculate the number of descendents 
     connection.execute('''UPDATE entry SET desc = 
@@ -168,8 +198,6 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
                                 FROM transitive t
                                 WHERE t.entry2=entry.id)''')
         
-    connection.commit()
-
     connection.execute('''
       UPDATE entry SET freq =
       (SELECT SUM(e2.refs) 
@@ -180,24 +208,6 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
              WHERE entry.id=t.entry2))
     ''')
 
-    connection.commit()
-    
-    script = ''.join(connection.iterdump())
-    connection_final = sqlite3.connect(sb_file)
-    connection_final.execute('''
-          DROP TABLE IF EXISTS relation
-          ''')
-    connection_final.execute('''
-          DROP TABLE IF EXISTS entry
-          ''')
-    connection_final.execute('''
-         DROP TABLE IF EXISTS transitive;
-    ''')
-    connection_final.executescript(script)
-    connection_final.commit()
-    
-    connection.close()
-    connection_final.close()
-   
+    close_db(sb_file)
 
 

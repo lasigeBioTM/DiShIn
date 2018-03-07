@@ -27,11 +27,11 @@ import math
 
 intrinsic = False
 mica = False
-global connection
 
 def semantic_base (sb_file):
-    
+
     global connection
+
     connection = sqlite3.connect(sb_file)
     
 def get_id (name):
@@ -44,8 +44,7 @@ def get_id (name):
         WHERE name = ?
     ''', (name,))
 
-    for row in rows:
-       iden = row[0]
+    iden = rows.fetchone()[0]
 
     return iden
 
@@ -56,24 +55,9 @@ def get_name(cid):
        FROM entry
        WHERE id = ?
     ''', (cid,))
-    for row in rows:
-       iden = row[0]
+    iden = rows.fetchone()[0]
     return iden
 
-
-def num_entries ():
-
-    num = 0
-    
-    rows = connection.execute('''
-        SELECT id
-        FROM entry
-    ''')
-
-    for row in rows:
-       num = row[0]
-
-    return num
 
 def common_ancestors (entry1, entry2):
 
@@ -99,15 +83,14 @@ def information_content_extrinsic (entry):
         FROM entry e
         WHERE e.id = ?
         ''', (entry,))
-    for row in rows:
-        freq = row[0] + 1.0
+    freq = rows.fetchone()[0] + 1.0
     #print (freq)
+
     rows = connection.execute('''
         SELECT MAX(e.freq)
         FROM entry e
         ''')
-    for row in rows:
-        maxfreq = row[0] + 1.0 
+    maxfreq = rows.fetchone()[0] + 1.0 
     
     return -math.log(freq/maxfreq)
 
@@ -119,16 +102,14 @@ def information_content_intrinsic (entry):
         FROM entry e
         WHERE e.id = ?
         ''', (entry,))
-    for row in rows:
-        freq = row[0] + 1.0
-		
+    freq = rows.fetchone()[0] + 1.0
     #print (freq)
+
     rows = connection.execute('''
         SELECT MAX(e.desc)
         FROM entry e
         ''')
-    for row in rows:
-        maxfreq = row[0] + 1.0 
+    maxfreq = rows.fetchone()[0] + 1.0 
     
     return -math.log(freq/maxfreq)
 
@@ -146,8 +127,7 @@ def num_paths (entry1, ancestor):
         WHERE t.entry1=? AND t.entry2=? 
         ''', (entry1, ancestor, ))
 
-    for row in rows:
-        npaths = row[0] + 1.0 
+    npaths = rows.fetchone()[0] + 1.0 
 
     return npaths
 
