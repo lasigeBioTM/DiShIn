@@ -144,7 +144,6 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
 
 
     connection.execute('CREATE INDEX ri ON relation(entry1);')
-    connection.execute('CREATE INDEX ti ON transitive(entry2);')
     
     connection.execute('''
     INSERT INTO transitive (entry1, entry2, distance)
