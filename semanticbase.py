@@ -46,7 +46,7 @@ def open_db (sb_file):
         connection = connection_disk
 
     connection.isolation_level = None #auto_commit
-    # connection.execute('PRAGMA temp_store = 2') # temporary tables and indices kept in memory
+    connection.execute('PRAGMA temp_store = 2') # temporary tables and indices kept in memory
 
 def close_db (sb_file):
 
@@ -158,13 +158,13 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     ''')
 
 
-    #close_db(sb_file)
+    close_db(sb_file)
 
-    #global memory_db 
+    global memory_db 
     # if gene ontology become too large to calculate the transitive closure in a memory database
-    #memory_db = not(sb_file.endswith('geneontology.db'))
+    memory_db = not(sb_file.endswith('geneontology.db'))
 
-    #open_db(sb_file)
+    open_db(sb_file)
 
 
     n_entries = 1

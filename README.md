@@ -67,12 +67,12 @@ gunzip goa_uniprot_all_noiea.gaf.gz
 
 Create the semantic base:
 ```shell
-python dishin.py go_daily-termdb.owl geneontology.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf goa_uniprot_all_noiea.gaf
+python dishin.py go_daily-termdb.owl go.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf goa_uniprot_all_noiea.gaf
 ```
 
 Now to calculate the similarity between _maltose biosynthetic process_ and _maltose catabolic process_ execute:
 ```shell
-python dishin.py geneontology.db GO_0000024 GO_0000025
+python dishin.py go.db GO_0000024 GO_0000025
 ```
 
 Output:
@@ -94,7 +94,7 @@ JC 	 MICA 	 	 extrinsic 	0.255622218635
 Now to calculate the similarity between proteins [Q12345](http://www.uniprot.org/uniprot/Q12345) and [Q12346](http://www.uniprot.org/uniprot/Q12346) execute:
 
 ```shell
-python dishin.py geneontology.db Q12345 Q12346
+python dishin.py go.db Q12345 Q12346
 ```
 
 Output:
@@ -128,7 +128,7 @@ python dishin.py chebi_lite.owl chebi.db http://purl.obolibrary.org/obo/ http://
 
 Now to calculate the similarity between _aripiprazole_ and _bithionol_ execute:
 ```shell
-python dishin.py chemical.db CHEBI_31236 CHEBI_3131
+python dishin.py chebi.db CHEBI_31236 CHEBI_3131
 ```
 
 Output:
@@ -150,12 +150,12 @@ wget http://purl.obolibrary.org/obo/hp.owl
 
 Create the semantic base:
 ```shell
-python dishin.py hp.owl hpo.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
+python dishin.py hp.owl hp.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
 ```
 
 Now to calculate the similarity between _Optic nerve coloboma_ and _Optic nerve dysplasia_ execute:
 ```shell
-python dishin.py phenotype.db HP_0000588 HP_0001093
+python dishin.py hp.db HP_0000588 HP_0001093
 ```
 
 Output:
@@ -177,12 +177,12 @@ wget https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/mast
 
 Create the semantic base:
 ```shell
-python dishin.py doid-simple.owl disease.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
+python dishin.py doid-simple.owl doid.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
 ```
 
 Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
 ```shell
-python dishin.py disease.db DOID_2841 DOID_1324
+python dishin.py doid.db DOID_2841 DOID_1324
 ```
 
 Output:
@@ -197,16 +197,16 @@ JC 	 MICA 	 	 intrinsic 	0.227103923688
 
 ###  Radiology Lexicon (RadLex) Example
 
-Download the _RDF/XML_ version from http://data.bioontology.org/ontologies/RADLEX/ and save it as _radlex.xrdf_
+Download the _RDF/XML_ version from http://bioportal.bioontology.org/ontologies/RADLEX and save it as _radlex.xrdf_
 
 Create the semantic base:
 ```shell
-python dishin.py radlex.xrdf radiology.db http://www.radlex.org/RID/# http://www.radlex.org/RID/#Is_A ''
+python dishin.py radlex.xrdf radlex.db http://www.radlex.org/RID/# http://www.radlex.org/RID/#Is_A ''
 ```
 
 Now to calculate the similarity between _nervous system of right upper limb_ and _nervous system of left upper limb_ execute:
 ```shell
-python dishin.py radiology.db RID16139 RID16140
+python dishin.py radlex.db RID16139 RID16140
 ```
 
 Output:
@@ -250,7 +250,7 @@ JC 	 MICA 	 intrinsic 	0.167236367313
 
 - Human Disease Ontology (DO): https://github.com/DiseaseOntology/HumanDiseaseOntology/tree/master/src/ontology
 
-- RadLex: https://bioportal.bioontology.org/ontologies/RADLEX
+- RadLex: http://bioportal.bioontology.org/ontologies/RADLEX
 
 - WordNet: http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
 
