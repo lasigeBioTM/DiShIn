@@ -27,7 +27,7 @@ import sqlite3
 
 memory_db = True
 
-def create_db (sb_file):
+def open_db (sb_file):
 
     global connection
     
@@ -35,13 +35,12 @@ def create_db (sb_file):
 
         connection = sqlite3.connect(':memory:')
 
-        connection.execute('PRAGMA temp_store = 2') # temporary tables and indices kept in memory
-
     else:
         
-        connection_final = sqlite3.connect(sb_file)
+        connection = sqlite3.connect(sb_file)
 
     connection.isolation_level = None #auto_commit
+    connection.execute('PRAGMA temp_store = 2') # temporary tables and indices kept in memory
 
 def close_db (sb_file):
 
@@ -68,10 +67,7 @@ def close_db (sb_file):
 
 def create (owl_file, sb_file, name_prefix, relation, annotation_file):
 
-    #if sb_file == 'geneontology.db' :
-    #    memory_db = False
-
-    create_db(sb_file)
+    open_db(sb_file)
     
     connection.execute('''
           DROP TABLE IF EXISTS relation
@@ -84,8 +80,6 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
           entry2          INTEGER,
           UNIQUE (entry1,entry2)
           )''')
-      
-    connection.execute('CREATE INDEX r1 ON relation(entry1);')
     
     connection.execute('''
           DROP TABLE IF EXISTS entry
@@ -128,6 +122,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
                  ''', (entry1,entry2,))
 
     g.close()
+
     
     connection.execute('''
          DROP TABLE IF EXISTS transitive;
@@ -142,7 +137,9 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     )
     ''')
 
-    connection.execute('CREATE INDEX tt ON transitive(entry2,distance);')
+
+    connection.execute('CREATE INDEX ri ON relation(entry1);')
+    connection.execute('CREATE INDEX ti ON transitive(entry2,distance);')
     
     connection.execute('''
     INSERT INTO transitive (entry1, entry2, distance)
@@ -155,7 +152,13 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
       SELECT entry1, entry2, 1 FROM relation
     ''')
 
-    connection.execute('''VACUUM''')    
+
+    close_db(sb_file)
+    global memory_db 
+    # gene ontology is to large to calculate the transitive closure in a memory database
+    memory_db = not(sb_file == 'geneontology.db')
+    open_db(sb_file)
+
 
     n_entries = 0
     previous_n_entries = -1
@@ -175,8 +178,6 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
       previous_n_entries = n_entries
       rows=connection.execute('''SELECT COUNT(*) FROM transitive''')
       n_entries = rows.fetchone()[0]
-      if i%10 == 1 : 
-          connection.execute('''VACUUM''')
 
     # Calculate the frequency of each entry based on the number of references
     if annotation_file != '' :
