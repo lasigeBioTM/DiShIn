@@ -30,22 +30,12 @@ memory_db = True
 def open_db (sb_file):
 
     global connection
-
-    connection_disk = sqlite3.connect(sb_file)
     
     if memory_db :
-
-        script = ''.join(connection_disk.iterdump())
         connection = sqlite3.connect(':memory:')
-        connection.executescript(script)
-        connection_disk.close()
-        connection.execute('''VACUUM''')
         connection.execute('PRAGMA temp_store = 2') # temporary tables and indices kept in memory
-
     else:
-        
-        connection = connection_disk
-
+        connection = sqlite3.connect(sb_file)
     connection.isolation_level = None #auto_commit
     
 
@@ -54,7 +44,6 @@ def close_db (sb_file):
     global connection
 
     if memory_db :
-
         script = ''.join(connection.iterdump())
         connection_disk = sqlite3.connect(sb_file)
         connection_disk.execute('DROP TABLE IF EXISTS relation')
@@ -65,14 +54,16 @@ def close_db (sb_file):
         connection.close()
         connection_disk.execute('''VACUUM''')
         connection_disk.close()
-
     else:
-
         connection.execute('VACUUM')   
         connection.close()
         
 
 def create (owl_file, sb_file, name_prefix, relation, annotation_file):
+
+    global memory_db 
+    # gene ontology and chebi are too large to calculate the transitive closure in a memory database
+    memory_db = not(sb_file.endswith('go.db') or sb_file.endswith('chebi.db'))
 
     open_db(sb_file)
     
@@ -150,16 +141,6 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     INSERT INTO transitive (entry1, entry2, distance)
       SELECT entry1, entry2, 1 FROM relation
     ''')
-
-
-    close_db(sb_file)
-
-    global memory_db 
-    # if gene ontology become too large to calculate the transitive closure in a memory database
-    memory_db = not(sb_file.endswith('go.db'))
-
-    open_db(sb_file)
-
 
     n_entries = 1
     i = 1
