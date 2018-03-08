@@ -240,11 +240,11 @@ Lin 	 MICA 	 intrinsic 	0.67923792924
 JC 	 MICA 	 intrinsic 	0.167236367313
 ```
 
-## Semantic Base Examples
+## Data Sources
 
 ### ChEBI 
-Ontology: ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/
-SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/doid.db
+- Ontology: ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/
+- SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/doid.db
 
 - Gene Ontology (GO): http://geneontology.org/page/download-ontology#go.obo_and_go.owl; Annotation files (extrinsic): http://www.geneontology.org/page/download-annotations
 
