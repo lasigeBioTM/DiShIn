@@ -242,7 +242,9 @@ JC 	 MICA 	 intrinsic 	0.167236367313
 
 ## Semantic Base Examples
 
-- ChEBI: ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/
+### ChEBI 
+Ontology: ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/
+SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/doid.db
 
 - Gene Ontology (GO): http://geneontology.org/page/download-ontology#go.obo_and_go.owl; Annotation files (extrinsic): http://www.geneontology.org/page/download-annotations
 
