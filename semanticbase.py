@@ -129,7 +129,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     ''')
 
 
-    connection.execute('CREATE INDEX ri ON relation(entry1)')
+    connection.execute('CREATE INDEX re1 ON relation(entry1)')
     
     connection.execute('''
     INSERT INTO transitive (entry1, entry2, distance)
@@ -187,7 +187,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
         connection.execute('''UPDATE entry SET refs = 1''')
 
     
-    connection.execute('CREATE INDEX ti ON transitive(entry2)')
+    connection.execute('CREATE INDEX te2 ON transitive(entry2)')
 
     # Calculate the number of descendents 
     connection.execute('''UPDATE entry SET desc = 
@@ -204,6 +204,8 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
              FROM transitive t 
              WHERE entry.id=t.entry2))
     ''')
+
+    connection.execute('CREATE INDEX te ON transitive(entry1,entry2)')
 
     close_db(sb_file)
 
