@@ -40,13 +40,14 @@ def open_db (sb_file):
         connection.executescript(script)
         connection_disk.close()
         connection.execute('''VACUUM''')
+        connection.execute('PRAGMA temp_store = 2') # temporary tables and indices kept in memory
 
     else:
         
         connection = connection_disk
 
     connection.isolation_level = None #auto_commit
-    connection.execute('PRAGMA temp_store = 2') # temporary tables and indices kept in memory
+    
 
 def close_db (sb_file):
 
@@ -75,9 +76,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
 
     open_db(sb_file)
     
-    connection.execute('''
-          DROP TABLE IF EXISTS relation
-          ''')
+    connection.execute('DROP TABLE IF EXISTS relation')
 
     connection.execute('''
           CREATE TABLE relation (
@@ -87,9 +86,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
           UNIQUE (entry1,entry2)
           )''')
     
-    connection.execute('''
-          DROP TABLE IF EXISTS entry
-          ''')
+    connection.execute('DROP TABLE IF EXISTS entry')
 
     connection.execute('''
             CREATE TABLE entry (
@@ -130,20 +127,18 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     g.close()
 
     
-    connection.execute('''
-         DROP TABLE IF EXISTS transitive;
-    ''')
+    connection.execute('DROP TABLE IF EXISTS transitive')
 
     connection.execute('''
     CREATE TABLE transitive (
-    entry1 MEDIUMINT UNSIGNED,
-    entry2 MEDIUMINT UNSIGNED,
-    distance SMALLINT UNSIGNED
+      entry1 MEDIUMINT UNSIGNED,
+      entry2 MEDIUMINT UNSIGNED,
+      distance SMALLINT UNSIGNED
     )
     ''')
 
 
-    connection.execute('CREATE INDEX ri ON relation(entry1);')
+    connection.execute('CREATE INDEX ri ON relation(entry1)')
     
     connection.execute('''
     INSERT INTO transitive (entry1, entry2, distance)
@@ -193,7 +188,6 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
         n_entries = rows.fetchone()[0]
         
         connection.execute('DROP TABLE transitive'''+ str(i-1))
-        connection.execute('''VACUUM''')
         
         i = i + 1
 
@@ -211,6 +205,8 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     else:
         connection.execute('''UPDATE entry SET refs = 1''')
 
+    
+    connection.execute('CREATE INDEX ti ON transitive(entry2)')
 
     # Calculate the number of descendents 
     connection.execute('''UPDATE entry SET desc = 
