@@ -197,11 +197,11 @@ JC 	 MICA 	 	 intrinsic 	0.227103923688
 
 ###  Radiology Lexicon (RadLex) Example
 
-Download the _RDF/XML_ version from http://bioportal.bioontology.org/ontologies/RADLEX and save it as _radlex.xrdf_
+Download the _RDF/XML_ version from http://bioportal.bioontology.org/ontologies/RADLEX and save it as _radlex.rdf_
 
 Create the semantic base:
 ```shell
-python dishin.py radlex.xrdf radlex.db http://www.radlex.org/RID/# http://www.radlex.org/RID/#Is_A ''
+python dishin.py radlex.rdf radlex.db http://www.radlex.org/RID/# http://www.radlex.org/RID/#Is_A ''
 ```
 
 Now to calculate the similarity between _nervous system of right upper limb_ and _nervous system of left upper limb_ execute:
