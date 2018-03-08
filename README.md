@@ -240,23 +240,34 @@ Lin 	 MICA 	 intrinsic 	0.67923792924
 JC 	 MICA 	 intrinsic 	0.167236367313
 ```
 
-## Data Sources
+## Data Sources 
+
+### Gene Ontology (GO) 
+- Ontology: http://geneontology.org/page/download-ontology#go.obo_and_go.owl; 
+- Annotation files (extrinsic): http://www.geneontology.org/page/download-annotations
+- SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/go.db
 
 ### ChEBI 
 - Ontology: ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/
+- SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/chebi.db
+
+### Human Phenotype ontology (HPO)
+- Ontology: http://human-phenotype-ontology.github.io/downloads.html
+- SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/hp.db
+
+### Human Disease Ontology (DO)
+- Ontology: https://github.com/DiseaseOntology/HumanDiseaseOntology/tree/master/src/ontology
 - SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/doid.db
 
-- Gene Ontology (GO): http://geneontology.org/page/download-ontology#go.obo_and_go.owl; Annotation files (extrinsic): http://www.geneontology.org/page/download-annotations
+### RadLex
+- Ontology: http://bioportal.bioontology.org/ontologies/RADLEX
+- SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/radlex.db
 
-- Human Phenotype ontology (HPO): http://human-phenotype-ontology.github.io/downloads.html
+### WordNet
+- Ontology: http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
+- SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet.db
 
-- Human Disease Ontology (DO): https://github.com/DiseaseOntology/HumanDiseaseOntology/tree/master/src/ontology
-
-- RadLex: http://bioportal.bioontology.org/ontologies/RADLEX
-
-- WordNet: http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
-
-## Files
+## Source Code 
 
 - semanticbase.py : provides a function to produce the semantic-base as a SQLite database 
 
