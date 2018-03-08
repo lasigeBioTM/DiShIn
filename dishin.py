@@ -49,7 +49,7 @@ elif  len(sys.argv) == 4 and sb_file.endswith('.db'):
         name2 = sys.argv[3]
                 
         # Similarity between proteins
-        if sb_file == 'geneontology.db' and not(name1.startswith('GO')) :
+        if sb_file.endswith('go.db') and not(name1.startswith('GO')) :
                 import annotations
                 
                 e1 = annotations.get_uniprot_annotations(name1)
@@ -95,31 +95,28 @@ elif  len(sys.argv) == 4 and sb_file.endswith('.db'):
                         ssm.intrinsic = True
                                 
                         # ontology with multiple inheritance 
-                        if sb_file != 'wordnet.db' and sb_file != 'radiology.db':
-                                        
+                        if not(sb_file.endswith('wordnet.db') or sb_file.endswith('radlex.db')) :
                                 ssm.mica = False
                                 print("Resnik \t DiShIn \t intrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
                                 
                         ssm.mica = True
                         print("Resnik \t MICA \t intrinsic \t"+ str(ssm.ssm_resnik (e1,e2)))
                                 
-                        if sb_file != 'wordnet.db' and sb_file != 'radiology.db':
-                                        
+                        if not(sb_file.endswith('wordnet.db') or sb_file.endswith('radlex.db')) :
                                 ssm.mica = False
                                 print("Lin \t DiShIn \t intrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
                 
                         ssm.mica = True
                         print("Lin \t MICA \t intrinsic \t"+ str(ssm.ssm_lin (e1,e2)))
 
-                        if sb_file != 'wordnet.db' and sb_file != 'radiology.db':
-                                
+                        if not(sb_file.endswith('wordnet.db') or sb_file.endswith('radlex.db')) :
                                 ssm.mica = False
                                 print("JC \t DiShIn \t intrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
                                         
                         ssm.mica = True
                         print("JC \t MICA \t intrinsic \t"+ str(ssm.ssm_jiang_conrath (e1,e2)))
 
-                        if sb_file == 'geneontology.db' or sb_file == 'metals.db':
+                        if sb_file.endswith('go.db') or sb_file.endswith('metals.db') :
                                 
                                 ssm.intrinsic = False
                                 ssm.mica = False

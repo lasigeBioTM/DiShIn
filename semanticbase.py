@@ -156,7 +156,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
 
     global memory_db 
     # if gene ontology become too large to calculate the transitive closure in a memory database
-    memory_db = not(sb_file.endswith('geneontology.db'))
+    memory_db = not(sb_file.endswith('go.db'))
 
     open_db(sb_file)
 
