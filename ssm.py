@@ -36,26 +36,34 @@ def semantic_base (sb_file):
     
 def get_id (name):
 
-    iden = 0
-    
     rows = connection.execute('''
         SELECT id
         FROM entry
         WHERE name = ?
     ''', (name,))
 
-    iden = rows.fetchone()[0]
+    row = rows.fetchone()
+    if row is None:
+        iden = -1
+    else : 
+        iden = row[0]
 
     return iden
 
 def get_name(cid):
-    iden = 0
+
     rows = connection.execute('''
        SELECT name
        FROM entry
        WHERE id = ?
     ''', (cid,))
-    iden = rows.fetchone()[0]
+
+    row = rows.fetchone()
+    if row is None:
+        iden = -1
+    else : 
+        iden = row[0]
+
     return iden
 
 
