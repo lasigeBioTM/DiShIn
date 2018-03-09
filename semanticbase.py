@@ -51,9 +51,9 @@ def close_db (sb_file):
         connection_disk.execute('DROP TABLE IF EXISTS transitive')
         connection_disk.executescript(script)
         connection_disk.commit()
-        connection.close()
         connection_disk.execute('''VACUUM''')
         connection_disk.close()
+        connection.close()
     else:
         connection.execute('VACUUM')   
         connection.close()
