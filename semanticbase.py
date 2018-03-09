@@ -72,8 +72,8 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     connection.execute('''
           CREATE TABLE relation (
           id     INTEGER PRIMARY KEY AUTOINCREMENT,
-          entry1         MEDIUMINT UNSIGNED,
-          entry2         MEDIUMINT UNSIGNED,
+          entry1        INTEGER,
+          entry2        INTEGER,
           UNIQUE (entry1,entry2)
           )''')
     
@@ -83,9 +83,9 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
             CREATE TABLE entry (
             id   INTEGER PRIMARY KEY AUTOINCREMENT,
             name  VARCHAR(255) UNIQUE,
-            refs  INTEGER UNSIGNED,
-            freq  INTEGER UNSIGNED,
-            desc  INTEGER UNSIGNED
+            refs  MEDIUMINT UNSIGNED,
+            freq  MEDIUMINT UNSIGNED,
+            desc  MEDIUMINT UNSIGNED
             )''')
 
                 
@@ -122,56 +122,43 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
 
     connection.execute('''
     CREATE TABLE transitive (
-      entry1 MEDIUMINT UNSIGNED,
-      entry2 MEDIUMINT UNSIGNED,
+      id     INTEGER PRIMARY KEY AUTOINCREMENT,
+      entry1 INTEGER,
+      entry2 INTEGER,
       distance SMALLINT UNSIGNED
     )
     ''')
 
 
     connection.execute('CREATE INDEX re1 ON relation(entry1)')
+    connection.execute('CREATE INDEX te2d ON transitive(entry2, distance)')
     
     connection.execute('''
     INSERT INTO transitive (entry1, entry2, distance)
       SELECT id, id, 0 FROM entry
     ''')
-
-
+ 
+ 
     connection.execute('''
     INSERT INTO transitive (entry1, entry2, distance)
       SELECT entry1, entry2, 1 FROM relation
     ''')
-
-    n_entries = 1
+ 
+    changes = 1
     i = 1
-    
-    connection.execute('''
-       CREATE TEMPORARY TABLE transitive0 AS
-              SELECT * FROM transitive''')
-
-    while n_entries > 0 : 
+       
+    while changes > 0 :
         print ("transitive closure at distance: " +  str(i))
-        
         connection.execute('''
-            CREATE TEMPORARY TABLE transitive'''+ str(i) + ''' AS
-                SELECT tc.entry1, r.entry2
-                FROM relation AS r,
-                     transitive''' + str(i-1) +''' AS tc
-                WHERE r.entry1 = tc.entry2
-        ''')
-
-        connection.execute('''
-             INSERT INTO transitive (entry1, entry2, distance)
-                SELECT entry1, entry2, ?
-                FROM transitive'''+ str(i), (i,))
-        
-        rows=connection.execute('SELECT COUNT(*) FROM transitive' + str(i-1))
-        n_entries = rows.fetchone()[0]
-        
-        connection.execute('DROP TABLE transitive'''+ str(i-1))
-        
+         INSERT INTO transitive (entry1, entry2, distance)
+            SELECT tc.entry1, r.entry2, tc.distance + 1
+            FROM relation AS r,
+                transitive AS tc
+            WHERE r.entry1 = tc.entry2 AND tc.distance=?
+        ''',(i,))
+        rows=connection.execute('''SELECT changes()''')
+        changes = rows.fetchone()[0]      
         i = i + 1
-
 
     # Calculate the frequency of each entry based on the number of references
     if annotation_file != '' :
@@ -187,14 +174,14 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
         connection.execute('''UPDATE entry SET refs = 1''')
 
     
-    connection.execute('CREATE INDEX te2 ON transitive(entry2)')
-
     # Calculate the number of descendents 
     connection.execute('''UPDATE entry SET desc = 
                                (SELECT COUNT(DISTINCT t.entry1)
                                 FROM transitive t
                                 WHERE t.entry2=entry.id)''')
         
+    connection.execute('CREATE INDEX te ON transitive(entry2,entry1)')
+
     connection.execute('''
       UPDATE entry SET freq =
       (SELECT SUM(e2.refs) 
@@ -204,8 +191,6 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
              FROM transitive t 
              WHERE entry.id=t.entry2))
     ''')
-
-    connection.execute('CREATE INDEX te ON transitive(entry1,entry2)')
 
     close_db(sb_file)
 
