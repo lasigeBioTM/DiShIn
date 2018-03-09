@@ -53,6 +53,7 @@ def close_db (sb_file):
         connection_disk.commit()
         connection_disk.execute('''VACUUM''')
         connection_disk.close()
+        connection.commit()
         connection.close()
     else:
         connection.execute('VACUUM')   
