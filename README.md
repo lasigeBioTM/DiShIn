@@ -67,7 +67,7 @@ gunzip goa_uniprot_all_noiea.gaf.gz
 
 Create the semantic base:
 ```shell
-python dishin.py go_daily-termdb.owl go.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf goa_uniprot_all_noiea.gaf
+python dishin.py go_daily-termdb.owl go.db http://purl.org/obo/owl/GO# http://www.w3.org/2000/01/rdf-schema#subClassOf goa_uniprot_all_noiea.gaf
 ```
 
 Now to calculate the similarity between _maltose biosynthetic process_ and _maltose catabolic process_ execute:

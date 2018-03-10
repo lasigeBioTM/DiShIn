@@ -53,7 +53,7 @@ def close_db (sb_file):
         connection_disk.commit()
         connection_disk.execute('''VACUUM''')
         connection_disk.close()
-        #connection.close()
+        connection.close()
     else:
         connection.execute('VACUUM')   
         connection.close()
@@ -62,8 +62,7 @@ def close_db (sb_file):
 def create (owl_file, sb_file, name_prefix, relation, annotation_file):
 
     global memory_db 
-    # gene ontology and chebi are too large to calculate the transitive closure in a memory database
-    memory_db = not(sb_file.endswith('go.db') or sb_file.endswith('chebi.db'))
+    # memory_db = not(sb_file.endswith('go.db') or sb_file.endswith('chebi.db'))     # gene ontology and chebi maybe too large to calculate the transitive closure in a memory database
 
     open_db(sb_file)
     
@@ -88,7 +87,9 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
             desc  MEDIUMINT UNSIGNED
             )''')
 
-                
+
+    #loading the ontology
+    print ("loading the ontology " + owl_file)
     g=rdflib.Graph()
     g.load(owl_file)
 
@@ -96,7 +97,7 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
         if str(p) == relation :
             s = str(s)
             o = str(o)
-            if len(s)>len(name_prefix) and len(o)>len(name_prefix):
+            if s.startswith(name_prefix) and o.startswith(name_prefix):
                  s = s[len(name_prefix):]
                  o = o[len(name_prefix):]
                  #print (s,p,o)
@@ -116,7 +117,6 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
                  ''', (entry1,entry2,))
 
     g.close()
-
     
     connection.execute('DROP TABLE IF EXISTS transitive')
 
@@ -147,9 +147,9 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
     changes = 1
     i = 1
        
-    while changes > 0 :
-        print ("transitive closure at distance: " +  str(i))
-        connection.execute('''
+    while changes > 0 and i < 255:
+        print ("calculating transitive closure at distance: " +  str(i))
+        rows = connection.execute('''
          INSERT INTO transitive (entry1, entry2, distance)
             SELECT tc.entry1, r.entry2, tc.distance + 1
             FROM relation AS r,
@@ -160,38 +160,44 @@ def create (owl_file, sb_file, name_prefix, relation, annotation_file):
         changes = rows.fetchone()[0]      
         i = i + 1
 
+
     # Calculate the frequency of each entry based on the number of references
     if annotation_file != '' :
+        print ("calculating the frequency from file " + annotation_file)
         file  = open(annotation_file, 'r').read()
         rows=connection.execute('''SELECT id, name FROM entry''')
         for row in rows:
             id = row[0]
             name = row[1]
             count = file.count(name.replace('_',':',1))
-            print("frequency of " + name + " - " + str(count))
+            #print("frequency of " + name + " - " + str(count))
             connection.execute('''UPDATE entry SET refs = ? WHERE id=?''',(count,id,))            
     else:
         connection.execute('''UPDATE entry SET refs = 1''')
-
     
+    
+    print ("calculating the descendents")
     # Calculate the number of descendents 
     connection.execute('''UPDATE entry SET desc = 
                                (SELECT COUNT(DISTINCT t.entry1)
                                 FROM transitive t
                                 WHERE t.entry2=entry.id)''')
-        
-    connection.execute('CREATE INDEX te ON transitive(entry2,entry1)')
 
+
+    print ("calculating the hierarchical frequency")
     connection.execute('''
       UPDATE entry SET freq =
-      (SELECT SUM(e2.refs) 
-      FROM entry e2
-      WHERE e2.id IN
+       (SELECT SUM(a.refs) 
+        FROM entry a
+        WHERE a.id IN
             (SELECT t.entry1
              FROM transitive t 
              WHERE entry.id=t.entry2))
     ''')
 
+    connection.execute('CREATE INDEX te ON transitive(entry2,entry1)')
+
+    print ("the end")
     close_db(sb_file)
 
 
