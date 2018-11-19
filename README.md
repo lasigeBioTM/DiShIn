@@ -60,15 +60,14 @@ JC 	 MICA 	 	 extrinsic 	0.476176683193
 
 Download the ontology and annotations:
 ```shell
-wget http://archive.geneontology.org/latest-termdb/go_daily-termdb.owl.gz
+wget http://purl.obolibrary.org/obo/go.owl
 wget http://geneontology.org/gene-associations/goa_uniprot_all_noiea.gaf.gz
-gunzip go_daily-termdb.owl.gz 
 gunzip goa_uniprot_all_noiea.gaf.gz 
 ```
 
 Create the semantic base:
 ```shell
-python dishin.py go_daily-termdb.owl go.db http://purl.org/obo/owl/GO# http://www.w3.org/2000/01/rdf-schema#subClassOf goa_uniprot_all_noiea.gaf
+python dishin.py go.owl go.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf goa_uniprot_all_noiea.gaf
 ```
 
 Now to calculate the similarity between _maltose biosynthetic process_ and _maltose catabolic process_ execute:
