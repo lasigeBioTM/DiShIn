@@ -1,0 +1,4 @@
+old/
+data/
+*.pyc
+*.db

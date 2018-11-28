@@ -173,12 +173,12 @@ JC       MICA            intrinsic      0.184634686534
 
 Download the ontology:
 ```shell
-wget https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/master/src/ontology/doid-simple.owl
+wget https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/master/src/ontology/doid.owl
 ```
 
 Create the semantic base:
 ```shell
-python dishin.py doid-simple.owl doid.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
+python dishin.py doid.owl doid.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
 ```
 
 Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
@@ -188,12 +188,12 @@ python dishin.py doid.db DOID_2841 DOID_1324
 
 Output:
 ```txt
-Resnik   DiShIn          intrinsic      2.01382659386
-Resnik   MICA            intrinsic      4.02765318772
-Lin      DiShIn          intrinsic      0.323283569128
-Lin      MICA            intrinsic      0.646567138257
-JC       DiShIn          intrinsic      0.118610966131
-JC       MICA            intrinsic      0.227103923688
+Resnik   DiShIn          intrinsic      2.29931853312
+Resnik   MICA            intrinsic      3.70394398358
+Lin      DiShIn          intrinsic      0.409564492804
+Lin      MICA            intrinsic      0.659762410974
+JC       DiShIn          intrinsic      0.150841449132
+JC       MICA            intrinsic      0.261764573924
 ```
 
 ###  Radiology Lexicon (RadLex) Example
