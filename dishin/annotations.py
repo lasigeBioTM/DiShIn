@@ -22,37 +22,38 @@
 # @author Francisco M. Couto                                                  #
 ###############################################################################
 
-import ssm
+import dishin.ssm
 import sys
 
 
-if (sys.version_info > (3, 0)):
+if sys.version_info > (3, 0):
     # Python 3 code in this block
     import urllib.request
 else:
     # Python 2 code in this block
     import urllib2
 
-def get_uniprot_annotations (protein_acc) :
 
-    url='http://www.uniprot.org/uniprot/'+protein_acc+'.txt'
-        
-    if (sys.version_info > (3, 0)):
+def get_uniprot_annotations(protein_acc):
+
+    url = "http://www.uniprot.org/uniprot/" + protein_acc + ".txt"
+
+    if sys.version_info > (3, 0):
         # Python 3 code in this block
         response = urllib.request.urlopen(url)
-        data = response.read().decode('ascii')
+        data = response.read().decode("ascii")
     else:
         # Python 2 code in this block
         response = urllib2.urlopen(url)
         data = response.read()
-	
-    lines = str.split(data, '\n')
+
+    lines = str.split(data, "\n")
     entries = []
     for l in lines:
-        tag = 'DR   GO;'
-        if l.startswith(tag) :
-            t = l[len(tag)+1 : l.find(';',len(tag))].replace(':','_')
+        tag = "DR   GO;"
+        if l.startswith(tag):
+            t = l[len(tag) + 1 : l.find(";", len(tag))].replace(":", "_")
             e = ssm.get_id(t)
             entries.append(e)
-            
+
     return entries

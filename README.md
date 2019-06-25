@@ -4,6 +4,13 @@ This software package provides the basic functions to start using semantic simil
 
 A web tool using this package is available at: http://labs.fc.ul.pt/dishin/
 
+### INSTALLATION
+
+Either clone this repository or install from pypi:
+
+```
+pip install dishin
+```
 
 ## USAGE: 
 
@@ -11,6 +18,12 @@ A web tool using this package is available at: http://labs.fc.ul.pt/dishin/
 python dishin.py <semanticbase>.db <term1> <term2>
 python dishin.py <semanticbase>.[owl|rdf] <semanticbase>.db <name_prefix> <relation> <annotation_file>
 ```
+or use the python function directly
+
+```python
+>>> import dishin
+```
+
 
 ### Metals Example
 
@@ -54,6 +67,15 @@ Lin 	 MICA 	 	 extrinsic 	0.30091907324
 JC 	 DiShIn 	 extrinsic 	0.391842474063
 JC 	 MICA 	 	 extrinsic 	0.476176683193
 
+```
+
+Using the python function directly:
+```python
+>>> dishin.create_semantic_base("metals.owl", "metals.db", "https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#", "http://www.w3.org/2000/01/rdf-schema#subClassOf", "metals.txt")
+>>> dishin.semantic_base("metals.db")
+>>> e1 = dishin.get_id("copper")
+>>> e1 = dishin.get_id("gold")
+>>> dishin.ssm_resnik (e1,e2)
 ```
 
 ### Gene Ontology (GO) and UniProt proteins Example
