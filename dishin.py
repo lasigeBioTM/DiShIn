@@ -29,20 +29,19 @@ sb_file = sys.argv[1]
 
 # Create a new semantic base
 if len(sys.argv) == 6 and not (sb_file.endswith(".db")):
-    import semanticbase
 
     db_file = sys.argv[2]
     name_prefix = sys.argv[3]
     relation = sys.argv[4]
     annotation_file = sys.argv[5]
 
-    ssm.create_semantic_base(sb_file, db_file, name_prefix, relation, annotation_file)
+    ssmpy.create_semantic_base(sb_file, db_file, name_prefix, relation, annotation_file)
 
 # Calculate the similarity
 
 elif len(sys.argv) == 4 and sb_file.endswith(".db"):
 
-    ssm.semantic_base(sb_file)
+    ssmpy.semantic_base(sb_file)
 
     name1 = sys.argv[2]
     name2 = sys.argv[3]
@@ -51,121 +50,133 @@ elif len(sys.argv) == 4 and sb_file.endswith(".db"):
     if sb_file.endswith("go.db") and not (name1.startswith("GO")):
         import annotations
 
-        e1 = annotations.get_uniprot_annotations(name1)
-        e2 = annotations.get_uniprot_annotations(name2)
+        e1 = ssmpy.get_uniprot_annotations(name1)
+        e2 = ssmpy.get_uniprot_annotations(name2)
 
-        ssm.intrinsic = True
+        ssmpy.intrinsic = True
 
-        ssm.mica = False
+        ssmpy.mica = False
         print(
             "Resnik \t DiShIn \t intrinsic \t"
-            + str(ssm.ssm_multiple(ssm.ssm_resnik, e1, e2))
+            + str(ssmpy.ssm_multiple(ssmpy.ssm_resnik, e1, e2))
         )
-        ssm.mica = True
+        ssmpy.mica = True
         print(
             "Resnik \t MICA \t intrinsic \t"
-            + str(ssm.ssm_multiple(ssm.ssm_resnik, e1, e2))
+            + str(ssmpy.ssm_multiple(ssmpy.ssm_resnik, e1, e2))
         )
-        ssm.mica = False
+        ssmpy.mica = False
         print(
-            "Lin \t DiShIn \t intrinsic \t" + str(ssm.ssm_multiple(ssm.ssm_lin, e1, e2))
+            "Lin \t DiShIn \t intrinsic \t"
+            + str(ssmpy.ssm_multiple(ssmpy.ssm_lin, e1, e2))
         )
-        ssm.mica = True
+        ssmpy.mica = True
         print(
-            "Lin \t MICA \t intrinsic \t" + str(ssm.ssm_multiple(ssm.ssm_lin, e1, e2))
+            "Lin \t MICA \t intrinsic \t"
+            + str(ssmpy.ssm_multiple(ssmpy.ssm_lin, e1, e2))
         )
-        ssm.mica = False
+        ssmpy.mica = False
         print(
             "JC \t DiShIn \t intrinsic \t"
-            + str(ssm.ssm_multiple(ssm.ssm_jiang_conrath, e1, e2))
+            + str(ssmpy.ssm_multiple(ssmpy.ssm_jiang_conrath, e1, e2))
         )
-        ssm.mica = True
+        ssmpy.mica = True
         print(
             "JC \t MICA \t intrinsic \t"
-            + str(ssm.ssm_multiple(ssm.ssm_jiang_conrath, e1, e2))
+            + str(ssmpy.ssm_multiple(ssmpy.ssm_jiang_conrath, e1, e2))
         )
 
-        ssm.intrinsic = False
+        ssmpy.intrinsic = False
 
-        ssm.mica = False
+        ssmpy.mica = False
         print(
             "Resnik \t DiShIn \t extrinsic \t"
-            + str(ssm.ssm_multiple(ssm.ssm_resnik, e1, e2))
+            + str(ssmpy.ssm_multiple(ssmpy.ssm_resnik, e1, e2))
         )
-        ssm.mica = True
+        ssmpy.mica = True
         print(
             "Resnik \t MICA \t extrinsic \t"
-            + str(ssm.ssm_multiple(ssm.ssm_resnik, e1, e2))
+            + str(ssmpy.ssm_multiple(ssmpy.ssm_resnik, e1, e2))
         )
-        ssm.mica = False
+        ssmpy.mica = False
         print(
-            "Lin \t DiShIn \t extrinsic \t" + str(ssm.ssm_multiple(ssm.ssm_lin, e1, e2))
+            "Lin \t DiShIn \t extrinsic \t"
+            + str(ssmpy.ssm_multiple(ssmpy.ssm_lin, e1, e2))
         )
-        ssm.mica = True
+        ssmpy.mica = True
         print(
-            "Lin \t MICA \t extrinsic \t" + str(ssm.ssm_multiple(ssm.ssm_lin, e1, e2))
+            "Lin \t MICA \t extrinsic \t"
+            + str(ssmpy.ssm_multiple(ssmpy.ssm_lin, e1, e2))
         )
-        ssm.mica = False
+        ssmpy.mica = False
         print(
             "JC \t DiShIn \t extrinsic \t"
-            + str(ssm.ssm_multiple(ssm.ssm_jiang_conrath, e1, e2))
+            + str(ssmpy.ssm_multiple(ssmpy.ssm_jiang_conrath, e1, e2))
         )
-        ssm.mica = True
+        ssmpy.mica = True
         print(
             "JC \t MICA \t extrinsic \t"
-            + str(ssm.ssm_multiple(ssm.ssm_jiang_conrath, e1, e2))
+            + str(ssmpy.ssm_multiple(ssmpy.ssm_jiang_conrath, e1, e2))
         )
 
     else:
         # Similarity between terms
 
-        e1 = ssm.get_id(name1)
-        e2 = ssm.get_id(name2)
+        e1 = ssmpy.get_id(name1)
+        e2 = ssmpy.get_id(name2)
 
         if e1 > 0 and e2 > 0:
-            ssm.intrinsic = True
+            ssmpy.intrinsic = True
 
             # ontology with multiple inheritance
             if not (sb_file.endswith("wordnet.db") or sb_file.endswith("radlex.db")):
-                ssm.mica = False
-                print("Resnik \t DiShIn \t intrinsic \t" + str(ssm.ssm_resnik(e1, e2)))
-
-            ssm.mica = True
-            print("Resnik \t MICA \t intrinsic \t" + str(ssm.ssm_resnik(e1, e2)))
-
-            if not (sb_file.endswith("wordnet.db") or sb_file.endswith("radlex.db")):
-                ssm.mica = False
-                print("Lin \t DiShIn \t intrinsic \t" + str(ssm.ssm_lin(e1, e2)))
-
-            ssm.mica = True
-            print("Lin \t MICA \t intrinsic \t" + str(ssm.ssm_lin(e1, e2)))
-
-            if not (sb_file.endswith("wordnet.db") or sb_file.endswith("radlex.db")):
-                ssm.mica = False
+                ssmpy.mica = False
                 print(
-                    "JC \t DiShIn \t intrinsic \t" + str(ssm.ssm_jiang_conrath(e1, e2))
+                    "Resnik \t DiShIn \t intrinsic \t" + str(ssmpy.ssm_resnik(e1, e2))
                 )
 
-            ssm.mica = True
-            print("JC \t MICA \t intrinsic \t" + str(ssm.ssm_jiang_conrath(e1, e2)))
+            ssmpy.mica = True
+            print("Resnik \t MICA \t intrinsic \t" + str(ssmpy.ssm_resnik(e1, e2)))
+
+            if not (sb_file.endswith("wordnet.db") or sb_file.endswith("radlex.db")):
+                ssmpy.mica = False
+                print("Lin \t DiShIn \t intrinsic \t" + str(ssmpy.ssm_lin(e1, e2)))
+
+            ssmpy.mica = True
+            print("Lin \t MICA \t intrinsic \t" + str(ssmpy.ssm_lin(e1, e2)))
+
+            if not (sb_file.endswith("wordnet.db") or sb_file.endswith("radlex.db")):
+                ssmpy.mica = False
+                print(
+                    "JC \t DiShIn \t intrinsic \t"
+                    + str(ssmpy.ssm_jiang_conrath(e1, e2))
+                )
+
+            ssmpy.mica = True
+            print("JC \t MICA \t intrinsic \t" + str(ssmpy.ssm_jiang_conrath(e1, e2)))
 
             if sb_file.endswith("go.db") or sb_file.endswith("metals.db"):
 
-                ssm.intrinsic = False
-                ssm.mica = False
-                print("Resnik \t DiShIn \t extrinsic \t" + str(ssm.ssm_resnik(e1, e2)))
-                ssm.mica = True
-                print("Resnik \t MICA \t extrinsic \t" + str(ssm.ssm_resnik(e1, e2)))
-                ssm.mica = False
-                print("Lin \t DiShIn \t extrinsic \t" + str(ssm.ssm_lin(e1, e2)))
-                ssm.mica = True
-                print("Lin \t MICA \t extrinsic \t" + str(ssm.ssm_lin(e1, e2)))
-                ssm.mica = False
+                ssmpy.intrinsic = False
+                ssmpy.mica = False
                 print(
-                    "JC \t DiShIn \t extrinsic \t" + str(ssm.ssm_jiang_conrath(e1, e2))
+                    "Resnik \t DiShIn \t extrinsic \t" + str(ssmpy.ssm_resnik(e1, e2))
                 )
-                ssm.mica = True
-                print("JC \t MICA \t extrinsic \t" + str(ssm.ssm_jiang_conrath(e1, e2)))
+                ssmpy.mica = True
+                print("Resnik \t MICA \t extrinsic \t" + str(ssmpy.ssm_resnik(e1, e2)))
+                ssmpy.mica = False
+                print("Lin \t DiShIn \t extrinsic \t" + str(ssmpy.ssm_lin(e1, e2)))
+                ssmpy.mica = True
+                print("Lin \t MICA \t extrinsic \t" + str(ssmpy.ssm_lin(e1, e2)))
+                ssmpy.mica = False
+                print(
+                    "JC \t DiShIn \t extrinsic \t"
+                    + str(ssmpy.ssm_jiang_conrath(e1, e2))
+                )
+                ssmpy.mica = True
+                print(
+                    "JC \t MICA \t extrinsic \t" + str(ssmpy.ssm_jiang_conrath(e1, e2))
+                )
 
         else:
 
