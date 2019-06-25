@@ -22,7 +22,7 @@
 # @author Francisco M. Couto                                                  #
 ###############################################################################
 
-import dishin.ssm
+import ssmpy.ssm
 import sys
 
 

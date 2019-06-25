@@ -5,14 +5,14 @@ with open("README.md", "r") as fh:
 
 
 setup(
-    name="dishin",
+    name="ssmpy",
     version="0.1.0",
     description="Basic functions to start using semantic similarity measures directly from a rdf or owl file.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     maintainer="Andre Lamurias",
     maintainer_email="alamurias@lasige.di.fc.ul.pt",
-    packages=["dishin"],
+    packages=["ssmpy"],
     keywords=["graphs", "semantic similarity", "ontologies"],
     url="https://github.com/lasigeBioTM/DiShIn",
     classifiers=[
@@ -20,6 +20,6 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_data={"dishin": ["data/*"]},
+    package_data={"ssmpy": ["data/*"]},
     install_requires=["rdflib"],
 )

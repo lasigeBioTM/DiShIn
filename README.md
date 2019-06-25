@@ -9,7 +9,7 @@ A web tool using this package is available at: http://labs.fc.ul.pt/dishin/
 Either clone this repository or install from pypi:
 
 ```
-pip install dishin
+pip install ssmpy
 ```
 
 ## USAGE: 
@@ -18,10 +18,10 @@ pip install dishin
 python dishin.py <semanticbase>.db <term1> <term2>
 python dishin.py <semanticbase>.[owl|rdf] <semanticbase>.db <name_prefix> <relation> <annotation_file>
 ```
-or use the python function directly
+or use the python functions directly
 
 ```python
->>> import dishin
+>>> import ssmpy
 ```
 
 
@@ -71,11 +71,11 @@ JC 	 MICA 	 	 extrinsic 	0.476176683193
 
 Using the python function directly:
 ```python
->>> dishin.create_semantic_base("metals.owl", "metals.db", "https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#", "http://www.w3.org/2000/01/rdf-schema#subClassOf", "metals.txt")
->>> dishin.semantic_base("metals.db")
->>> e1 = dishin.get_id("copper")
->>> e1 = dishin.get_id("gold")
->>> dishin.ssm_resnik (e1,e2)
+>>> ssmpy.create_semantic_base("metals.owl", "metals.db", "https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#", "http://www.w3.org/2000/01/rdf-schema#subClassOf", "metals.txt")
+>>> ssmpy.semantic_base("metals.db")
+>>> e1 = ssmpy.get_id("copper")
+>>> e2 = ssmpy.get_id("gold")
+>>> ssmpy.ssm_resnik (e1,e2)
 ```
 
 ### Gene Ontology (GO) and UniProt proteins Example

@@ -13,7 +13,7 @@ from .ssm import (
     ssm_jiang_conrath,
 )
 
-name = "dishin"
+name = "ssmpy"
 __all__ = [
     "create_semantic_base",
     "get_uniprot_annotations",
