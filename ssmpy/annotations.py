@@ -53,7 +53,7 @@ def get_uniprot_annotations(protein_acc):
         tag = "DR   GO;"
         if l.startswith(tag):
             t = l[len(tag) + 1 : l.find(";", len(tag))].replace(":", "_")
-            e = ssm.get_id(t)
+            e = ssmpy.get_id(t)
             entries.append(e)
 
     return entries

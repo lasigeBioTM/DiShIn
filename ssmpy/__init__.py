@@ -4,8 +4,6 @@ from .annotations import get_uniprot_annotations
 
 from .ssm import (
     semantic_base,
-    intrinsic,
-    mica,
     ssm_multiple,
     get_id,
     ssm_resnik,
