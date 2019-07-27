@@ -69,7 +69,7 @@ Create the semantic base:
 python dishin.py go.owl go.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf goa_uniprot_all_noiea.gaf
 ```
 
-Or download the lastest version:
+An alternative to the two previous steps is to download the lastest version we created:
 ```shell
 wget http://labs.rd.ciencias.ulisboa.pt/dishin/go.db.gz
 gunzip go.db.gz
@@ -131,7 +131,7 @@ Create the semantic base:
 python dishin.py chebi_lite.owl chebi.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
 ```
 
-Or download the lastest version:
+An alternative to the two previous steps is to download the lastest version we created:
 ```shell
 wget http://labs.rd.ciencias.ulisboa.pt/dishin/chebi.db.gz
 gunzip chebi.db.gz
@@ -164,7 +164,7 @@ Create the semantic base:
 python dishin.py hp.owl hp.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
 ```
 
-Or download the lastest version:
+An alternative to the two previous steps is to download the lastest version we created:
 ```shell
 wget http://labs.rd.ciencias.ulisboa.pt/dishin/hp.db.gz
 gunzip hp.db.gz
@@ -197,7 +197,7 @@ Create the semantic base:
 python dishin.py doid.owl doid.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
 ```
 
-Or download the lastest version:
+An alternative to the two previous steps is to download the lastest version we created:
 ```shell
 wget http://labs.rd.ciencias.ulisboa.pt/dishin/doid.db.gz
 gunzip doid.db.gz
@@ -227,8 +227,7 @@ Create the semantic base:
 ```shell
 python dishin.py radlex.rdf radlex.db http://radlex.org/RID/ http://www.w3.org/2000/01/rdf-schema#subClassOf '' 
 ```
-
-Or download the lastest version:
+An alternative to the two previous steps is to download the lastest version we created:
 ```shell
 wget http://labs.rd.ciencias.ulisboa.pt/dishin/radlex.db.gz
 gunzip radlex.db.gz
@@ -258,7 +257,7 @@ Create the semantic base:
 python dishin.py wordnet-hyponym.rdf wordnet.db http://www.w3.org/2006/03/wn/wn20/instances/synset- http://www.w3.org/2006/03/wn/wn20/schema/hyponymOf ''
 ```
 
-Or download the lastest version:
+An alternative to the two previous steps is to download the lastest version we created:
 ```shell
 wget http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet.db.gz
 gunzip wordnet.db.gz
