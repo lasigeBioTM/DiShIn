@@ -69,6 +69,12 @@ Create the semantic base:
 python dishin.py go.owl go.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf goa_uniprot_all_noiea.gaf
 ```
 
+Or download the lastest version:
+```shell
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/go.db.gz
+gunzip go.db.gz
+```
+
 Now to calculate the similarity between _maltose biosynthetic process_ and _maltose catabolic process_ execute:
 ```shell
 python dishin.py go.db GO_0000023 GO_0000025
@@ -125,6 +131,12 @@ Create the semantic base:
 python dishin.py chebi_lite.owl chebi.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
 ```
 
+Or download the lastest version:
+```shell
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/chebi.db.gz
+gunzip chebi.db.gz
+```
+
 Now to calculate the similarity between _aripiprazole_ and _bithionol_ execute:
 ```shell
 python dishin.py chebi.db CHEBI_31236 CHEBI_3131
@@ -150,6 +162,12 @@ wget http://purl.obolibrary.org/obo/hp.owl
 Create the semantic base:
 ```shell
 python dishin.py hp.owl hp.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
+```
+
+Or download the lastest version:
+```shell
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/hp.db.gz
+gunzip hp.db.gz
 ```
 
 Now to calculate the similarity between _Optic nerve coloboma_ and _Optic nerve dysplasia_ execute:
@@ -179,6 +197,12 @@ Create the semantic base:
 python dishin.py doid.owl doid.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
 ```
 
+Or download the lastest version:
+```shell
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/doid.db.gz
+gunzip doid.db.gz
+```
+
 Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
 ```shell
 python dishin.py doid.db DOID_2841 DOID_1324
@@ -204,6 +228,12 @@ Create the semantic base:
 python dishin.py radlex.rdf radlex.db http://radlex.org/RID/ http://www.w3.org/2000/01/rdf-schema#subClassOf '' 
 ```
 
+Or download the lastest version:
+```shell
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/radlex.db.gz
+gunzip radlex.db.gz
+```
+
 Now to calculate the similarity between _nervous system of right upper limb_ and _nervous system of left upper limb_ execute:
 ```shell
 python dishin.py radlex.db RID16139 RID16140
@@ -226,6 +256,12 @@ wget http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
 Create the semantic base:
 ```shell
 python dishin.py wordnet-hyponym.rdf wordnet.db http://www.w3.org/2006/03/wn/wn20/instances/synset- http://www.w3.org/2006/03/wn/wn20/schema/hyponymOf ''
+```
+
+Or download the lastest version:
+```shell
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet.db.gz
+gunzip wordnet.db.gz
 ```
 
 Now to calculate the similarity between the nouns _ambulance_ and _motorcycle_ execute:
