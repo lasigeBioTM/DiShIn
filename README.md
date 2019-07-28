@@ -224,8 +224,8 @@ python dishin.py doid.owl doid.db http://purl.obolibrary.org/obo/ http://www.w3.
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/radlex.db.gz
-gunzip radlex.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/radlex201907.db.gz
+gunzip -N radlex201907.db.gz
 ```
 
 Now to calculate the similarity between _nervous system of right upper limb_ and _nervous system of left upper limb_ execute:
