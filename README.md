@@ -4,6 +4,11 @@ This software package provides the basic functions to start using semantic simil
 
 A web tool using this package is available at: http://labs.fc.ul.pt/dishin/
 
+## Reference: 
+
+- F. Couto and A. Lamurias, “Semantic similarity definition,” in Encyclopedia of Bioinformatics and Computational Biology (S. Ranganathan, K. Nakai, C. Schönbach, and M. Gribskov, eds.), vol. 1, pp. 870–876, Oxford: Elsevier, 2019
+[https://doi.org/10.1016/B978-0-12-809633-8.20401-9]
+[https://www.researchgate.net/publication/323219905_Semantic_Similarity_Definition]
 
 ## USAGE: 
 
@@ -57,22 +62,10 @@ JC         MICA      extrinsic          0.47617668319259754
 
 ### Gene Ontology (GO) and UniProt proteins Example
 
-Download the ontology and annotations:
+Download the lastest version of the database we created:
 ```shell
-wget http://purl.obolibrary.org/obo/go.owl
-wget http://geneontology.org/gene-associations/goa_uniprot_all_noiea.gaf.gz
-gunzip goa_uniprot_all_noiea.gaf.gz 
-```
-
-Create the semantic base:
-```shell
-python dishin.py go.owl go.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf goa_uniprot_all_noiea.gaf
-```
-
-An alternative to the two previous steps is to download the lastest version we created:
-```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/go.db.gz
-gunzip go.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/go201907.db.gz
+gunzip -N go201907.db.gz
 ```
 
 Now to calculate the similarity between _maltose biosynthetic process_ and _maltose catabolic process_ execute:
@@ -118,23 +111,24 @@ JC         DiShIn    extrinsic          0.1013441951183969
 JC         MICA      extrinsic          0.11970943511723715
 ```
 
+To create an updated version of the database, download the ontology and annotations:
+```shell
+wget http://purl.obolibrary.org/obo/go.owl
+wget http://geneontology.org/gene-associations/goa_uniprot_all_noiea.gaf.gz
+gunzip goa_uniprot_all_noiea.gaf.gz 
+```
+
+And then create the new database:
+```shell
+python dishin.py go.owl go.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf goa_uniprot_all_noiea.gaf
+```
 
 ###  Chemical Entities of Biological Interest (ChEBI) Example
 
-Download the ontology:
+Download the lastest version of the database we created:
 ```shell
-wget ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi_lite.owl
-```
-
-Create the semantic base:
-```shell
-python dishin.py chebi_lite.owl chebi.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
-```
-
-An alternative to the two previous steps is to download the lastest version we created:
-```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/chebi.db.gz
-gunzip chebi.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/chebi201907.db.gz
+gunzip -N chebi201907.db.gz
 ```
 
 Now to calculate the similarity between _aripiprazole_ and _bithionol_ execute:
@@ -151,23 +145,22 @@ Lin        MICA      intrinsic          0.49195371280548356
 JC         DiShIn    intrinsic          0.05216806727627202
 JC         MICA      intrinsic          0.08997939012118301
 ```
+To create an updated version of the database, download the ontology:
+```shell
+wget ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi_lite.owl
+```
+
+And then create the new database:
+```shell
+python dishin.py chebi_lite.owl chebi.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
+```
 
 ### Human Phenotype (HP) Example
 
-Download the ontology:
+Download the lastest version of the database we created:
 ```shell
-wget http://purl.obolibrary.org/obo/hp.owl
-```
-
-Create the semantic base:
-```shell
-python dishin.py hp.owl hp.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
-```
-
-An alternative to the two previous steps is to download the lastest version we created:
-```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/hp.db.gz
-gunzip hp.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/hp201907.db.gz
+gunzip -N hp201907.db.gz
 ```
 
 Now to calculate the similarity between _Optic nerve coloboma_ and _Optic nerve dysplasia_ execute:
@@ -185,22 +178,22 @@ JC         DiShIn    intrinsic          0.11433121677975834
 JC         MICA      intrinsic          0.16832667824491762
 ```
 
+To create an updated version of the database, download the ontology:
+```shell
+wget http://purl.obolibrary.org/obo/hp.owl
+```
+
+And then create the new database:
+```shell
+python dishin.py hp.owl hp.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
+```
+
 ### Human Disease Ontology (HDO) Example
 
-Download the ontology:
+Download the lastest version of the database we created:
 ```shell
-wget https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/master/src/ontology/doid.owl
-```
-
-Create the semantic base:
-```shell
-python dishin.py doid.owl doid.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
-```
-
-An alternative to the two previous steps is to download the lastest version we created:
-```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/doid.db.gz
-gunzip doid.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/doid201907.db.gz
+gunzip -N doid201907.db.gz
 ```
 
 Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
@@ -216,18 +209,20 @@ Lin        DiShIn    intrinsic          0.40974430023007496
 Lin        MICA      intrinsic          0.6597862035890811
 JC         DiShIn    intrinsic          0.14980794775373127
 JC         MICA      intrinsic          0.2599100799712222
+```
+To create an updated version of the database, download the ontology:
+```shell
+wget https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/master/src/ontology/doid.owl
+```
 
+And then create the new database:
+```shell
+python dishin.py doid.owl doid.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
 ```
 
 ###  Radiology Lexicon (RadLex) Example
 
-Download the _RDF/XML_ version from http://bioportal.bioontology.org/ontologies/RADLEX and save it as _radlex.rdf_
-
-Create the semantic base:
-```shell
-python dishin.py radlex.rdf radlex.db http://radlex.org/RID/ http://www.w3.org/2000/01/rdf-schema#subClassOf '' 
-```
-An alternative to the two previous steps is to download the lastest version we created:
+Download the lastest version of the database we created:
 ```shell
 wget http://labs.rd.ciencias.ulisboa.pt/dishin/radlex.db.gz
 gunzip radlex.db.gz
@@ -245,22 +240,19 @@ Lin      MICA    intrinsic      0.9310781524369027
 JC       MICA    intrinsic      0.7213475204444816
 ```
 
+To create an updated version of the database, download the _RDF/XML_ version from http://bioportal.bioontology.org/ontologies/RADLEX and save it as _radlex.rdf_
+
+And then create the new database:
+```shell
+python dishin.py radlex.rdf radlex.db http://radlex.org/RID/ http://www.w3.org/2000/01/rdf-schema#subClassOf '' 
+```
+
 ### WordNet Example
 
-Download the ontology:
+Download the lastest version of the database we created:
 ```shell
-wget http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
-```
-
-Create the semantic base:
-```shell
-python dishin.py wordnet-hyponym.rdf wordnet.db http://www.w3.org/2006/03/wn/wn20/instances/synset- http://www.w3.org/2006/03/wn/wn20/schema/hyponymOf ''
-```
-
-An alternative to the two previous steps is to download the lastest version we created:
-```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet.db.gz
-gunzip wordnet.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet201907.db.gz
+gunzip wordnet201907.db.gz
 ```
 
 Now to calculate the similarity between the nouns _ambulance_ and _motorcycle_ execute:
@@ -275,33 +267,15 @@ Lin      MICA    intrinsic      0.6792379292396559
 JC       MICA    intrinsic      0.1672363673134892
 ```
 
-## Data Sources 
+To create an updated version of the database, download the ontology:
+```shell
+wget http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
+```
 
-### Gene Ontology (GO) 
-- Ontology: http://geneontology.org/page/download-ontology#go.obo_and_go.owl; 
-- Annotation files (extrinsic): http://www.geneontology.org/page/download-annotations
-- SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/go.db
-
-### ChEBI 
-- Ontology: ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/
-- SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/chebi.db
-
-### Human Phenotype ontology (HPO)
-- Ontology: http://human-phenotype-ontology.github.io/downloads.html
-- SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/hp.db
-
-### Human Disease Ontology (DO)
-- Ontology: https://github.com/DiseaseOntology/HumanDiseaseOntology/tree/master/src/ontology
-- SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/doid.db
-
-### RadLex
-- Ontology: http://bioportal.bioontology.org/ontologies/RADLEX
-- SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/radlex.db
-
-### WordNet
-- Ontology: http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
-- SemanticBase: http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet.db
-
+And then create the new database:
+```shell
+python dishin.py wordnet-hyponym.rdf wordnet.db http://www.w3.org/2006/03/wn/wn20/instances/synset- http://www.w3.org/2006/03/wn/wn20/schema/hyponymOf ''
+```
 ## Source Code 
 
 - semanticbase.py : provides a function to produce the semantic-base as a SQLite database 
@@ -311,10 +285,4 @@ JC       MICA    intrinsic      0.1672363673134892
 - annotations.py :  provides the functions to get the annotations for the given proteins 
 
 - dishin.py :  executes the functions according to the input given
-
-## Reference: 
-
-- F. Couto and A. Lamurias, “Semantic similarity definition,” in Encyclopedia of Bioinformatics and Computational Biology (S. Ranganathan, K. Nakai, C. Schönbach, and M. Gribskov, eds.), vol. 1, pp. 870–876, Oxford: Elsevier, 2019
-[https://doi.org/10.1016/B978-0-12-809633-8.20401-9]
-[https://www.researchgate.net/publication/323219905_Semantic_Similarity_Definition]
 
