@@ -212,7 +212,7 @@ JC         MICA      intrinsic          0.2599100799712222
 ```
 To create an updated version of the database, download the ontology:
 ```shell
-wget https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/master/src/ontology/doid.owl
+wget http://purl.obolibrary.org/obo/doid.owl
 ```
 
 And then create the new database:
