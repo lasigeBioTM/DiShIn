@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="ssmpy",
-    version="0.1.0",
+    version="0.2.1",
     description="Basic functions to start using semantic similarity measures directly from a rdf or owl file.",
     long_description=long_description,
     long_description_content_type="text/markdown",

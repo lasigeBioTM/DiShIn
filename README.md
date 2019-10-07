@@ -69,7 +69,7 @@ JC 	 MICA 	 	 extrinsic 	0.476176683193
 
 ```
 
-Using the python function directly:
+Using the python function directly (first download metals.db and metals.txt from this repository):
 ```python
 >>> ssmpy.create_semantic_base("metals.owl", "metals.db", "https://raw.githubusercontent.com/lasigeBioTM/ssm/master/metals.owl#", "http://www.w3.org/2000/01/rdf-schema#subClassOf", "metals.txt")
 >>> ssmpy.semantic_base("metals.db")
