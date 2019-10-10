@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Other Examples &#8212; DiShIn  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Sources" href="data_sources.html" />
+    <link rel="prev" title="Getting started" href="getting_started.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="other-examples">
+<h1>Other Examples<a class="headerlink" href="#other-examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="semantic-similarity-options">
+<h2>Semantic Similarity options<a class="headerlink" href="#semantic-similarity-options" title="Permalink to this headline">¶</a></h2>
+<p>We can choose to calculate the measures using either the extrinsic or intrinsic Information Content (IC), and using the Most Informative Common Ancestors (MICA) or Disjunctive Common Ancestors (DCA). By default, the measures are calculated using extrinsic IC and DCA.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">mica</span> <span class="o">=</span> <span class="bp">False</span> <span class="c1"># determines if it uses MICA or DCA</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">intrinsic</span> <span class="o">=</span> <span class="bp">False</span> <span class="c1"># determines if it uses extrinsic or intrinsic IC</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gene-ontology-go-and-uniprot-proteins">
+<h2>Gene Ontology (GO) and UniProt proteins<a class="headerlink" href="#gene-ontology-go-and-uniprot-proteins" title="Permalink to this headline">¶</a></h2>
+<p>First download GO and annotations to your project directory:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://purl.obolibrary.org/obo/go.owl
+wget http://geneontology.org/gene-associations/goa_uniprot_all_noiea.gaf.gz
+gunzip goa_uniprot_all_noiea.gaf.gz
+</pre></div>
+</div>
+<p>The annotations will be used to calculate the extrinsic information content.</p>
+<p>Next create the semantic base:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;go.owl&quot;</span><span class="p">,</span> <span class="s2">&quot;go.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s2">&quot;goa_uniprot_all_noiea.gaf</span>
+</pre></div>
+</div>
+<p>This is stored in the form of a sqlite database on the same directory of your project.</p>
+<p>Now to calculate the similarity between <em>maltose biosynthetic process</em>
+and <em>maltose catabolic process</em>, first we need to obtain the semantic base IDs of those concepts:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssmpy.semantic_base<span class="o">(</span><span class="s2">&quot;go.db&quot;</span><span class="o">)</span>
+<span class="nv">e1</span> <span class="o">=</span> ssmpy.get_id<span class="o">(</span><span class="s2">&quot;GO_0000023&quot;</span><span class="o">)</span>
+<span class="nv">e2</span> <span class="o">=</span> ssmpy.get_id<span class="o">(</span><span class="s2">&quot;GO_0000025&quot;</span><span class="o">)</span>
+ssmpy.ssm_resnik<span class="o">(</span>e1,e2<span class="o">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>3.903220515643575
+</pre></div>
+</div>
+<p>Now to calculate the similarity between proteins
+<a class="reference external" href="http://www.uniprot.org/uniprot/Q12345">Q12345</a> and
+<a class="reference external" href="http://www.uniprot.org/uniprot/Q12346">Q12346</a>, first we retrieve the GO terms associated with each one:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_uniprot_annotations</span><span class="p">(</span><span class="s2">&quot;Q12345&quot;</span><span class="p">)</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_uniprot_annotations</span><span class="p">(</span><span class="s2">&quot;Q12346&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next we use the <code class="docutils literal notranslate"><span class="pre">ssm_multiple</span></code> to calculate the average maximum semantic similarity, using the resnik measure</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_multiple</span><span class="p">(</span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">,</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>0.4627295852212107
+</pre></div>
+</div>
+</div>
+<div class="section" id="chemical-entities-of-biological-interest-chebi-example">
+<h2>Chemical Entities of Biological Interest (ChEBI) Example<a class="headerlink" href="#chemical-entities-of-biological-interest-chebi-example" title="Permalink to this headline">¶</a></h2>
+<p>Download the ontology:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi_lite.owl
+</pre></div>
+</div>
+<p>Create the semantic base:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;chebi_lite.owl&quot;</span><span class="p">,</span> <span class="s2">&quot;chebi.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now to calculate the similarity between <em>aripiprazole</em> and <em>bithionol</em>
+execute:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;chebi.db&quot;</span><span class="p">)</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;CHEBI_31236&quot;</span><span class="p">)</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;CHEBI_3131&quot;</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>1.3534853833420923
+</pre></div>
+</div>
+</div>
+<div class="section" id="human-phenotype-hp-example">
+<h2>Human Phenotype (HP) Example<a class="headerlink" href="#human-phenotype-hp-example" title="Permalink to this headline">¶</a></h2>
+<p>Download the ontology:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://purl.obolibrary.org/obo/hp.owl
+</pre></div>
+</div>
+<p>Create the semantic base:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;hp.owl&quot;</span><span class="p">,</span> <span class="s2">&quot;hp.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now to calculate the similarity between <em>Optic nerve coloboma</em> and
+<em>Optic nerve dysplasia</em> execute:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;hp.db&quot;</span><span class="p">)</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;HP_0000588&quot;</span><span class="p">)</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;HP_0001093&quot;</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>3.0512068305931033
+</pre></div>
+</div>
+</div>
+<div class="section" id="human-disease-ontology-hdo-example">
+<h2>Human Disease Ontology (HDO) Example<a class="headerlink" href="#human-disease-ontology-hdo-example" title="Permalink to this headline">¶</a></h2>
+<p>Download the ontology:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/master/src/ontology/doid.owl
+</pre></div>
+</div>
+<p>Create the semantic base:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;doid.owl&quot;</span><span class="p">,</span> <span class="s2">&quot;doid.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now to calculate the similarity between <em>Asthma</em> and <em>Lung cancer</em>
+execute:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;doid.db&quot;</span><span class="p">)</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;DOID_2841&quot;</span><span class="p">)</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;DOID_1324&quot;</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>2.29931853312
+</pre></div>
+</div>
+</div>
+<div class="section" id="radiology-lexicon-radlex-example">
+<h2>Radiology Lexicon (RadLex) Example<a class="headerlink" href="#radiology-lexicon-radlex-example" title="Permalink to this headline">¶</a></h2>
+<p>Download the <em>RDF/XML</em> version from
+<a class="reference external" href="http://bioportal.bioontology.org/ontologies/RADLEX">http://bioportal.bioontology.org/ontologies/RADLEX</a> and save it as
+<em>radlex.rdf</em></p>
+<p>Create the semantic base:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;radlex.rdf&quot;</span><span class="p">,</span> <span class="s2">&quot;radlex.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.radlex.org/RID/#&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.radlex.org/RID/#Is_A&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now to calculate the similarity between <em>nervous system of right upper
+limb</em> and <em>nervous system of left upper limb</em> execute:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;radlex.db&quot;</span><span class="p">)</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;RID16139&quot;</span><span class="p">)</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;RID16140&quot;</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>9.35897587112
+</pre></div>
+</div>
+</div>
+<div class="section" id="wordnet-example">
+<h2>WordNet Example<a class="headerlink" href="#wordnet-example" title="Permalink to this headline">¶</a></h2>
+<p>Download the ontology:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
+</pre></div>
+</div>
+<p>Create the semantic base:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;wordnet-hyponym.rdf&quot;</span><span class="p">,</span> <span class="s2">&quot;wordnet.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2006/03/wn/wn20/instances/synset-&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2006/03/wn/wn20/schema/hyponymOf&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now to calculate the similarity between the nouns <em>ambulance</em> and
+<em>motorcycle</em> execute:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;wordnet.db&quot;</span><span class="p">)</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;ambulance-noun-1&quot;</span><span class="p">)</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;motorcycle-noun-1&quot;</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>6.33108580921
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DiShIn</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Other Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#semantic-similarity-options">Semantic Similarity options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gene-ontology-go-and-uniprot-proteins">Gene Ontology (GO) and UniProt proteins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chemical-entities-of-biological-interest-chebi-example">Chemical Entities of Biological Interest (ChEBI) Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#human-phenotype-hp-example">Human Phenotype (HP) Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#human-disease-ontology-hdo-example">Human Disease Ontology (HDO) Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#radiology-lexicon-radlex-example">Radiology Lexicon (RadLex) Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wordnet-example">WordNet Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="getting_started.html" title="previous chapter">Getting started</a></li>
+      <li>Next: <a href="data_sources.html" title="next chapter">Data Sources</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, F. Couto and A. Lamurias.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/other_examples.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
