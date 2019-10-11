@@ -48,7 +48,7 @@ and *maltose catabolic process*, first we need to obtain the semantic base IDs o
 
 Output:
 
-.. code:: txt
+.. code:: python
 
     3.903220515643575
 
@@ -69,7 +69,7 @@ Next we use the ``ssm_multiple`` to calculate the average maximum semantic simil
 
 Output:
 
-.. code:: txt
+.. code:: python
 
   0.4627295852212107
 
@@ -100,7 +100,7 @@ execute:
 
 Output:
 
-.. code:: txt
+.. code:: python
 
     1.3534853833420923
 
@@ -132,7 +132,7 @@ Now to calculate the similarity between *Optic nerve coloboma* and
 
 Output:
 
-.. code:: txt
+.. code:: python
 
     3.0512068305931033
 
@@ -163,7 +163,7 @@ execute:
 
 Output:
 
-.. code:: txt
+.. code:: python
 
     2.29931853312
 
@@ -193,7 +193,7 @@ limb* and *nervous system of left upper limb* execute:
 
 Output:
 
-.. code:: txt
+.. code:: python
 
     9.35897587112
 
@@ -225,6 +225,6 @@ Now to calculate the similarity between the nouns *ambulance* and
 
 Output:
 
-.. code:: txt
+.. code:: python
 
     6.33108580921
