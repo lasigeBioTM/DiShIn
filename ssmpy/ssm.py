@@ -30,18 +30,68 @@ mica = False
 
 
 def semantic_base(sb_file, **kwargs):
+    """Initialize global connection object.
+    
+    You can also pass other arguments to be given to the sqlite3.connect method, for example ``check_same_thread``.
+    After this method is called, the other methods will be applied to the semantic base.
 
+    :param sb_file: sqlite database filename
+    :type sb_file: string
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+
+    """
     global connection
 
     connection = sqlite3.connect(sb_file, **kwargs)
 
 
 def run_query(query, params):
+    """Run any query on the semantic base.
+
+    :param query: query to run on the semantic base
+    :type query: string
+    :param params: query parameters
+    :type params: tuple
+    :returns: query result
+    :rtype: sqlite3.Cursor
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> query = "SELECT id FROM entry WHERE name = ?"
+        >>> ssmpy.run_query(query, ("gold",)).fetchone()
+        (3,)
+    """
     rows = connection.execute(query, params)
     return rows
 
 
 def get_id(name):
+    """Get semantic base ID of ontolgy concept by its original label (name).
+    
+    :param name: ontology label (depends on the ontolgy)
+    :type name: string
+    :return: semantic base ID or -1 if not found
+    :rtype: int
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> ssmpy.get_id("gold")
+        3
+    """
 
     rows = connection.execute(
         """
@@ -62,6 +112,22 @@ def get_id(name):
 
 
 def get_name(cid):
+    """Get ontology label (name) for a given semantic base ID.
+
+    :param cid: semantic base ID
+    :type cid: int
+    :return: ontology label (name)
+    :rtype: string
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> ssmpy.get_name(3)
+        'gold'
+    """
 
     rows = connection.execute(
         """
@@ -81,7 +147,25 @@ def get_name(cid):
     return iden
 
 
-def get_ancestors(entry1):
+def get_ancestors(entry):
+    """Get ancestors of a given semantic base entry
+
+    :param entry: semantic base ID
+    :type entry: int
+    :return: List of ancestors
+    :rtype: list
+
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> gold = ssmpy.get_id("gold")
+        >>> ssmpy.get_ancestors(gold)
+        [3, 6, 2, 10]
+    """
     ancestors = []
 
     rows = connection.execute(
@@ -92,7 +176,7 @@ def get_ancestors(entry1):
         AND e.id=t1.entry2
         ORDER BY e.freq
         """,
-        (entry1,),
+        (entry,),
     )
 
     for row in rows:
@@ -101,6 +185,27 @@ def get_ancestors(entry1):
 
 
 def common_ancestors(entry1, entry2):
+    """Get common ancestors between two semantic base entries
+
+    :param entry1: first semantic base ID
+    :type entry1: int
+    :param entry1: second semantic base ID
+    :type entry1: int
+    :return: List of common ancestors
+    :rtype: list
+
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> gold = ssmpy.get_id("gold")
+        >>> silver = ssmpy.get_id("silver")
+        >>> ssmpy.common_ancestors(gold, silver)
+        [6, 2, 10]
+    """
 
     ancestors = []
 
@@ -121,7 +226,28 @@ def common_ancestors(entry1, entry2):
 
 
 def information_content_extrinsic(entry):
-    # print entry
+    """Get the extrinsic information content of a semantic base entry.
+
+    The values are precomputated at the time of creation of the semantic base according to
+    the annotations file provided.
+
+    
+    :param entry: semantic base ID
+    :type entry: int
+    :return: extrinsic information content
+    :rtype: list
+
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> gold = ssmpy.get_id("gold")
+        >>> ssmpy.information_content_extrinsic(gold)
+        1.2992829841302609
+    """
     rows = connection.execute(
         """
         SELECT e.freq

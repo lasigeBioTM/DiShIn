@@ -21,6 +21,7 @@ from .ssm import (
 
 name = "ssmpy"
 __all__ = [
+    "semantic_base",
     "create_semantic_base",
     "get_uniprot_annotations",
     "ssm_multiple",

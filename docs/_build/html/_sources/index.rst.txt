@@ -18,6 +18,7 @@ This software package provides the basic functions to start using semantic simil
    getting_started.rst
    other_examples.rst
    data_sources.rst
+   api.rst
 
 
 Reference:

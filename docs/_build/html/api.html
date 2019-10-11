@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API &mdash; DiShIn  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Data Sources" href="data_sources.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> DiShIn
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_examples.html">Other Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DiShIn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ssmpy">
+<span id="api"></span><h1>API<a class="headerlink" href="#module-ssmpy" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ssmpy.semantic_base">
+<code class="sig-prename descclassname">ssmpy.</code><code class="sig-name descname">semantic_base</code><span class="sig-paren">(</span><em class="sig-param">sb_file</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.semantic_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize global connection object.</p>
+<p>You can also pass other arguments to be given to the sqlite3.connect method, for example <code class="docutils literal notranslate"><span class="pre">check_same_thread</span></code>.
+After this method is called, the other methods will be applied to the semantic base.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sb_file</strong> (<em>string</em>) – sqlite database filename</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.get_id">
+<code class="sig-prename descclassname">ssmpy.</code><code class="sig-name descname">get_id</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get semantic base ID of ontolgy concept by its original label (name).</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>string</em>) – ontology label (depends on the ontolgy)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>semantic base ID or -1 if not found</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.run_query">
+<code class="sig-prename descclassname">ssmpy.</code><code class="sig-name descname">run_query</code><span class="sig-paren">(</span><em class="sig-param">query</em>, <em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.run_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run any query on the semantic base.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>string</em>) – query to run on the semantic base</p></li>
+<li><p><strong>params</strong> (<em>tuple</em>) – query parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>query result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>sqlite3.Cursor</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT id FROM entry WHERE name = ?&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">run_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">,))</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+<span class="go">(3,)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.get_name">
+<code class="sig-prename descclassname">ssmpy.</code><code class="sig-name descname">get_name</code><span class="sig-paren">(</span><em class="sig-param">cid</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ontology label (name) for a given semantic base ID.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cid</strong> (<em>int</em>) – semantic base ID</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>ontology label (name)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">get_name</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">&#39;gold&#39;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.common_ancestors">
+<code class="sig-prename descclassname">ssmpy.</code><code class="sig-name descname">common_ancestors</code><span class="sig-paren">(</span><em class="sig-param">entry1</em>, <em class="sig-param">entry2</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.common_ancestors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get common ancestors between two semantic base entries</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entry1</strong> (<em>int</em>) – first semantic base ID</p></li>
+<li><p><strong>entry1</strong> – second semantic base ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of common ancestors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">silver</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">common_ancestors</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">silver</span><span class="p">)</span>
+<span class="go">[6, 2, 10]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.information_content_extrinsic">
+<code class="sig-prename descclassname">ssmpy.</code><code class="sig-name descname">information_content_extrinsic</code><span class="sig-paren">(</span><em class="sig-param">entry</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.information_content_extrinsic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the extrinsic information content of a semantic base entry.</p>
+<p>The values are precomputated at the time of creation of the semantic base according to
+the annotations file provided.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>entry</strong> (<em>int</em>) – semantic base ID</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>extrinsic information content</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">information_content_extrinsic</span><span class="p">(</span><span class="n">gold</span><span class="p">)</span>
+<span class="go">1.2992829841302609</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.get_ancestors">
+<code class="sig-prename descclassname">ssmpy.</code><code class="sig-name descname">get_ancestors</code><span class="sig-paren">(</span><em class="sig-param">entry</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_ancestors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ancestors of a given semantic base entry</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>entry</strong> (<em>int</em>) – semantic base ID</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of ancestors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">get_ancestors</span><span class="p">(</span><span class="n">gold</span><span class="p">)</span>
+<span class="go">[3, 6, 2, 10]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="data_sources.html" class="btn btn-neutral float-left" title="Data Sources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, F. Couto and A. Lamurias
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
