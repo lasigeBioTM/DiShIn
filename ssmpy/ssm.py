@@ -419,8 +419,7 @@ def shared_ic_dca(entry1, entry2):
 
 
 def shared_ic_mica(entry1, entry2):
-    """Calculate the shared information content of two concepts using the most 
-        informative common ancestor.
+    """Calculate the shared information content of two concepts using the most informative common ancestor.
 
     :param entry1: First concept
     :type entry1: int
@@ -455,8 +454,7 @@ shared_ic_cache = {}
 
 
 def shared_ic(entry1, entry2):
-    """Calculate the shared information content of two concepts according to the 
-        value of ssmpy.ssm.mica
+    """Calculate the shared information content of two concepts according to the value of ssmpy.ssm.mica
 
     Previously computed values are stored in memory for faster computation.
 

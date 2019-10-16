@@ -14,9 +14,14 @@ from .ssm import (
     run_query,
     get_name,
     common_ancestors,
+    information_content,
     information_content_intrinsic,
     information_content_extrinsic,
     get_ancestors,
+    num_paths,
+    shared_ic_dca,
+    shared_ic_mica,
+    shared_ic,
 )
 
 name = "ssmpy"
@@ -34,7 +39,12 @@ __all__ = [
     "run_query",
     "get_name",
     "common_ancestors",
+    "information_content",
     "information_content_intrinsic",
     "information_content_extrinsic",
     "get_ancestors",
+    "num_paths",
+    "shared_ic_dca",
+    "shared_ic_mica",
+    "shared_ic",
 ]

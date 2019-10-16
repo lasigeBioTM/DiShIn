@@ -3,6 +3,7 @@
 This software package provides the basic functions to start using semantic similarity measures directly from a rdf or owl file. 
 
 A web tool using this package is available at: http://labs.fc.ul.pt/dishin/
+Documentation: https://dishin.readthedocs.io/en/latest/
 
 ### INSTALLATION
 
@@ -14,16 +15,20 @@ pip install ssmpy
 
 ## USAGE: 
 
+You can use DiShIn as a command line tool with the dishin.py script of this repository:
+
 ```shell
 python dishin.py <semanticbase>.db <term1> <term2>
 python dishin.py <semanticbase>.[owl|rdf] <semanticbase>.db <name_prefix> <relation> <annotation_file>
 ```
-or use the python functions directly
+
+or use the python functions directly:
 
 ```python
 >>> import ssmpy
 ```
 
+You can find more usage examples at https://dishin.readthedocs.io/en/latest/other_examples.html.
 
 ### Metals Example
 
