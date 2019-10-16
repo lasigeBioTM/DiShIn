@@ -1,5 +1,7 @@
 # DiShIn: Semantic Similarity Measures using Disjunctive Shared Information
 
+[![Downloads](https://pepy.tech/badge/ssmpy)](https://pepy.tech/project/ssmpy)
+
 This software package provides the basic functions to start using semantic similarity measures directly from a rdf or owl file. 
 
 A web tool using this package is available at: http://labs.fc.ul.pt/dishin/
