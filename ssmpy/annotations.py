@@ -35,6 +35,24 @@ else:
 
 
 def get_uniprot_annotations(protein_acc):
+    """Retrieve GO annotations for a UniProt ID using UniProt API
+    
+    :param protein_acc: UniProt protein ID
+    :type protein_acc: string
+    :return: list of GO terms
+    :rtype: list
+
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("http://labs.rd.ciencias.ulisboa.pt/dishin/go.db", "go.db")[0]
+        'go.db'
+        >>> ssmpy.semantic_base("go.db")
+        >>> l = sorted(ssmpy.get_uniprot_annotations("Q12345"))
+        >>> l
+        [1746, 9044, 17053, 21566, 24341, 57621, 95359]
+    """
 
     url = "http://www.uniprot.org/uniprot/" + protein_acc + ".txt"
 

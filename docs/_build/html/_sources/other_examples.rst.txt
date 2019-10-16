@@ -31,7 +31,7 @@ Next create the semantic base:
 
 .. code-block:: python
 
-    ssmpy.create_semantic_base("go.owl", "go.db", "http://purl.obolibrary.org/obo/", "http://www.w3.org/2000/01/rdf-schema#subClassOf", "goa_uniprot_all_noiea.gaf
+    ssmpy.create_semantic_base("go.owl", "go.db", "http://purl.obolibrary.org/obo/", "http://www.w3.org/2000/01/rdf-schema#subClassOf", "goa_uniprot_all_noiea.gaf)
 
 This is stored in the form of a sqlite database on the same directory of your project.
 

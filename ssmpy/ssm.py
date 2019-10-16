@@ -235,7 +235,7 @@ def information_content_extrinsic(entry):
     :param entry: semantic base ID
     :type entry: int
     :return: extrinsic information content
-    :rtype: list
+    :rtype: float
 
 
     :Example:
@@ -271,6 +271,25 @@ def information_content_extrinsic(entry):
 
 
 def information_content_intrinsic(entry):
+    """Get the intrinsic information content of a semantic base entry.
+
+    
+    :param entry: semantic base ID
+    :type entry: int
+    :return: intrinsic information content
+    :rtype: float
+
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> gold = ssmpy.get_id("gold")
+        >>> ssmpy.information_content_intrinsic(gold)
+        1.5040773967762742
+    """
 
     # print entry
     rows = connection.execute(
@@ -296,6 +315,27 @@ def information_content_intrinsic(entry):
 
 
 def information_content(entry):
+    """Get information content of a semantic base entry according to intrinsic.
+
+    
+    :param entry: semantic base ID
+    :type entry: int
+    :return: information content
+    :rtype: float
+
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> gold = ssmpy.get_id("gold")
+        >>> ssmpy.ssm.intrinsic = True
+        >>> ssmpy.information_content(gold)
+        1.5040773967762742
+    """
+
     if intrinsic:
         return information_content_intrinsic(entry)
     else:
@@ -303,6 +343,26 @@ def information_content(entry):
 
 
 def num_paths(entry1, ancestor):
+    """Get number of paths (edges) between two concepts.
+
+    :param entry1: Child concept
+    :type entry1: int
+    :param ancestor: Parent concept
+    :type ancestor: int
+    :return: number of edges between the two concepts
+    :rtype: int
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> gold = ssmpy.get_id("gold")
+        >>> metal = ssmpy.get_id("metal")
+        >>> ssmpy.num_paths(gold, metal)
+        5
+    """
 
     rows = connection.execute(
         """
@@ -313,12 +373,32 @@ def num_paths(entry1, ancestor):
         (entry1, ancestor),
     )
 
-    npaths = rows.fetchone()[0] + 1.0
+    npaths = rows.fetchone()[0] + 1
 
     return npaths
 
 
 def shared_ic_dca(entry1, entry2):
+    """Calculate the shared information content of two concepts using disjunctive common ancestors.
+
+    :param entry1: First concept
+    :type entry1: int
+    :param ancestor: Second concept
+    :type ancestor: int
+    :return: Shared information content
+    :rtype: float
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> gold = ssmpy.get_id("gold")
+        >>> silver = ssmpy.get_id("silver")
+        >>> ssmpy.shared_ic_dca(gold, silver)
+        0.587786664902119
+    """
 
     ancestors = common_ancestors(entry1, entry2)
     dca = {}
@@ -331,7 +411,7 @@ def shared_ic_dca(entry1, entry2):
     values = dca.values()
 
     if len(values) > 0:
-        ret = float(sum(values)) / float(len(values))
+        ret = sum(values) / len(values)
     else:
         ret = 0
 
@@ -339,6 +419,27 @@ def shared_ic_dca(entry1, entry2):
 
 
 def shared_ic_mica(entry1, entry2):
+    """Calculate the shared information content of two concepts using the most 
+        informative common ancestor.
+
+    :param entry1: First concept
+    :type entry1: int
+    :param ancestor: Second concept
+    :type ancestor: int
+    :return: Shared information content
+    :rtype: float
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> gold = ssmpy.get_id("gold")
+        >>> silver = ssmpy.get_id("silver")
+        >>> ssmpy.shared_ic_mica(gold, silver)
+        0.587786664902119
+    """
 
     ic = 0
 
@@ -354,6 +455,30 @@ shared_ic_cache = {}
 
 
 def shared_ic(entry1, entry2):
+    """Calculate the shared information content of two concepts according to the 
+        value of ssmpy.ssm.mica
+
+    Previously computed values are stored in memory for faster computation.
+
+    :param entry1: First concept
+    :type entry1: int
+    :param ancestor: Second concept
+    :type ancestor: int
+    :return: Shared information content
+    :rtype: float
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> gold = ssmpy.get_id("gold")
+        >>> silver = ssmpy.get_id("silver")
+        >>> ssmpy.ssm.mica = True
+        >>> ssmpy.shared_ic(gold, silver)
+        0.587786664902119
+    """
 
     value = 0
     key_cache = (
@@ -378,11 +503,51 @@ def shared_ic(entry1, entry2):
 
 
 def ssm_resnik(entry1, entry2):
+    """Calculate Resnik's semantic similarity.
+
+    :param entry1: First concept
+    :type entry1: int
+    :param ancestor: Second concept
+    :type ancestor: int
+    :return: Semantic similarity
+    :rtype: float
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> gold = ssmpy.get_id("gold")
+        >>> silver = ssmpy.get_id("silver")
+        >>> ssmpy.ssm_resnik(gold, silver)
+        0.587786664902119
+    """
 
     return abs(shared_ic(entry1, entry2))
 
 
 def ssm_lin(entry1, entry2):
+    """Calculate Lin's semantic similarity.
+
+    :param entry1: First concept
+    :type entry1: int
+    :param ancestor: Second concept
+    :type ancestor: int
+    :return: Semantic similarity
+    :rtype: float
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> gold = ssmpy.get_id("gold")
+        >>> silver = ssmpy.get_id("silver")
+        >>> ssmpy.ssm_lin(gold, silver)
+        0.39079549108439265
+    """
     aux = information_content(entry1) + information_content(entry2)
 
     if aux > 0:
@@ -392,6 +557,26 @@ def ssm_lin(entry1, entry2):
 
 
 def ssm_jiang_conrath(entry1, entry2):
+    """Calculate JC's semantic similarity.
+
+    :param entry1: First concept
+    :type entry1: int
+    :param ancestor: Second concept
+    :type ancestor: int
+    :return: Semantic similarity
+    :rtype: float
+
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+        'metals.db'
+        >>> ssmpy.semantic_base("metals.db")
+        >>> gold = ssmpy.get_id("gold")
+        >>> silver = ssmpy.get_id("silver")
+        >>> ssmpy.ssm_jiang_conrath(gold, silver)
+        0.5456783339686456
+    """
 
     distance = (
         information_content(entry1)
@@ -405,7 +590,25 @@ def ssm_jiang_conrath(entry1, entry2):
 
 
 def ssm_multiple(m, entry1_list, entry2_list):
+    """Calculate semantic similarity over two lists of concepts.
+    
+    :param m: semantic similarity function
+    :param entry1_list: First concept list
+    :param entry2_list: Second concept list
+    :return: Aggregate Similarity Measure
+    :rtype: float
 
+    :Example:
+        >>> import ssmpy
+        >>> import urllib.request
+        >>> urllib.request.urlretrieve("http://labs.rd.ciencias.ulisboa.pt/dishin/go.db", "go.db")[0]
+        'go.db'
+        >>> ssmpy.semantic_base("go.db")
+        >>> e1 = ssmpy.get_uniprot_annotations("Q12345")
+        >>> e2 = ssmpy.get_uniprot_annotations("Q12346")
+        >>> ssmpy.ssm_multiple(ssmpy.ssm_resnik, e1, e2)
+        1.653493583942882
+    """
     results = []
     for entry1 in entry1_list:
         results_entry1 = []
