@@ -13,7 +13,7 @@ Either clone this repository or install from pypi:
 ```
 pip install ssmpy
 ```
-=======
+
 ## Reference: 
 
 - F. Couto and A. Lamurias, “Semantic similarity definition,” in Encyclopedia of Bioinformatics and Computational Biology (S. Ranganathan, K. Nakai, C. Schönbach, and M. Gribskov, eds.), vol. 1, pp. 870–876, Oxford: Elsevier, 2019
@@ -307,11 +307,11 @@ python dishin.py wordnet-hyponym.rdf wordnet.db http://www.w3.org/2006/03/wn/wn2
 ```
 ## Source Code 
 
-- semanticbase.py : provides a function to produce the semantic-base as a SQLite database 
+- ssmpy/semanticbase.py : provides a function to produce the semantic-base as a SQLite database 
 
-- ssm.py : provides the functions to calculate semantic similarity based on the SQLite database
+- ssmpy/ssm.py : provides the functions to calculate semantic similarity based on the SQLite database
 
-- annotations.py :  provides the functions to get the annotations for the given proteins 
+- ssmpy/annotations.py :  provides the functions to get the annotations for the given proteins 
 
 - dishin.py :  executes the functions according to the input given
 
