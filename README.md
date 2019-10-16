@@ -3,7 +3,8 @@
 This software package provides the basic functions to start using semantic similarity measures directly from a rdf or owl file. 
 
 A web tool using this package is available at: http://labs.fc.ul.pt/dishin/
-Documentation: https://dishin.readthedocs.io/en/latest/
+
+Package documentation: https://dishin.readthedocs.io/en/latest/
 
 ### INSTALLATION
 

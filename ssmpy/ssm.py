@@ -599,8 +599,13 @@ def ssm_multiple(m, entry1_list, entry2_list):
     :Example:
         >>> import ssmpy
         >>> import urllib.request
-        >>> urllib.request.urlretrieve("http://labs.rd.ciencias.ulisboa.pt/dishin/go.db", "go.db")[0]
-        'go.db'
+        >>> import gzip
+        >>> import shutil
+        >>> urllib.request.urlretrieve("http://labs.rd.ciencias.ulisboa.pt/dishin/go201907.db.gz", "go.db.gz")[0]
+        'go.db.gz'
+        >>> with gzip.open('go.db.gz', 'rb') as f_in:
+        ...     with open('go.db', 'wb') as f_out:
+        ...        shutil.copyfileobj(f_in, f_out)
         >>> ssmpy.semantic_base("go.db")
         >>> e1 = ssmpy.get_uniprot_annotations("Q12345")
         >>> e2 = ssmpy.get_uniprot_annotations("Q12346")
