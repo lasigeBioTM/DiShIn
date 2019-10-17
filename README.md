@@ -8,6 +8,12 @@ A web tool using this package is available at: http://labs.fc.ul.pt/dishin/
 
 Package documentation: https://dishin.readthedocs.io/en/latest/
 
+## Reference: 
+
+- F. Couto and A. Lamurias, “Semantic similarity definition,” in Encyclopedia of Bioinformatics and Computational Biology (S. Ranganathan, K. Nakai, C. Schönbach, and M. Gribskov, eds.), vol. 1, pp. 870–876, Oxford: Elsevier, 2019
+[https://doi.org/10.1016/B978-0-12-809633-8.20401-9]
+[https://www.researchgate.net/publication/323219905_Semantic_Similarity_Definition]
+
 ### INSTALLATION
 
 Either clone this repository or install from pypi:
@@ -15,12 +21,6 @@ Either clone this repository or install from pypi:
 ```
 pip install ssmpy
 ```
-
-## Reference: 
-
-- F. Couto and A. Lamurias, “Semantic similarity definition,” in Encyclopedia of Bioinformatics and Computational Biology (S. Ranganathan, K. Nakai, C. Schönbach, and M. Gribskov, eds.), vol. 1, pp. 870–876, Oxford: Elsevier, 2019
-[https://doi.org/10.1016/B978-0-12-809633-8.20401-9]
-[https://www.researchgate.net/publication/323219905_Semantic_Similarity_Definition]
 
 ## USAGE: 
 
