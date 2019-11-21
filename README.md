@@ -255,7 +255,7 @@ python dishin.py doid.owl doid.db http://purl.obolibrary.org/obo/ http://www.w3.
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/mesh201911.db
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/mesh201911.db.gz
 gunzip -N mesh201911.db.gz
 ```
 
