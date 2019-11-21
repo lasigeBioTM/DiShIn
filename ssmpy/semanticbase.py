@@ -140,8 +140,13 @@ def create(owl_file, sb_file, name_prefix, relation, annotation_file=""):
     # loading the ontology
     print("loading the ontology " + owl_file)
     g = rdflib.Graph()
-    g.load(owl_file)
 
+    if owl_file.endswith("nt"):
+        g.load(owl_file, format="nt")
+    else:
+        g.load(owl_file)
+
+    
     for s, p, o in g:
         if str(p) == relation:
             s = str(s)

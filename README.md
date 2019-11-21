@@ -251,6 +251,36 @@ And then create the new database:
 python dishin.py doid.owl doid.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
 ```
 
+###  Medical Subject Headings (MeSH) Example
+
+Download the lastest version of the database we created:
+```shell
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/mesh201911.db
+gunzip -N mesh201911.db.gz
+```
+
+Now to calculate the similarity between _Malignant Hyperthermia_ and _Fever_ execute:
+```shell
+python dishin.py mesh.db D008305 D005334
+```
+
+Output:
+```txt
+Resnik 	 MICA 	 intrinsic 	1.33556794556
+Lin 	 MICA 	 intrinsic 	0.18486943136
+JC 	 MICA 	 intrinsic 	0.0849066961975
+```
+
+To create an updated version of the database, download the _NT_ version from ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz and unzip it:
+```shell
+wget ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz
+gunzip mesh.nt.gz
+```
+And then create the new database:
+```shell
+python dishin.py mesh.nt mesh.db http://id.nlm.nih.gov/mesh/ http://id.nlm.nih.gov/mesh/vocab#broaderDescriptor ''
+```
+
 ###  Radiology Lexicon (RadLex) Example
 
 Download the lastest version of the database we created:
