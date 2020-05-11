@@ -95,8 +95,8 @@ Using the python function directly (first download metals.db and metals.txt from
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/go201907.db.gz
-gunzip -N go201907.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/go202005.db.gz
+gunzip -N go202005.db.gz
 ```
 
 Now to calculate the similarity between _maltose biosynthetic process_ and _maltose catabolic process_ execute:
@@ -158,8 +158,8 @@ python dishin.py go.owl go.db http://purl.obolibrary.org/obo/ http://www.w3.org/
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/chebi201907.db.gz
-gunzip -N chebi201907.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/chebi202005.db.gz
+gunzip -N chebi202005.db.gz
 ```
 
 Now to calculate the similarity between _aripiprazole_ and _bithionol_ execute:
@@ -190,8 +190,8 @@ python dishin.py chebi_lite.owl chebi.db http://purl.obolibrary.org/obo/ http://
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/hp201907.db.gz
-gunzip -N hp201907.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/hp202005.db.gz
+gunzip -N hp202005.db.gz
 ```
 
 Now to calculate the similarity between _Optic nerve coloboma_ and _Optic nerve dysplasia_ execute:
@@ -223,8 +223,8 @@ python dishin.py hp.owl hp.db http://purl.obolibrary.org/obo/ http://www.w3.org/
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/doid201907.db.gz
-gunzip -N doid201907.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/doid202005.db.gz
+gunzip -N doid202005.db.gz
 ```
 
 Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
@@ -285,8 +285,8 @@ python dishin.py mesh.nt mesh.db http://id.nlm.nih.gov/mesh/ http://id.nlm.nih.g
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/radlex201907.db.gz
-gunzip -N radlex201907.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/radlex202005.db.gz
+gunzip -N radlex202005.db.gz
 ```
 
 Now to calculate the similarity between _nervous system of right upper limb_ and _nervous system of left upper limb_ execute:
@@ -312,8 +312,8 @@ python dishin.py radlex.rdf radlex.db http://radlex.org/RID/ http://www.w3.org/2
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet201907.db.gz
-gunzip wordnet201907.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet202005.db.gz
+gunzip wordnet202005.db.gz
 ```
 
 Now to calculate the similarity between the nouns _ambulance_ and _motorcycle_ execute:
