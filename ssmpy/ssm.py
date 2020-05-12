@@ -24,6 +24,10 @@
 
 import sqlite3
 import math
+from ssmpy.metrics import *
+from ssmpy.data import *
+from ssmpy.calculations import *
+import multiprocessing as mp
 
 intrinsic = False
 mica = False
@@ -582,7 +586,7 @@ def ssm_jiang_conrath(entry1, entry2):
         - 2 * shared_ic(entry1, entry2)
     )
     if distance > 0:
-        return 1 / distance
+        return 1 / (distance+1)
     else:
         return 1.0
 
@@ -623,3 +627,190 @@ def ssm_multiple(m, entry1_list, entry2_list):
     # average of all values for all entries
     avg = sum(results) / float(len(results))
     return avg
+
+
+def light_similarity(conn, entry_ids_1, entry_ids_2, metric, cpu_cores):
+    """
+    main function
+    :param conn: db_connection
+    :param entry_ids_1: list of entries 1
+    :param entry_ids_2: list of entries 2
+    :param cpu_cores: number of cores to be used
+    :param metric: 'lin', 'resnick', 'jc' or 'all'
+    :return: list with results ([e1, e2, similarity] or [e1, e2, similarity resnik, similarity lin, similarity jc])
+
+    :Example:
+    >>> import ssmpy
+    >>> ssmpy.create_semantic_base('doid.owl', 'doid.db', "http://purl.obolibrary.org/obo/", "http://www.w3.org/2000/01/rdf-schema#subClassOf", "")
+    >>> conn = ssmpy.create_connection('doid.db')
+    >>> list1 = ['DOID_10587', 'DOID_2841']
+    >>> list2 = ['DOID_1927', 'DOID_1324']
+    >>> ssmpy.light_similarity(conn, list1, list2, 'all', 4)
+    [[['DOID_10587', 'DOID_1324', -0.0, -0.0, 0.068819810490695],
+    ['DOID_10587', 'DOID_1927', 5.937536205082426, 0.8269561090992177, 0.28695173228265203]],
+    [['DOID_2841', 'DOID_1324', 3.703943983575332, 0.659762410973656, 0.20745912457314464],
+    ['DOID_2841', 'DOID_1927', -0.0, -0.0, 0.07658496040867407]]]
+
+    """
+
+    results = []
+
+    # concatenate both list of entries
+    entry_ids = np.unique(np.array(entry_ids_1 + entry_ids_2)).tolist()
+
+    df_entry = db_select_entry(conn, entry_ids)
+
+    # ids for each name in both lists
+    ids_list = df_entry.id.values.flatten()
+
+    # ids for each list
+    ids_list_1 = df_entry[df_entry.name.isin(entry_ids_1)].id.values.flatten()
+    ids_list_2 = df_entry[df_entry.name.isin(entry_ids_2)].id.values.flatten()
+
+    if np.array_equal(ids_list_1, ids_list_2):
+
+        # get all the ancestors for test_ids in transitive table
+        all_ancestors = db_select_transitive(conn, ids_list)
+
+        # get all ancestors in entry table
+        df_entry_ancestors = db_select_entry_by_id(conn, all_ancestors.entry2.values.flatten())
+
+        # get max freq used for calculating the Information Content (IC)
+        max_freq = get_max_dest(conn)
+
+        # calculates Ic for original IDs
+        df_entry_ic = calculate_information_content_intrinsic(df_entry, max_freq)
+
+        # calculates IC for all ancestors
+        df_entry_ancestors = calculate_information_content_intrinsic(df_entry_ancestors, max_freq)
+
+        if metric == 'resnik':
+
+            for it1 in ids_list_1:
+                pool = mp.Pool(cpu_cores)
+                results.append(pool.starmap(fast_resnik,
+                                            [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in
+                                             ids_list_1]))
+
+                pool.close()
+
+                mask = np.where(ids_list_1 == it1)
+                ids_list_1 = np.delete(ids_list_1, mask)
+
+        elif metric == 'lin':
+            count = 0
+            for it1 in ids_list_1:
+                print(count, ..., len(ids_list_1))
+                count += 1
+
+                pool = mp.Pool(cpu_cores)
+                results.append(pool.starmap(fast_lin,
+                                            [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in
+                                             ids_list_1]))
+
+                pool.close()
+
+                mask = np.where(ids_list_1 == it1)
+                ids_list_1 = np.delete(ids_list_1, mask)
+
+        elif metric == 'jc':
+
+            for it1 in ids_list_1:
+                pool = mp.Pool(cpu_cores)
+                results.append(pool.starmap(fast_jc,
+                                            [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in
+                                             ids_list_1]))
+
+                pool.close()
+
+                mask = np.where(ids_list_1 == it1)
+                ids_list_1 = np.delete(ids_list_1, mask)
+
+
+        elif metric == 'all':
+
+            for it1 in ids_list_1:
+                pool = mp.Pool(cpu_cores)
+
+                results.append(pool.starmap(fast_resn_lin_jc,
+                                            [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in
+                                             ids_list_1]))
+
+                pool.close()
+                mask = np.where(ids_list_1 == it1)
+                ids_list_1 = np.delete(ids_list_1, mask)
+
+    else:
+
+        # get all the ancestors for test_ids in transitive table
+        all_ancestors = db_select_transitive(conn, ids_list)
+
+        # get all ancestors in entry table
+        df_entry_ancestors = db_select_entry_by_id(conn, all_ancestors.entry2.values.flatten())
+
+        # get max freq used for calculating the Information Content (IC)
+        max_freq = get_max_dest(conn)
+
+        # calculates Ic for original IDs
+        df_entry_ic = calculate_information_content_intrinsic(df_entry, max_freq)
+
+        # calculates IC for all ancestors
+        df_entry_ancestors = calculate_information_content_intrinsic(df_entry_ancestors, max_freq)
+
+        if metric == 'resnik':
+
+            for it1 in ids_list_1:
+                pool = mp.Pool(cpu_cores)
+                results.append(pool.starmap(fast_resnik,
+                                            [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in
+                                             ids_list_2]))
+
+                pool.close()
+
+                mask = np.where(ids_list_1 == it1)
+                ids_list_1 = np.delete(ids_list_1, mask)
+
+        elif metric == 'lin':
+            count = 0
+            for it1 in ids_list_1:
+                print(count, ..., len(ids_list_1))
+                count += 1
+
+                pool = mp.Pool(cpu_cores)
+                results.append(pool.starmap(fast_lin,
+                                            [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in
+                                             ids_list_2]))
+
+                pool.close()
+
+                mask = np.where(ids_list_1 == it1)
+                ids_list_1 = np.delete(ids_list_1, mask)
+
+        elif metric == 'jc':
+
+            for it1 in ids_list_1:
+                pool = mp.Pool(cpu_cores)
+                results.append(pool.starmap(fast_jc,
+                                            [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in
+                                             ids_list_2]))
+
+                pool.close()
+
+                mask = np.where(ids_list_1 == it1)
+                ids_list_1 = np.delete(ids_list_1, mask)
+
+
+        elif metric == 'all':
+
+            for it1 in ids_list_1:
+                pool = mp.Pool(cpu_cores)
+
+                results.append(pool.starmap(fast_resn_lin_jc,
+                                            [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in
+                                             ids_list_2]))
+
+                pool.close()
+                mask = np.where(ids_list_1 == it1)
+                ids_list_1 = np.delete(ids_list_1, mask)
+
+    return results
