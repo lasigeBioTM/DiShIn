@@ -1,0 +1,6 @@
+/usr/local/bin/csv2rdf
+/usr/local/bin/rdf2dot
+/usr/local/bin/rdfgraphisomorphism
+/usr/local/bin/rdfpipe
+/usr/local/bin/rdfs2dot
+/usr/local/lib/python3.7/dist-packages/ssmpy-0.2.3-py3.7.egg
