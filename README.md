@@ -22,6 +22,22 @@ Either clone this repository or install from pypi:
 pip install ssmpy
 ```
 
+If you use it from the shell, you need to install python3 rdflib and pandas:
+```shell
+sudo apt-get update
+sudo apt-get install python3 python3-rdflib python3-pandas
+git clone https://github.com/lasigeBioTM/DiShIn.git
+cd DiShIn
+```
+
+If you just have python2 or you cannot install packages,
+then create and use a lighter version of DiShIn (dishinli.py):  
+```shell
+sed 's/import ssmpy/import ssmli/; s/ssmpy\.ssm\./ssmli./; s/ssmpy\./ssmli./' < dishin.py > dishinli.py
+sed 's/from ssmpy./# from ssmpy./; s/\.\.\./"..."/' < ssmpy/ssm.py > ssmli.py
+```
+
+
 ## USAGE: 
 
 You can use DiShIn as a command line tool with the dishin.py script of this repository:
@@ -38,6 +54,7 @@ or use the python functions directly:
 ```
 
 You can find more usage examples at https://dishin.readthedocs.io/en/latest/other_examples.html.
+
 
 ### Metals Example
 
