@@ -22,10 +22,14 @@ Either clone this repository or install from pypi:
 pip install ssmpy
 ```
 
-If you use it from the shell, you need to install python3 rdflib and pandas:
+If you use it from the shell, you need to install python3, rdflib and pandas:
 ```shell
 sudo apt-get update
 sudo apt-get install python3 python3-rdflib python3-pandas
+```
+
+and then clone and enter the folder:
+```shell
 git clone https://github.com/lasigeBioTM/DiShIn.git
 cd DiShIn
 ```
