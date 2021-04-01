@@ -38,9 +38,10 @@ If you just have python2 or you cannot install packages,
 then create and use a lighter version of DiShIn (dishinli.py):  
 ```shell
 sed 's/import ssmpy/import ssmli/; s/ssmpy\.ssm\./ssmli./; s/ssmpy\./ssmli./' < dishin.py > dishinli.py
-sed 's/from ssmpy./# from ssmpy./; s/\.\.\./"..."/' < ssmpy/ssm.py > ssmli.py
+sed 's/from ssmpy./# from ssmpy./' < ssmpy/ssm.py > ssmli.py
 ```
 Note, this version cannot create new databases, only calculate similarities.
+For the following examples replace dishin.py by dishinli.py.
 
 ## USAGE: 
 
