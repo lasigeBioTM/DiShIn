@@ -117,8 +117,8 @@ Using the python function directly (first download metals.db and metals.txt from
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/go202005.db.gz
-gunzip -N go202005.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/go202104.db.gz
+gunzip -N go202104.db.gz
 ```
 
 Now to calculate the similarity between _maltose biosynthetic process_ and _maltose catabolic process_ execute:
@@ -128,18 +128,18 @@ python dishin.py go.db GO_0000023 GO_0000025
 
 Output:
 ```txt
-Resnik     DiShIn    intrinsic          3.7851272458782113
-Resnik     MICA      intrinsic          8.911024218626034
-Lin        DiShIn    intrinsic          0.4088671082942098
-Lin        MICA      intrinsic          0.9625633347404052
-JC         DiShIn    intrinsic          0.09136641197816901
-JC         MICA      intrinsic          1.442695040888967
-Resnik     DiShIn    extrinsic          4.273448119532465
-Resnik     MICA      extrinsic          10.354796690276364
-Lin        DiShIn    extrinsic          0.3919119421698985
-Lin        MICA      extrinsic          0.9496239027945961
-JC         DiShIn    extrinsic          0.0754073347935026
-JC         MICA      extrinsic          0.9102392266268364
+Resnik     DiShIn    intrinsic          3.775439615001474
+Resnik     MICA      intrinsic          8.880063901891981
+Lin        DiShIn    intrinsic          0.4091891133909429
+Lin        MICA      intrinsic          0.9624377146523844
+JC         DiShIn    intrinsic          0.08401669887638269
+JC         MICA      intrinsic          0.5906161091496418
+Resnik     DiShIn    extrinsic          4.315813746201754
+Resnik     MICA      extrinsic          10.575802576015931
+Lin        DiShIn    extrinsic          0.38793452313030363
+Lin        MICA      extrinsic          0.950624649327762
+JC         DiShIn    extrinsic          0.06840605034663635
+JC         MICA      extrinsic          0.4765053580405049
 ```
 
 Now to calculate the similarity between proteins [Q12345](http://www.uniprot.org/uniprot/Q12345) and [Q12346](http://www.uniprot.org/uniprot/Q12346) execute:
@@ -150,18 +150,18 @@ python dishin.py go.db Q12345 Q12346
 
 Output:
 ```txt
-Resnik     DiShIn    intrinsic          1.3730675314939769
-Resnik     MICA      intrinsic          1.653493583942882
-Lin        DiShIn    intrinsic          0.16453282374961184
-Lin        MICA      intrinsic          0.19975479444590458
-JC         DiShIn    intrinsic          0.081825490673384
-JC         MICA      intrinsic          0.09503231097236876
-Resnik     DiShIn    extrinsic          0.9309878004221438
-Resnik     MICA      extrinsic          1.143670161919403
-Lin        DiShIn    extrinsic          0.15280642004118333
-Lin        MICA      extrinsic          0.19273825637513847
-JC         DiShIn    extrinsic          0.1013441951183969
-JC         MICA      extrinsic          0.11970943511723715
+Resnik     DiShIn    intrinsic          1.4462923030269426
+Resnik     MICA      intrinsic          1.4462923030269426
+Lin        DiShIn    intrinsic          0.18745282441602068
+Lin        MICA      intrinsic          0.18745282441602068
+JC         DiShIn    intrinsic          0.08633506268285998
+JC         MICA      intrinsic          0.08633506268285998
+Resnik     DiShIn    extrinsic          0.6015115682274214
+Resnik     MICA      extrinsic          0.6015115682274214
+Lin        DiShIn    extrinsic          0.12201023476842265
+Lin        MICA      extrinsic          0.12201023476842265
+JC         DiShIn    extrinsic          0.09317326288224918
+JC         MICA      extrinsic          0.09317326288224918
 ```
 
 To create an updated version of the database, download the ontology and annotations:
@@ -180,8 +180,8 @@ python dishin.py go.owl go.db http://purl.obolibrary.org/obo/ http://www.w3.org/
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/chebi202005.db.gz
-gunzip -N chebi202005.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/chebi202104.db.gz
+gunzip -N chebi202104.db.gz
 ```
 
 Now to calculate the similarity between _aripiprazole_ and _bithionol_ execute:
@@ -191,12 +191,12 @@ python dishin.py chebi.db CHEBI_31236 CHEBI_3131
 
 Output:
 ```txt
-Resnik     DiShIn    intrinsic          1.3532341094444025
-Resnik     MICA      intrinsic          5.3808132551673
-Lin        DiShIn    intrinsic          0.12372266288871554
-Lin        MICA      intrinsic          0.49195371280548356
-JC         DiShIn    intrinsic          0.05216806727627202
-JC         MICA      intrinsic          0.08997939012118301
+Resnik     DiShIn    intrinsic          1.4393842298350599
+Resnik     MICA      intrinsic          5.5106315826160674
+Lin        DiShIn    intrinsic          0.12935491517581163
+Lin        MICA      intrinsic          0.4952307147453835
+JC         DiShIn    intrinsic          0.049077257018319796
+JC         MICA      intrinsic          0.0817424736051902
 ```
 To create an updated version of the database, download the ontology:
 ```shell
@@ -212,8 +212,8 @@ python dishin.py chebi_lite.owl chebi.db http://purl.obolibrary.org/obo/ http://
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/hp202005.db.gz
-gunzip -N hp202005.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/hp202104.db.gz
+gunzip -N hp202104.db.gz
 ```
 
 Now to calculate the similarity between _Optic nerve coloboma_ and _Optic nerve dysplasia_ execute:
@@ -223,12 +223,12 @@ python dishin.py hp.db HP_0000588 HP_0001093
 
 Output:
 ```txt
-Resnik     DiShIn    intrinsic          4.514739038358012
-Resnik     MICA      intrinsic          5.917583373691076
-Lin        DiShIn    intrinsic          0.5079590611976912
-Lin        MICA      intrinsic          0.665794870870856
-JC         DiShIn    intrinsic          0.11433121677975834
-JC         MICA      intrinsic          0.16832667824491762
+Resnik     DiShIn    intrinsic          4.593979372426621
+Resnik     MICA      intrinsic          6.005278943833842
+Lin        DiShIn    intrinsic          0.5118244533189668
+Lin        MICA      intrinsic          0.6690601683812312
+JC         DiShIn    intrinsic          0.10242304162282165
+JC         MICA      intrinsic          0.14407501033681872
 ```
 
 To create an updated version of the database, download the ontology:
@@ -245,8 +245,8 @@ python dishin.py hp.owl hp.db http://purl.obolibrary.org/obo/ http://www.w3.org/
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/doid202005.db.gz
-gunzip -N doid202005.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/doid202104.db.gz
+gunzip -N doid202104.db.gz
 ```
 
 Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
@@ -256,12 +256,12 @@ python dishin.py doid.db DOID_2841 DOID_1324
 
 Output:
 ```txt
-Resnik     DiShIn    intrinsic          2.316903156622129
-Resnik     MICA      intrinsic          3.730767546816189
-Lin        DiShIn    intrinsic          0.40974430023007496
-Lin        MICA      intrinsic          0.6597862035890811
-JC         DiShIn    intrinsic          0.14980794775373127
-JC         MICA      intrinsic          0.2599100799712222
+Resnik     DiShIn    intrinsic          2.3627836143597176
+Resnik     MICA      intrinsic          3.791674698804828
+Lin        DiShIn    intrinsic          0.4328907089097581
+Lin        MICA      intrinsic          0.6946809425735787
+JC         DiShIn    intrinsic          0.13906777879867938
+JC         MICA      intrinsic          0.2307893214756218
 ```
 To create an updated version of the database, download the ontology:
 ```shell
@@ -277,8 +277,8 @@ python dishin.py doid.owl doid.db http://purl.obolibrary.org/obo/ http://www.w3.
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/mesh202005.db.gz
-gunzip -N mesh202005.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/mesh202104.db.gz
+gunzip -N mesh202104.db.gz
 ```
 
 Now to calculate the similarity between _Malignant Hyperthermia_ and _Fever_ execute:
@@ -288,9 +288,12 @@ python dishin.py mesh.db D008305 D005334
 
 Output:
 ```txt
-Resnik 	 MICA 	 intrinsic 	1.33556794556
-Lin 	 MICA 	 intrinsic 	0.18486943136
-JC 	 MICA 	 intrinsic 	0.0849066961975
+Resnik     DiShIn    intrinsic          1.2582571367910345
+Resnik     MICA      intrinsic          1.2582571367910345
+Lin        DiShIn    intrinsic          0.17390901691859173
+Lin        MICA      intrinsic          0.17390901691859173
+JC         DiShIn    intrinsic          0.07719755683816652
+JC         MICA      intrinsic          0.07719755683816652
 ```
 
 To create an updated version of the database, download the _NT_ version from ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz and unzip it:
@@ -307,8 +310,8 @@ python dishin.py mesh.nt mesh.db http://id.nlm.nih.gov/mesh/ http://id.nlm.nih.g
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/radlex202005.db.gz
-gunzip -N radlex202005.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/radlex202104.db.gz
+gunzip -N radlex202104.db.gz
 ```
 
 Now to calculate the similarity between _nervous system of right upper limb_ and _nervous system of left upper limb_ execute:
@@ -318,9 +321,9 @@ python dishin.py radlex.db RID16139 RID16140
 
 Output:
 ```txt
-Resnik   MICA    intrinsic      9.363855135365721
-Lin      MICA    intrinsic      0.9310781524369027
-JC       MICA    intrinsic      0.7213475204444816
+Resnik     MICA      intrinsic          9.366531825151093
+Lin        MICA      intrinsic          0.9310964912333252
+JC         MICA      intrinsic          0.41905978419640516
 ```
 
 To create an updated version of the database, download the _RDF/XML_ version from http://bioportal.bioontology.org/ontologies/RADLEX and save it as _radlex.rdf_
@@ -334,8 +337,8 @@ python dishin.py radlex.rdf radlex.db http://radlex.org/RID/ http://www.w3.org/2
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet202005.db.gz
-gunzip wordnet202005.db.gz
+wget http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet202104.db.gz
+gunzip wordnet202104.db.gz
 ```
 
 Now to calculate the similarity between the nouns _ambulance_ and _motorcycle_ execute:
@@ -345,9 +348,9 @@ python dishin.py wordnet.db ambulance-noun-1 motorcycle-noun-1
 
 Output:
 ```txt
-Resnik   MICA    intrinsic      6.331085809208157
-Lin      MICA    intrinsic      0.6792379292396559
-JC       MICA    intrinsic      0.1672363673134892
+Resnik     MICA      intrinsic          6.331085809208157
+Lin        MICA      intrinsic          0.6792379292396559
+JC         MICA      intrinsic          0.14327549414725688
 ```
 
 To create an updated version of the database, download the ontology:
