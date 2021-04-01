@@ -700,7 +700,7 @@ def light_similarity(conn, entry_ids_1, entry_ids_2, metric, cpu_cores):
         elif metric == 'lin':
             count = 0
             for it1 in ids_list_1:
-                print(count, ..., len(ids_list_1))
+                # print(count, '...', len(ids_list_1))
                 count += 1
 
                 pool = mp.Pool(cpu_cores)
