@@ -40,7 +40,7 @@ then create and use a lighter version of DiShIn (dishinli.py):
 sed 's/import ssmpy/import ssmli/; s/ssmpy\.ssm\./ssmli./; s/ssmpy\./ssmli./' < dishin.py > dishinli.py
 sed 's/from ssmpy./# from ssmpy./' < ssmpy/ssm.py > ssmli.py
 ```
-Note, this version cannot create new databases, only calculate similarities.
+Note, this version cannot create new databases, neither get annotations, only calculate similarities between ontology terms.
 For the following examples replace dishin.py by dishinli.py.
 
 ## USAGE: 
@@ -94,14 +94,14 @@ Resnik     DiShIn    intrinsic          0.2938933324510595
 Resnik     MICA      intrinsic          0.587786664902119
 Lin        DiShIn    intrinsic          0.19539774554219633
 Lin        MICA      intrinsic          0.39079549108439265
-JC         DiShIn    intrinsic          0.41316029085112316
-JC         MICA      intrinsic          0.5456783339686456
+JC         DiShIn    intrinsic          0.29236619053475066
+JC         MICA      intrinsic          0.35303485982596094
 Resnik     DiShIn    extrinsic          0.22599256187152864
 Resnik     MICA      extrinsic          0.45198512374305727
 Lin        DiShIn    extrinsic          0.1504595366201814
 Lin        MICA      extrinsic          0.3009190732403628
-JC         DiShIn    extrinsic          0.3918424740632774
-JC         MICA      extrinsic          0.47617668319259754
+JC         DiShIn    extrinsic          0.281527889373394
+JC         MICA      extrinsic          0.322574315537045
 ```
 
 Using the python function directly (first download metals.db and metals.txt from this repository):
