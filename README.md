@@ -35,13 +35,13 @@ cd DiShIn
 ```
 
 If you just have python2 or you cannot install packages,
-then create and use a lighter version of DiShIn (dishinli.py):  
+then create and use a lighter version of DiShIn:  
 ```shell
-sed 's/import ssmpy/import ssmli/; s/ssmpy\.ssm\./ssmli./; s/ssmpy\./ssmli./' < dishin.py > dishinli.py
-sed 's/from ssmpy./# from ssmpy./' < ssmpy/ssm.py > ssmli.py
+curl https://raw.githubusercontent.com/lasigeBioTM/DiShIn/master/dishin.py | sed -e 's/import ssmpy/import ssm\nimport annotations/; s/ssmpy\.ssm\./ssm./g; s/ssmpy\./ssm./g; s/ssm.get_uniprot_annotations/annotations.get_uniprot_annotations/g' > dishin.py
+curl https://raw.githubusercontent.com/lasigeBioTM/DiShIn/master/ssmpy/ssm.py | sed 's/from ssmpy./# from ssmpy./' > ssm.py
+curl https://raw.githubusercontent.com/lasigeBioTM/DiShIn/master/ssmpy/annotations.py | sed 's/import ssmpy./import /; s/ssmpy./ssm./' > annotations.py
 ```
-Note, this version cannot create new databases, neither get annotations, only calculate similarities between ontology terms.
-For the following examples replace dishin.py by dishinli.py.
+Note, this light version cannot create new databases.
 
 ## USAGE: 
 
