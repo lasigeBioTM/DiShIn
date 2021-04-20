@@ -1,38 +1,41 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Other Examples &mdash; DiShIn  documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data Sources" href="data_sources.html" />
@@ -73,6 +76,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -89,6 +93,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#chemical-entities-of-biological-interest-chebi-example">Chemical Entities of Biological Interest (ChEBI) Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#human-phenotype-hp-example">Human Phenotype (HP) Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#human-disease-ontology-hdo-example">Human Disease Ontology (HDO) Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#medical-subject-headings-mesh-example">Medical Subject Headings (MeSH) Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#radiology-lexicon-radlex-example">Radiology Lexicon (RadLex) Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#wordnet-example">WordNet Example</a></li>
 </ul>
@@ -100,6 +105,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -134,18 +140,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Other Examples</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/other_examples.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -164,35 +172,33 @@
 <div class="section" id="semantic-similarity-options">
 <h2>Semantic Similarity options<a class="headerlink" href="#semantic-similarity-options" title="Permalink to this headline">¶</a></h2>
 <p>We can choose to calculate the measures using either the extrinsic or intrinsic Information Content (IC), and using the Most Informative Common Ancestors (MICA) or Disjunctive Common Ancestors (DCA). By default, the measures are calculated using extrinsic IC and DCA.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">mica</span> <span class="o">=</span> <span class="bp">False</span> <span class="c1"># determines if it uses MICA or DCA</span>
-<span class="n">ssmpy</span><span class="o">.</span><span class="n">intrinsic</span> <span class="o">=</span> <span class="bp">False</span> <span class="c1"># determines if it uses extrinsic or intrinsic IC</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">mica</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># determines if it uses MICA or DCA</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">intrinsic</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># determines if it uses extrinsic or intrinsic IC</span>
 </pre></div>
 </div>
+<p>The following examples will assume the default values.</p>
 </div>
 <div class="section" id="gene-ontology-go-and-uniprot-proteins">
 <h2>Gene Ontology (GO) and UniProt proteins<a class="headerlink" href="#gene-ontology-go-and-uniprot-proteins" title="Permalink to this headline">¶</a></h2>
-<p>First download GO and annotations to your project directory:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://purl.obolibrary.org/obo/go.owl
-wget http://geneontology.org/gene-associations/goa_uniprot_all_noiea.gaf.gz
-gunzip goa_uniprot_all_noiea.gaf.gz
+<p>Download the latest version of the database we created:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://labs.rd.ciencias.ulisboa.pt/dishin/go202104.db.gz
+gunzip -N go202104.db.gz
 </pre></div>
 </div>
-<p>The annotations will be used to calculate the extrinsic information content.</p>
-<p>Next create the semantic base:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;go.owl&quot;</span><span class="p">,</span> <span class="s2">&quot;go.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s2">&quot;goa_uniprot_all_noiea.gaf)</span>
-</pre></div>
-</div>
-<p>This is stored in the form of a sqlite database on the same directory of your project.</p>
 <p>Now to calculate the similarity between <em>maltose biosynthetic process</em>
 and <em>maltose catabolic process</em>, first we need to obtain the semantic base IDs of those concepts:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssmpy.semantic_base<span class="o">(</span><span class="s2">&quot;go.db&quot;</span><span class="o">)</span>
-<span class="nv">e1</span> <span class="o">=</span> ssmpy.get_id<span class="o">(</span><span class="s2">&quot;GO_0000023&quot;</span><span class="o">)</span>
-<span class="nv">e2</span> <span class="o">=</span> ssmpy.get_id<span class="o">(</span><span class="s2">&quot;GO_0000025&quot;</span><span class="o">)</span>
-ssmpy.ssm_resnik<span class="o">(</span>e1,e2<span class="o">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;go.db&quot;</span><span class="p">)</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;GO_0000023&quot;</span><span class="p">)</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;GO_0000025&quot;</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_lin</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_jiang_conrath</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">3.903220515643575</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">4.315813746201754</span>
+<span class="mf">0.38793452313030363</span>
+<span class="mf">0.06840605034663635</span>
 </pre></div>
 </div>
 <p>Now to calculate the similarity between proteins
@@ -204,21 +210,34 @@ ssmpy.ssm_resnik<span class="o">(</span>e1,e2<span class="o">)</span>
 </div>
 <p>Next we use the <code class="docutils literal notranslate"><span class="pre">ssm_multiple</span></code> to calculate the average maximum semantic similarity, using the resnik measure</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_multiple</span><span class="p">(</span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">,</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_multiple</span><span class="p">(</span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_lin</span><span class="p">,</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_multiple</span><span class="p">(</span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_jiang_conrath</span><span class="p">,</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">0.4627295852212107</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">0.6015115682274214</span>
+<span class="mf">0.12201023476842265</span>
+<span class="mf">0.09317326288224918</span>
 </pre></div>
 </div>
+<p>To create an updated version of the database, download the ontology and annotations:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://purl.obolibrary.org/obo/go.owl
+wget http://geneontology.org/gene-associations/goa_uniprot_all_noiea.gaf.gz
+gunzip goa_uniprot_all_noiea.gaf.gz
+</pre></div>
+</div>
+<p>The annotations will be used to calculate the extrinsic information content.</p>
+<p>Next create the semantic base:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;go.owl&quot;</span><span class="p">,</span> <span class="s2">&quot;go.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s2">&quot;goa_uniprot_all_noiea.gaf)</span>
+</pre></div>
+</div>
+<p>This is stored in the form of a sqlite database on the same directory of your project.</p>
 </div>
 <div class="section" id="chemical-entities-of-biological-interest-chebi-example">
 <h2>Chemical Entities of Biological Interest (ChEBI) Example<a class="headerlink" href="#chemical-entities-of-biological-interest-chebi-example" title="Permalink to this headline">¶</a></h2>
-<p>Download the ontology:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi_lite.owl
-</pre></div>
-</div>
-<p>Create the semantic base:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;chebi_lite.owl&quot;</span><span class="p">,</span> <span class="s2">&quot;chebi.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<p>Download the lastest version of the database we created:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://labs.rd.ciencias.ulisboa.pt/dishin/chebi202104.db.gz
+gunzip -N chebi202104.db.gz
 </pre></div>
 </div>
 <p>Now to calculate the similarity between <em>aripiprazole</em> and <em>bithionol</em>
@@ -227,21 +246,30 @@ execute:</p>
 <span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;CHEBI_31236&quot;</span><span class="p">)</span>
 <span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;CHEBI_3131&quot;</span><span class="p">)</span>
 <span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_lin</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_jiang_conrath</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">1.3534853833420923</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">1.4393842298350599</span>
+<span class="mf">0.12935491517581163</span>
+<span class="mf">0.049077257018319796</span>
+</pre></div>
+</div>
+<p>To create an updated version of the database, download the ontology:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://purl.obolibrary.org/obo/chebi/chebi_lite.owl
+</pre></div>
+</div>
+<p>And then create the new database:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;chebi_lite.owl&quot;</span><span class="p">,</span> <span class="s2">&quot;chebi.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="human-phenotype-hp-example">
 <h2>Human Phenotype (HP) Example<a class="headerlink" href="#human-phenotype-hp-example" title="Permalink to this headline">¶</a></h2>
-<p>Download the ontology:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://purl.obolibrary.org/obo/hp.owl
-</pre></div>
-</div>
-<p>Create the semantic base:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;hp.owl&quot;</span><span class="p">,</span> <span class="s2">&quot;hp.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<p>Download the lastest version of the database we created:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://labs.rd.ciencias.ulisboa.pt/dishin/hp202104.db.gz
+gunzip -N hp202104.db.gz
 </pre></div>
 </div>
 <p>Now to calculate the similarity between <em>Optic nerve coloboma</em> and
@@ -250,21 +278,30 @@ execute:</p>
 <span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;HP_0000588&quot;</span><span class="p">)</span>
 <span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;HP_0001093&quot;</span><span class="p">)</span>
 <span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_lin</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_jiang_conrath</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">3.0512068305931033</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">4.593979372426621</span>
+<span class="mf">0.5118244533189668</span>
+<span class="mf">0.10242304162282165</span>
+</pre></div>
+</div>
+<p>To create an updated version of the database, download the ontology:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://purl.obolibrary.org/obo/hp.owl
+</pre></div>
+</div>
+<p>And then create the new database:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;hp.owl&quot;</span><span class="p">,</span> <span class="s2">&quot;hp.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="human-disease-ontology-hdo-example">
 <h2>Human Disease Ontology (HDO) Example<a class="headerlink" href="#human-disease-ontology-hdo-example" title="Permalink to this headline">¶</a></h2>
-<p>Download the ontology:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/master/src/ontology/doid.owl
-</pre></div>
-</div>
-<p>Create the semantic base:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;doid.owl&quot;</span><span class="p">,</span> <span class="s2">&quot;doid.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<p>Download the lastest version of the database we created:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://labs.rd.ciencias.ulisboa.pt/dishin/doid202104.db.gz
+gunzip -N doid202104.db.gz
 </pre></div>
 </div>
 <p>Now to calculate the similarity between <em>Asthma</em> and <em>Lung cancer</em>
@@ -273,20 +310,63 @@ execute:</p>
 <span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;DOID_2841&quot;</span><span class="p">)</span>
 <span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;DOID_1324&quot;</span><span class="p">)</span>
 <span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_lin</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_jiang_conrath</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">2.29931853312</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">2.3627836143597176</span>
+<span class="mf">0.4328907089097581</span>
+<span class="mf">0.13906777879867938</span>
+</pre></div>
+</div>
+<p>To create an updated version of the database, download the ontology:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://purl.obolibrary.org/obo/doid.owl
+</pre></div>
+</div>
+<p>And then create the new database:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;doid.owl&quot;</span><span class="p">,</span> <span class="s2">&quot;doid.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="medical-subject-headings-mesh-example">
+<h2>Medical Subject Headings (MeSH) Example<a class="headerlink" href="#medical-subject-headings-mesh-example" title="Permalink to this headline">¶</a></h2>
+<p>Download the lastest version of the database we created:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://labs.rd.ciencias.ulisboa.pt/dishin/mesh202104.db.gz
+gunzip -N mesh202104.db.gz
+</pre></div>
+</div>
+<p>Now to calculate the similarity between <em>Malignant Hyperthermia</em> and <em>Fever</em>
+execute:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;mesh.db&quot;</span><span class="p">)</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;D008305&quot;</span><span class="p">)</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;D005334&quot;</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_lin</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_jiang_conrath</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">1.2582571367910345</span>
+<span class="mf">0.17390901691859173</span>
+<span class="mf">0.07719755683816652</span>
+</pre></div>
+</div>
+<p>To create an updated version of the database, download the _NT_ version from <a class="reference external" href="ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz">ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz</a> and unzip it:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz
+gunzip mesh.nt.gz
+</pre></div>
+</div>
+<p>And then create the new database:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;mesh.nt&quot;</span><span class="p">,</span> <span class="s2">&quot;mesh.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://id.nlm.nih.gov/mesh/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://id.nlm.nih.gov/mesh/vocab#broaderDescriptor&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="radiology-lexicon-radlex-example">
 <h2>Radiology Lexicon (RadLex) Example<a class="headerlink" href="#radiology-lexicon-radlex-example" title="Permalink to this headline">¶</a></h2>
-<p>Download the <em>RDF/XML</em> version from
-<a class="reference external" href="http://bioportal.bioontology.org/ontologies/RADLEX">http://bioportal.bioontology.org/ontologies/RADLEX</a> and save it as
-<em>radlex.rdf</em></p>
-<p>Create the semantic base:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;radlex.rdf&quot;</span><span class="p">,</span> <span class="s2">&quot;radlex.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.radlex.org/RID/#&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.radlex.org/RID/#Is_A&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<p>Download the lastest version of the database we created:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://labs.rd.ciencias.ulisboa.pt/dishin/radlex202104.db.gz
+gunzip -N radlex202104.db.gz
 </pre></div>
 </div>
 <p>Now to calculate the similarity between <em>nervous system of right upper
@@ -295,21 +375,27 @@ limb</em> and <em>nervous system of left upper limb</em> execute:</p>
 <span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;RID16139&quot;</span><span class="p">)</span>
 <span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;RID16140&quot;</span><span class="p">)</span>
 <span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_lin</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_jiang_conrath</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">9.35897587112</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">9.366531825151093</span>
+<span class="mf">0.9310964912333252</span>
+<span class="mf">0.41905978419640516</span>
+</pre></div>
+</div>
+<p>To create an updated version of the database, download the _RDF/<a href="#id1"><span class="problematic" id="id2">XML_</span></a> version from <a class="reference external" href="http://bioportal.bioontology.org/ontologies/RADLEX">http://bioportal.bioontology.org/ontologies/RADLEX</a> and save it as <em>radlex.rdf</em></p>
+<p>And then create the new database:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;radlex.rdf&quot;</span><span class="p">,</span> <span class="s2">&quot;radlex.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.radlex.org/RID/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="wordnet-example">
 <h2>WordNet Example<a class="headerlink" href="#wordnet-example" title="Permalink to this headline">¶</a></h2>
-<p>Download the ontology:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
-</pre></div>
-</div>
-<p>Create the semantic base:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;wordnet-hyponym.rdf&quot;</span><span class="p">,</span> <span class="s2">&quot;wordnet.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2006/03/wn/wn20/instances/synset-&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2006/03/wn/wn20/schema/hyponymOf&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<p>Download the lastest version of the database we created:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet202104.db.gz
+gunzip -N wordnet202104.db.gz
 </pre></div>
 </div>
 <p>Now to calculate the similarity between the nouns <em>ambulance</em> and
@@ -318,10 +404,22 @@ limb</em> and <em>nervous system of left upper limb</em> execute:</p>
 <span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;ambulance-noun-1&quot;</span><span class="p">)</span>
 <span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;motorcycle-noun-1&quot;</span><span class="p">)</span>
 <span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_lin</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_jiang_conrath</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">6.33108580921</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">6.331085809208157</span>
+<span class="mf">0.6792379292396559</span>
+<span class="mf">0.14327549414725688</span>
+</pre></div>
+</div>
+<p>To create an updated version of the database, download the ontology:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
+</pre></div>
+</div>
+<p>And then create the new database:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s2">&quot;wordnet-hyponym.rdf&quot;</span><span class="p">,</span> <span class="s2">&quot;wordnet.db&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2006/03/wn/wn20/instances/synset-&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2006/03/wn/wn20/schema/hyponymOf&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -332,29 +430,29 @@ limb</em> and <em>nervous system of left upper limb</em> execute:</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="data_sources.html" class="btn btn-neutral float-right" title="Data Sources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="data_sources.html" class="btn btn-neutral float-right" title="Data Sources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, F. Couto and A. Lamurias
+        &#169; Copyright 2019, F. Couto and A. Lamurias.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -362,7 +460,6 @@ limb</em> and <em>nervous system of left upper limb</em> execute:</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

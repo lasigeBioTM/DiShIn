@@ -43,11 +43,11 @@ def semantic_base(sb_file, **kwargs):
     :type sb_file: string
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
 
     """
     global connection
@@ -66,14 +66,14 @@ def run_query(query, params):
     :rtype: sqlite3.Cursor
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> query = "SELECT id FROM entry WHERE name = ?"
-        >>> ssmpy.run_query(query, ("gold",)).fetchone()
-        (3,)
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> query = "SELECT id FROM entry WHERE name = ?"
+    >>> ssmpy.run_query(query, ("gold",)).fetchone()
+    (3,)
     """
     rows = connection.execute(query, params)
     return rows
@@ -88,13 +88,13 @@ def get_id(name):
     :rtype: int
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> ssmpy.get_id("gold")
-        3
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> ssmpy.get_id("gold")
+    3
     """
 
     rows = connection.execute(
@@ -124,13 +124,13 @@ def get_name(cid):
     :rtype: string
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> ssmpy.get_name(3)
-        'gold'
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> ssmpy.get_name(3)
+    'gold'
     """
 
     rows = connection.execute(
@@ -161,14 +161,14 @@ def get_ancestors(entry):
 
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> gold = ssmpy.get_id("gold")
-        >>> ssmpy.get_ancestors(gold)
-        [3, 6, 2, 10]
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> gold = ssmpy.get_id("gold")
+    >>> ssmpy.get_ancestors(gold)
+    [3, 6, 2, 10]
     """
     ancestors = []
 
@@ -200,15 +200,15 @@ def common_ancestors(entry1, entry2):
 
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> gold = ssmpy.get_id("gold")
-        >>> silver = ssmpy.get_id("silver")
-        >>> ssmpy.common_ancestors(gold, silver)
-        [6, 2, 10]
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> gold = ssmpy.get_id("gold")
+    >>> silver = ssmpy.get_id("silver")
+    >>> ssmpy.common_ancestors(gold, silver)
+    [6, 2, 10]
     """
 
     ancestors = []
@@ -243,14 +243,14 @@ def information_content_extrinsic(entry):
 
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> gold = ssmpy.get_id("gold")
-        >>> ssmpy.information_content_extrinsic(gold)
-        1.2992829841302609
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> gold = ssmpy.get_id("gold")
+    >>> ssmpy.information_content_extrinsic(gold)
+    1.2992829841302609
     """
     rows = connection.execute(
         """
@@ -285,14 +285,14 @@ def information_content_intrinsic(entry):
 
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> gold = ssmpy.get_id("gold")
-        >>> ssmpy.information_content_intrinsic(gold)
-        1.5040773967762742
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> gold = ssmpy.get_id("gold")
+    >>> ssmpy.information_content_intrinsic(gold)
+    1.5040773967762742
     """
 
     # print entry
@@ -329,15 +329,15 @@ def information_content(entry):
 
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> gold = ssmpy.get_id("gold")
-        >>> ssmpy.ssm.intrinsic = True
-        >>> ssmpy.information_content(gold)
-        1.5040773967762742
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> gold = ssmpy.get_id("gold")
+    >>> ssmpy.ssm.intrinsic = True
+    >>> ssmpy.information_content(gold)
+    1.5040773967762742
     """
 
     if intrinsic:
@@ -357,15 +357,15 @@ def num_paths(entry1, ancestor):
     :rtype: int
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> gold = ssmpy.get_id("gold")
-        >>> metal = ssmpy.get_id("metal")
-        >>> ssmpy.num_paths(gold, metal)
-        5
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> gold = ssmpy.get_id("gold")
+    >>> metal = ssmpy.get_id("metal")
+    >>> ssmpy.num_paths(gold, metal)
+    5
     """
 
     rows = connection.execute(
@@ -393,15 +393,15 @@ def shared_ic_dca(entry1, entry2):
     :rtype: float
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> gold = ssmpy.get_id("gold")
-        >>> silver = ssmpy.get_id("silver")
-        >>> ssmpy.shared_ic_dca(gold, silver)
-        0.587786664902119
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> gold = ssmpy.get_id("gold")
+    >>> silver = ssmpy.get_id("silver")
+    >>> ssmpy.shared_ic_dca(gold, silver)
+    0.587786664902119
     """
 
     ancestors = common_ancestors(entry1, entry2)
@@ -433,15 +433,15 @@ def shared_ic_mica(entry1, entry2):
     :rtype: float
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> gold = ssmpy.get_id("gold")
-        >>> silver = ssmpy.get_id("silver")
-        >>> ssmpy.shared_ic_mica(gold, silver)
-        0.587786664902119
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> gold = ssmpy.get_id("gold")
+    >>> silver = ssmpy.get_id("silver")
+    >>> ssmpy.shared_ic_mica(gold, silver)
+    0.587786664902119
     """
 
     ic = 0
@@ -470,16 +470,16 @@ def shared_ic(entry1, entry2):
     :rtype: float
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> gold = ssmpy.get_id("gold")
-        >>> silver = ssmpy.get_id("silver")
-        >>> ssmpy.ssm.mica = True
-        >>> ssmpy.shared_ic(gold, silver)
-        0.587786664902119
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> gold = ssmpy.get_id("gold")
+    >>> silver = ssmpy.get_id("silver")
+    >>> ssmpy.ssm.mica = True
+    >>> ssmpy.shared_ic(gold, silver)
+    0.587786664902119
     """
 
     value = 0
@@ -515,15 +515,15 @@ def ssm_resnik(entry1, entry2):
     :rtype: float
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> gold = ssmpy.get_id("gold")
-        >>> silver = ssmpy.get_id("silver")
-        >>> ssmpy.ssm_resnik(gold, silver)
-        0.587786664902119
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> gold = ssmpy.get_id("gold")
+    >>> silver = ssmpy.get_id("silver")
+    >>> ssmpy.ssm_resnik(gold, silver)
+    0.587786664902119
     """
 
     return abs(shared_ic(entry1, entry2))
@@ -540,15 +540,15 @@ def ssm_lin(entry1, entry2):
     :rtype: float
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> gold = ssmpy.get_id("gold")
-        >>> silver = ssmpy.get_id("silver")
-        >>> ssmpy.ssm_lin(gold, silver)
-        0.39079549108439265
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> gold = ssmpy.get_id("gold")
+    >>> silver = ssmpy.get_id("silver")
+    >>> ssmpy.ssm_lin(gold, silver)
+    0.39079549108439265
     """
     aux = information_content(entry1) + information_content(entry2)
 
@@ -569,15 +569,15 @@ def ssm_jiang_conrath(entry1, entry2):
     :rtype: float
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
-        'metals.db'
-        >>> ssmpy.semantic_base("metals.db")
-        >>> gold = ssmpy.get_id("gold")
-        >>> silver = ssmpy.get_id("silver")
-        >>> ssmpy.ssm_jiang_conrath(gold, silver)
-        0.5456783339686456
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
+    'metals.db'
+    >>> ssmpy.semantic_base("metals.db")
+    >>> gold = ssmpy.get_id("gold")
+    >>> silver = ssmpy.get_id("silver")
+    >>> ssmpy.ssm_jiang_conrath(gold, silver)
+    0.5456783339686456
     """
 
     distance = (
@@ -601,20 +601,20 @@ def ssm_multiple(m, entry1_list, entry2_list):
     :rtype: float
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> import gzip
-        >>> import shutil
-        >>> urllib.request.urlretrieve("http://labs.rd.ciencias.ulisboa.pt/dishin/go201907.db.gz", "go.db.gz")[0]
-        'go.db.gz'
-        >>> with gzip.open('go.db.gz', 'rb') as f_in:
-        ...     with open('go.db', 'wb') as f_out:
-        ...        shutil.copyfileobj(f_in, f_out)
-        >>> ssmpy.semantic_base("go.db")
-        >>> e1 = ssmpy.get_uniprot_annotations("Q12345")
-        >>> e2 = ssmpy.get_uniprot_annotations("Q12346")
-        >>> ssmpy.ssm_multiple(ssmpy.ssm_resnik, e1, e2)
-        1.653493583942882
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> import gzip
+    >>> import shutil
+    >>> urllib.request.urlretrieve("http://labs.rd.ciencias.ulisboa.pt/dishin/go201907.db.gz", "go.db.gz")[0]
+    'go.db.gz'
+    >>> with gzip.open('go.db.gz', 'rb') as f_in:
+    ...     with open('go.db', 'wb') as f_out:
+    ...    shutil.copyfileobj(f_in, f_out)
+    >>> ssmpy.semantic_base("go.db")
+    >>> e1 = ssmpy.get_uniprot_annotations("Q12345")
+    >>> e2 = ssmpy.get_uniprot_annotations("Q12346")
+    >>> ssmpy.ssm_multiple(ssmpy.ssm_resnik, e1, e2)
+    1.653493583942882
     """
     results = []
     for entry1 in entry1_list:

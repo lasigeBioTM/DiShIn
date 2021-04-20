@@ -44,11 +44,11 @@ def get_uniprot_annotations(protein_acc):
 
 
     :Example:
-        >>> import ssmpy
-        >>> import urllib.request
-        >>> import gzip
-        >>> import shutil
-        >>> urllib.request.urlretrieve("http://labs.rd.ciencias.ulisboa.pt/dishin/go201907.db.gz", "go.db.gz")[0]
+    >>> import ssmpy
+    >>> import urllib.request
+    >>> import gzip
+    >>> import shutil
+    >>> urllib.request.urlretrieve("http://labs.rd.ciencias.ulisboa.pt/dishin/go201907.db.gz", "go.db.gz")[0]
         'go.db.gz'
         >>> with gzip.open('go.db.gz', 'rb') as f_in:
         ...    with open('go.db', 'wb') as f_out:
