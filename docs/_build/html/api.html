@@ -309,9 +309,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 <dl class="py function">
 <dt id="ssmpy.fast_jc">
 <code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_jc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_jc" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Calculates the JC MICA INTRINSIC similarity between it1 and it2</p>
-</div></blockquote>
+<dd><p>Calculates the JC MICA INTRINSIC similarity between it1 and it2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -331,21 +329,27 @@ concept frequency. Empty string if this file is not available.</p></li>
 <dl class="py function">
 <dt id="ssmpy.fast_lin">
 <code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_lin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_lin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the LIN MICA INTRINSIC similarity between it1 and it2
-:param all_ancestors: pandas DataFrame of all ancestors (from table transitive)
-:param df_entry_ancestors: pandas DataFrame of all ancestors (from table entry) with column IC
-:param df_entry_ic: pandas DataFrame of all entities (from table entry) with column IC
-:param it1: entity 1 (id)
-:param it2: entity 2 (id)
-:return: list: [e1, e2, sim_lin]</p>
+<dd><p>Calculates the LIN MICA INTRINSIC similarity between it1 and it2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>all_ancestors</strong> – pandas DataFrame of all ancestors (from table transitive)</p></li>
+<li><p><strong>df_entry_ancestors</strong> – pandas DataFrame of all ancestors (from table entry) with column IC</p></li>
+<li><p><strong>df_entry_ic</strong> – pandas DataFrame of all entities (from table entry) with column IC</p></li>
+<li><p><strong>it1</strong> – entity 1 (id)</p></li>
+<li><p><strong>it2</strong> – entity 2 (id)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list: [e1, e2, sim_lin]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ssmpy.fast_resn_lin_jc">
 <code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_resn_lin_jc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_resn_lin_jc" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Calculates the RESNIK, LIN and JC MICA INTRINSIC similarity between it1 and it2</p>
-</div></blockquote>
+<dd><p>Calculates the RESNIK, LIN and JC MICA INTRINSIC similarity between it1 and it2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -365,23 +369,39 @@ concept frequency. Empty string if this file is not available.</p></li>
 <dl class="py function">
 <dt id="ssmpy.fast_resnik">
 <code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_resnik</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_resnik" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the RESNIK MICA INTRINSIC similarity between it1 and it2
-:param all_ancestors: pandas DataFrame of all ancestors (from table transitive)
-:param df_entry_ancestors: pandas DataFrame of all ancestors (from table entry) with column IC
-:param df_entry_ic: pandas DataFrame of all entities (from table entry) with column IC
-:param it1: entity 1 (id)
-:param it2: entity 2 (id)
-:return: list: [e1, e2, sim_resnik]</p>
+<dd><p>Calculates the RESNIK MICA INTRINSIC similarity between it1 and it2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>all_ancestors</strong> – pandas DataFrame of all ancestors (from table transitive)</p></li>
+<li><p><strong>df_entry_ancestors</strong> – pandas DataFrame of all ancestors (from table entry) with column IC</p></li>
+<li><p><strong>df_entry_ic</strong> – pandas DataFrame of all entities (from table entry) with column IC</p></li>
+<li><p><strong>it1</strong> – entity 1 (id)</p></li>
+<li><p><strong>it2</strong> – entity 2 (id)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list: [e1, e2, sim_resnik]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ssmpy.get_all_commom_ancestors">
 <code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_all_commom_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_all_commom_ancestors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get all common ancestors for it1 and it2
-:param all_ancestors: pandas DataFrame of all ancestors
-:param it1: entity 1 (id)
-:param it2: entity 2 (id)
-:return: pandas DataDrame of common ancestors or zero</p>
+<dd><p>Get all common ancestors for it1 and it2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>all_ancestors</strong> – pandas DataFrame of all ancestors</p></li>
+<li><p><strong>it1</strong> – entity 1 (id)</p></li>
+<li><p><strong>it2</strong> – entity 2 (id)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas DataDrame of common ancestors or zero</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">

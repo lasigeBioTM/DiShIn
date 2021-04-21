@@ -88,7 +88,6 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Other Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#semantic-similarity-options">Semantic Similarity options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gene-ontology-go-and-uniprot-proteins">Gene Ontology (GO) and UniProt proteins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#chemical-entities-of-biological-interest-chebi-example">Chemical Entities of Biological Interest (ChEBI) Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#human-phenotype-hp-example">Human Phenotype (HP) Example</a></li>
@@ -169,15 +168,7 @@
             
   <div class="section" id="other-examples">
 <h1>Other Examples<a class="headerlink" href="#other-examples" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="semantic-similarity-options">
-<h2>Semantic Similarity options<a class="headerlink" href="#semantic-similarity-options" title="Permalink to this headline">¶</a></h2>
-<p>We can choose to calculate the measures using either the extrinsic or intrinsic Information Content (IC), and using the Most Informative Common Ancestors (MICA) or Disjunctive Common Ancestors (DCA). By default, the measures are calculated using extrinsic IC and DCA.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">mica</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># determines if it uses MICA or DCA</span>
-<span class="n">ssmpy</span><span class="o">.</span><span class="n">intrinsic</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># determines if it uses extrinsic or intrinsic IC</span>
-</pre></div>
-</div>
-<p>The following examples will assume the default values.</p>
-</div>
+<p>The following examples will assume the default options, i.e. the values shown are calculated using extrinsic IC and DCA.</p>
 <div class="section" id="gene-ontology-go-and-uniprot-proteins">
 <h2>Gene Ontology (GO) and UniProt proteins<a class="headerlink" href="#gene-ontology-go-and-uniprot-proteins" title="Permalink to this headline">¶</a></h2>
 <p>Download the latest version of the database we created:</p>

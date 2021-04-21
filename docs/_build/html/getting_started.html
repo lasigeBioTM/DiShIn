@@ -90,6 +90,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick start</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#metals-example">Metals Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#options">Options</a></li>
 </ul>
 </li>
 </ul>
@@ -201,14 +202,44 @@ silver with two occurrences.</p>
 <span class="n">precious</span>
 </pre></div>
 </div>
-<p>Now to calculate the similarity between <em>copper</em> and <em>gold</em> execute</p>
+<p>Now to calculate the similarity between <em>copper</em> and <em>gold</em> execute:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;copper&quot;</span><span class="p">)</span>
 <span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
 <span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span> <span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_lin</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_jiang_conrath</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">0.22599256187152864</span>
+<span class="mf">0.1504595366201814</span>
+<span class="mf">0.281527889373394</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p>We can choose to calculate the measures using either the extrinsic or intrinsic Information Content (IC), and using the Most Informative Common Ancestors (MICA) or Disjunctive Common Ancestors (DCA). By default, the measures are calculated using extrinsic IC and DCA.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">mica</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># determines if it uses MICA or DCA</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">intrinsic</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># determines if it uses extrinsic or intrinsic IC</span>
+</pre></div>
+</div>
+<p>Now calculate the similarity between <em>copper</em> and <em>gold</em> using intrinsic IC and MICA:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">mica</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">intrinsic</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;copper&quot;</span><span class="p">)</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span> <span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_resnik</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_lin</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_jiang_conrath</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">0.587786664902119</span>
+<span class="mf">0.39079549108439265</span>
+<span class="mf">0.35303485982596094</span>
 </pre></div>
 </div>
 </div>

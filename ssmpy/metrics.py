@@ -4,12 +4,13 @@ import multiprocessing as mp
 
 
 def get_all_commom_ancestors(all_ancestors, it1, it2):
-    """
-    Get all common ancestors for it1 and it2
+    """Get all common ancestors for it1 and it2
+
     :param all_ancestors: pandas DataFrame of all ancestors
     :param it1: entity 1 (id)
     :param it2: entity 2 (id)
     :return: pandas DataDrame of common ancestors or zero
+
     """
 
     # get all ancestors for it1 and it2
@@ -31,8 +32,8 @@ def get_all_commom_ancestors(all_ancestors, it1, it2):
 
 
 def fast_resnik(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2):
-    """
-    Calculates the RESNIK MICA INTRINSIC similarity between it1 and it2
+    """Calculates the RESNIK MICA INTRINSIC similarity between it1 and it2
+    
     :param all_ancestors: pandas DataFrame of all ancestors (from table transitive)
     :param df_entry_ancestors: pandas DataFrame of all ancestors (from table entry) with column IC
     :param df_entry_ic: pandas DataFrame of all entities (from table entry) with column IC
@@ -68,8 +69,8 @@ def fast_resnik(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2):
 
 
 def fast_lin(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2):
-    """
-    Calculates the LIN MICA INTRINSIC similarity between it1 and it2
+    """Calculates the LIN MICA INTRINSIC similarity between it1 and it2
+
     :param all_ancestors: pandas DataFrame of all ancestors (from table transitive)
     :param df_entry_ancestors: pandas DataFrame of all ancestors (from table entry) with column IC
     :param df_entry_ic: pandas DataFrame of all entities (from table entry) with column IC
@@ -105,8 +106,8 @@ def fast_lin(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2):
 
 
 def fast_jc(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2):
-    """
-     Calculates the JC MICA INTRINSIC similarity between it1 and it2
+    """Calculates the JC MICA INTRINSIC similarity between it1 and it2
+
     :param all_ancestors: pandas DataFrame of all ancestors (from table transitive)
     :param df_entry_ancestors: pandas DataFrame of all ancestors (from table entry) with column IC
     :param df_entry_ic: pandas DataFrame of all entities (from table entry) with column IC
@@ -150,8 +151,8 @@ def fast_jc(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2):
 
 
 def fast_resn_lin_jc(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2):
-    """
-     Calculates the RESNIK, LIN and JC MICA INTRINSIC similarity between it1 and it2
+    """ Calculates the RESNIK, LIN and JC MICA INTRINSIC similarity between it1 and it2
+
     :param all_ancestors: pandas DataFrame of all ancestors (from table transitive)
     :param df_entry_ancestors: pandas DataFrame of all ancestors (from table entry) with column IC
     :param df_entry_ic: pandas DataFrame of all entities (from table entry) with column IC

@@ -2,17 +2,8 @@
 Other Examples
 **************
 
-Semantic Similarity options
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We can choose to calculate the measures using either the extrinsic or intrinsic Information Content (IC), and using the Most Informative Common Ancestors (MICA) or Disjunctive Common Ancestors (DCA). By default, the measures are calculated using extrinsic IC and DCA.
-
-.. code-block:: python
-
-     ssmpy.mica = False # determines if it uses MICA or DCA
-     ssmpy.intrinsic = False # determines if it uses extrinsic or intrinsic IC
-
-The following examples will assume the default values.     
+The following examples will assume the default options, i.e. the values shown are calculated using extrinsic IC and DCA.     
 
 
 Gene Ontology (GO) and UniProt proteins

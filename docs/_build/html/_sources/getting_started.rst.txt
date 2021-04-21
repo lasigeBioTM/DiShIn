@@ -51,19 +51,59 @@ silver with two occurrences.
     coinage
     precious
 
-Now to calculate the similarity between *copper* and *gold* execute
+Now to calculate the similarity between *copper* and *gold* execute:
 
 .. code-block:: python
 
     e1 = ssmpy.get_id("copper")
     e2 = ssmpy.get_id("gold")
     ssmpy.ssm_resnik (e1,e2)
+    ssmpy.ssm_resnik(e1,e2)
+    ssmpy.ssm_lin(e1,e2)
+    ssmpy.ssm_jiang_conrath(e1,e2)
+
 
 Output:
 
 .. code-block:: python
 
     0.22599256187152864
+    0.1504595366201814
+    0.281527889373394
+
+
+Options
+~~~~~~~
+
+We can choose to calculate the measures using either the extrinsic or intrinsic Information Content (IC), and using the Most Informative Common Ancestors (MICA) or Disjunctive Common Ancestors (DCA). By default, the measures are calculated using extrinsic IC and DCA.
+
+.. code-block:: python
+
+     ssmpy.ssm.mica = False # determines if it uses MICA or DCA
+     ssmpy.ssm.intrinsic = False # determines if it uses extrinsic or intrinsic IC
+
+Now calculate the similarity between *copper* and *gold* using intrinsic IC and MICA:
+
+.. code-block:: python
+
+    ssmpy.ssm.mica = True
+    ssmpy.ssm.intrinsic = True
+    e1 = ssmpy.get_id("copper")
+    e2 = ssmpy.get_id("gold")
+    ssmpy.ssm_resnik (e1,e2)
+    ssmpy.ssm_resnik(e1,e2)
+    ssmpy.ssm_lin(e1,e2)
+    ssmpy.ssm_jiang_conrath(e1,e2)
+
+
+Output:
+
+.. code-block:: python
+
+    0.587786664902119
+    0.39079549108439265
+    0.35303485982596094
+
 
 
 
