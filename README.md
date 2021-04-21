@@ -115,7 +115,7 @@ Using the python function directly (first download metals.db and metals.txt from
 
 ### Gene Ontology (GO) and UniProt proteins Example
 
-Download the lastest version of the database we created:
+Download the latest version of the database we created:
 ```shell
 wget http://labs.rd.ciencias.ulisboa.pt/dishin/go202104.db.gz
 gunzip -N go202104.db.gz
@@ -200,7 +200,7 @@ JC         MICA      intrinsic          0.0817424736051902
 ```
 To create an updated version of the database, download the ontology:
 ```shell
-wget ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi_lite.owl
+wget http://purl.obolibrary.org/obo/chebi/chebi_lite.owl
 ```
 
 And then create the new database:
@@ -338,7 +338,7 @@ python dishin.py radlex.rdf radlex.db http://radlex.org/RID/ http://www.w3.org/2
 Download the lastest version of the database we created:
 ```shell
 wget http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet202104.db.gz
-gunzip wordnet202104.db.gz
+gunzip -N wordnet202104.db.gz
 ```
 
 Now to calculate the similarity between the nouns _ambulance_ and _motorcycle_ execute:
