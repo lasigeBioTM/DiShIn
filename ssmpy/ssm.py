@@ -43,6 +43,7 @@ def semantic_base(sb_file, **kwargs):
     :type sb_file: string
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -66,6 +67,7 @@ def run_query(query, params):
     :rtype: sqlite3.Cursor
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -88,6 +90,7 @@ def get_id(name):
     :rtype: int
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -124,6 +127,7 @@ def get_name(cid):
     :rtype: string
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -161,6 +165,7 @@ def get_ancestors(entry):
 
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -200,6 +205,7 @@ def common_ancestors(entry1, entry2):
 
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -243,6 +249,7 @@ def information_content_extrinsic(entry):
 
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -285,6 +292,7 @@ def information_content_intrinsic(entry):
 
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -329,6 +337,7 @@ def information_content(entry):
 
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -357,6 +366,7 @@ def num_paths(entry1, ancestor):
     :rtype: int
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -393,6 +403,7 @@ def shared_ic_dca(entry1, entry2):
     :rtype: float
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -433,6 +444,7 @@ def shared_ic_mica(entry1, entry2):
     :rtype: float
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -470,6 +482,7 @@ def shared_ic(entry1, entry2):
     :rtype: float
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -515,6 +528,7 @@ def ssm_resnik(entry1, entry2):
     :rtype: float
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -540,6 +554,7 @@ def ssm_lin(entry1, entry2):
     :rtype: float
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -569,6 +584,7 @@ def ssm_jiang_conrath(entry1, entry2):
     :rtype: float
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> urllib.request.urlretrieve("https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db", "metals.db")[0]
@@ -601,6 +617,7 @@ def ssm_multiple(m, entry1_list, entry2_list):
     :rtype: float
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> import gzip
@@ -640,6 +657,7 @@ def light_similarity(conn, entry_ids_1, entry_ids_2, metric, cpu_cores):
     :return: list with results ([e1, e2, similarity] or [e1, e2, similarity resnik, similarity lin, similarity jc])
 
     :Example:
+
     >>> import ssmpy
     >>> ssmpy.create_semantic_base('doid.owl', 'doid.db', "http://purl.obolibrary.org/obo/", "http://www.w3.org/2000/01/rdf-schema#subClassOf", "")
     >>> conn = ssmpy.create_connection('doid.db')

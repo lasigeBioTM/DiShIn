@@ -44,6 +44,7 @@ def get_uniprot_annotations(protein_acc):
 
 
     :Example:
+
     >>> import ssmpy
     >>> import urllib.request
     >>> import gzip

@@ -286,7 +286,7 @@ Output:
     0.9310964912333252
     0.41905978419640516
 
-To create an updated version of the database, download the _RDF/XML_ version from http://bioportal.bioontology.org/ontologies/RADLEX and save it as *radlex.rdf*
+To create an updated version of the database, download the *RDF/XML* version from http://bioportal.bioontology.org/ontologies/RADLEX and save it as *radlex.rdf*
 
 And then create the new database:
 
