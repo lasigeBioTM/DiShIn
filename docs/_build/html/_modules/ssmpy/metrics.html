@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ssmpy.metrics &mdash; DiShIn  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="DiShIn  documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DiShIn
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_examples.html">Other Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_sources.html">Data Sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DiShIn</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>ssmpy.metrics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ssmpy.metrics</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">ssmpy.data</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">ssmpy.calculations</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+
+
+<div class="viewcode-block" id="get_all_commom_ancestors"><a class="viewcode-back" href="../../api.html#ssmpy.get_all_commom_ancestors">[docs]</a><span class="k">def</span> <span class="nf">get_all_commom_ancestors</span><span class="p">(</span><span class="n">all_ancestors</span><span class="p">,</span> <span class="n">it1</span><span class="p">,</span> <span class="n">it2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get all common ancestors for it1 and it2</span>
+
+<span class="sd">    :param all_ancestors: pandas DataFrame of all ancestors</span>
+<span class="sd">    :param it1: entity 1 (id)</span>
+<span class="sd">    :param it2: entity 2 (id)</span>
+<span class="sd">    :return: pandas DataDrame of common ancestors or zero</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># get all ancestors for it1 and it2</span>
+    <span class="n">all_ancestors_it1_it2</span> <span class="o">=</span> <span class="n">all_ancestors</span><span class="p">[(</span><span class="n">all_ancestors</span><span class="o">.</span><span class="n">entry1</span> <span class="o">==</span> <span class="n">it1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">all_ancestors</span><span class="o">.</span><span class="n">entry1</span> <span class="o">==</span> <span class="n">it2</span><span class="p">)]</span>
+
+    <span class="c1"># common_ancestors = all_ancestors_it1_it2[&#39;entry2&#39;].value_counts().reset_index(name=&quot;count&quot;).query(&quot;count &gt; 1&quot;)[</span>
+    <span class="c1">#    &#39;index&#39;].to_list()</span>
+
+    <span class="c1"># get the common ancestors for it1 and it2</span>
+    <span class="n">common_ancestors</span> <span class="o">=</span> <span class="n">all_ancestors_it1_it2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;entry2&#39;</span><span class="p">)[</span><span class="s1">&#39;entry1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">common_ancestors</span> <span class="o">=</span> <span class="n">common_ancestors</span><span class="p">[</span><span class="n">common_ancestors</span><span class="p">[</span><span class="s1">&#39;entry1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">entry2</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">common_ancestors</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">common_ancestors</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="fast_resnik"><a class="viewcode-back" href="../../api.html#ssmpy.fast_resnik">[docs]</a><span class="k">def</span> <span class="nf">fast_resnik</span><span class="p">(</span><span class="n">all_ancestors</span><span class="p">,</span> <span class="n">df_entry_ancestors</span><span class="p">,</span> <span class="n">df_entry_ic</span><span class="p">,</span> <span class="n">it1</span><span class="p">,</span> <span class="n">it2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculates the RESNIK MICA INTRINSIC similarity between it1 and it2</span>
+<span class="sd">    </span>
+<span class="sd">    :param all_ancestors: pandas DataFrame of all ancestors (from table transitive)</span>
+<span class="sd">    :param df_entry_ancestors: pandas DataFrame of all ancestors (from table entry) with column IC</span>
+<span class="sd">    :param df_entry_ic: pandas DataFrame of all entities (from table entry) with column IC</span>
+<span class="sd">    :param it1: entity 1 (id)</span>
+<span class="sd">    :param it2: entity 2 (id)</span>
+<span class="sd">    :return: list: [e1, e2, sim_resnik]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">it1</span> <span class="o">==</span> <span class="n">it2</span><span class="p">:</span>
+
+        <span class="n">sim_resnik</span> <span class="o">=</span> <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it1</span><span class="p">]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">common_ancestors</span> <span class="o">=</span> <span class="n">get_all_commom_ancestors</span><span class="p">(</span><span class="n">all_ancestors</span><span class="p">,</span> <span class="n">it1</span><span class="p">,</span> <span class="n">it2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">common_ancestors</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+
+            <span class="n">sim_resnik</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="c1"># get max ic for the common ancestors (MICA)</span>
+            <span class="n">ic_ancestors</span> <span class="o">=</span> <span class="n">df_entry_ancestors</span><span class="p">[</span><span class="n">df_entry_ancestors</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common_ancestors</span><span class="p">)]</span><span class="o">.</span><span class="n">IC</span>
+
+            <span class="n">sim_resnik</span> <span class="o">=</span> <span class="n">ic_ancestors</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">((</span><span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span>
+          <span class="p">(</span><span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it2</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span> <span class="s2">&quot; RESNIK:MICA:INTRINSIC &quot;</span><span class="p">,</span>
+          <span class="n">sim_resnik</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it2</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">sim_resnik</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="fast_lin"><a class="viewcode-back" href="../../api.html#ssmpy.fast_lin">[docs]</a><span class="k">def</span> <span class="nf">fast_lin</span><span class="p">(</span><span class="n">all_ancestors</span><span class="p">,</span> <span class="n">df_entry_ancestors</span><span class="p">,</span> <span class="n">df_entry_ic</span><span class="p">,</span> <span class="n">it1</span><span class="p">,</span> <span class="n">it2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculates the LIN MICA INTRINSIC similarity between it1 and it2</span>
+
+<span class="sd">    :param all_ancestors: pandas DataFrame of all ancestors (from table transitive)</span>
+<span class="sd">    :param df_entry_ancestors: pandas DataFrame of all ancestors (from table entry) with column IC</span>
+<span class="sd">    :param df_entry_ic: pandas DataFrame of all entities (from table entry) with column IC</span>
+<span class="sd">    :param it1: entity 1 (id)</span>
+<span class="sd">    :param it2: entity 2 (id)</span>
+<span class="sd">    :return: list: [e1, e2, sim_lin]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">it1</span> <span class="o">==</span> <span class="n">it2</span><span class="p">:</span>
+        <span class="n">sim_lin</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="n">common_ancestors</span> <span class="o">=</span> <span class="n">get_all_commom_ancestors</span><span class="p">(</span><span class="n">all_ancestors</span><span class="p">,</span> <span class="n">it1</span><span class="p">,</span> <span class="n">it2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">common_ancestors</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">sim_lin</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="c1"># get max ic for the common ancestors (MICA)</span>
+            <span class="n">ic_ancestors_max</span> <span class="o">=</span> <span class="n">df_entry_ancestors</span><span class="p">[</span><span class="n">df_entry_ancestors</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common_ancestors</span><span class="p">)]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+            <span class="n">sim_lin</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ic_ancestors_max</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span>
+                    <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it1</span><span class="p">]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span>
+                    <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it2</span><span class="p">]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># print((df[df.id == it1].name.to_list()[0]), (df[df.id == it2].name.to_list()[0]), &quot; LIN:MICA:INTRINSIC &quot;,</span>
+    <span class="c1">#      sim_lin)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it2</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">sim_lin</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="fast_jc"><a class="viewcode-back" href="../../api.html#ssmpy.fast_jc">[docs]</a><span class="k">def</span> <span class="nf">fast_jc</span><span class="p">(</span><span class="n">all_ancestors</span><span class="p">,</span> <span class="n">df_entry_ancestors</span><span class="p">,</span> <span class="n">df_entry_ic</span><span class="p">,</span> <span class="n">it1</span><span class="p">,</span> <span class="n">it2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculates the JC MICA INTRINSIC similarity between it1 and it2</span>
+
+<span class="sd">    :param all_ancestors: pandas DataFrame of all ancestors (from table transitive)</span>
+<span class="sd">    :param df_entry_ancestors: pandas DataFrame of all ancestors (from table entry) with column IC</span>
+<span class="sd">    :param df_entry_ic: pandas DataFrame of all entities (from table entry) with column IC</span>
+<span class="sd">    :param it1: entity 1 (id)</span>
+<span class="sd">    :param it2: entity 2 (id)</span>
+<span class="sd">    :return: list: [e1, e2, sim_jc]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">it1</span> <span class="o">==</span> <span class="n">it2</span><span class="p">:</span>
+
+        <span class="n">sim_jc</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="n">common_ancestors</span> <span class="o">=</span> <span class="n">get_all_commom_ancestors</span><span class="p">(</span><span class="n">all_ancestors</span><span class="p">,</span> <span class="n">it1</span><span class="p">,</span> <span class="n">it2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">common_ancestors</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+
+            <span class="n">ic_ancestors_max</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="c1"># get max ic for the common ancestors (MICA)</span>
+            <span class="n">ic_ancestors_max</span> <span class="o">=</span> <span class="n">df_entry_ancestors</span><span class="p">[</span><span class="n">df_entry_ancestors</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common_ancestors</span><span class="p">)]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it1</span><span class="p">]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it2</span><span class="p">]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span>
+            <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span>
+                           <span class="mi">2</span> <span class="o">*</span> <span class="n">ic_ancestors_max</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">sim_jc</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">distance</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sim_jc</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="nb">print</span><span class="p">((</span><span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span>
+          <span class="p">(</span><span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it2</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span> <span class="s2">&quot; JC:MICA:INTRINSIC &quot;</span><span class="p">,</span>
+          <span class="n">sim_jc</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it2</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">sim_jc</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="fast_resn_lin_jc"><a class="viewcode-back" href="../../api.html#ssmpy.fast_resn_lin_jc">[docs]</a><span class="k">def</span> <span class="nf">fast_resn_lin_jc</span><span class="p">(</span><span class="n">all_ancestors</span><span class="p">,</span> <span class="n">df_entry_ancestors</span><span class="p">,</span> <span class="n">df_entry_ic</span><span class="p">,</span> <span class="n">it1</span><span class="p">,</span> <span class="n">it2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Calculates the RESNIK, LIN and JC MICA INTRINSIC similarity between it1 and it2</span>
+
+<span class="sd">    :param all_ancestors: pandas DataFrame of all ancestors (from table transitive)</span>
+<span class="sd">    :param df_entry_ancestors: pandas DataFrame of all ancestors (from table entry) with column IC</span>
+<span class="sd">    :param df_entry_ic: pandas DataFrame of all entities (from table entry) with column IC</span>
+<span class="sd">    :param it1: entity 1 (id)</span>
+<span class="sd">    :param it2: entity 2 (id)</span>
+<span class="sd">    :return: list: [e1, e2, sim_resnik, sim_lin, sim_jc]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">it1</span> <span class="o">==</span> <span class="n">it2</span><span class="p">:</span>
+
+        <span class="n">sim_resnik</span> <span class="o">=</span> <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it1</span><span class="p">]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">sim_lin</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">sim_jc</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">common_ancestors</span> <span class="o">=</span> <span class="n">get_all_commom_ancestors</span><span class="p">(</span><span class="n">all_ancestors</span><span class="p">,</span> <span class="n">it1</span><span class="p">,</span> <span class="n">it2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">common_ancestors</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+
+            <span class="n">sim_resnik</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">sim_lin</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">ic_ancestors_max_jc</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="c1"># get max ic for the common ancestors (MICA)</span>
+            <span class="n">ic_ancestors_resn</span> <span class="o">=</span> <span class="n">df_entry_ancestors</span><span class="p">[</span><span class="n">df_entry_ancestors</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common_ancestors</span><span class="p">)]</span><span class="o">.</span><span class="n">IC</span>
+
+            <span class="n">sim_resnik</span> <span class="o">=</span> <span class="n">ic_ancestors_resn</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+            <span class="n">ic_ancestors_max_lin</span> <span class="o">=</span> <span class="n">df_entry_ancestors</span><span class="p">[</span><span class="n">df_entry_ancestors</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common_ancestors</span><span class="p">)]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="n">ic_ancestors_max_jc</span> <span class="o">=</span> <span class="n">df_entry_ancestors</span><span class="p">[</span><span class="n">df_entry_ancestors</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common_ancestors</span><span class="p">)]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+            <span class="n">sim_lin</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ic_ancestors_max_lin</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span>
+                    <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it1</span><span class="p">]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span>
+                    <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it2</span><span class="p">]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it1</span><span class="p">]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it2</span><span class="p">]</span><span class="o">.</span><span class="n">IC</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span>
+            <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span>
+                           <span class="mi">2</span> <span class="o">*</span> <span class="n">ic_ancestors_max_jc</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">sim_jc</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">distance</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sim_jc</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">df_entry_ic</span><span class="p">[</span><span class="n">df_entry_ic</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">it2</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">sim_resnik</span><span class="p">,</span> <span class="n">sim_lin</span><span class="p">,</span> <span class="n">sim_jc</span><span class="p">]</span></div>
+
+
+<span class="c1"># def light_similarity(conn, entry_ids_1, entry_ids_2, metric):</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     main function</span>
+<span class="c1">#     :param conn: db_connection</span>
+<span class="c1">#     :param entry_ids_1: list of entries 1</span>
+<span class="c1">#     :param entry_ids_2: list of entries 2</span>
+<span class="c1">#     :param metric: &#39;lin&#39;, &#39;resnick&#39;, &#39;jc&#39; or &#39;all&#39;</span>
+<span class="c1">#     :return: list with results ([e1, e2, similarity] or [e1, e2, similarity resnik, similarity lin, similarity jc])</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#</span>
+<span class="c1">#     results = []</span>
+<span class="c1">#</span>
+<span class="c1">#     # concatenate both list of entries</span>
+<span class="c1">#     entry_ids = np.unique(np.array(entry_ids_1 + entry_ids_2)).tolist()</span>
+<span class="c1">#</span>
+<span class="c1">#     df_entry = db_select_entry(conn, entry_ids)</span>
+<span class="c1">#</span>
+<span class="c1">#     # ids for each name in both lists</span>
+<span class="c1">#     ids_list = df_entry.id.values.flatten()</span>
+<span class="c1">#</span>
+<span class="c1">#     # ids for each list</span>
+<span class="c1">#     ids_list_1 = df_entry[df_entry.name.isin(entry_ids_1)].id.values.flatten()</span>
+<span class="c1">#     ids_list_2 = df_entry[df_entry.name.isin(entry_ids_2)].id.values.flatten()</span>
+<span class="c1">#</span>
+<span class="c1">#     if np.array_equal(ids_list_1, ids_list_2):</span>
+<span class="c1">#</span>
+<span class="c1">#         # get all the ancestors for test_ids in transitive table</span>
+<span class="c1">#         all_ancestors = db_select_transitive(conn, ids_list)</span>
+<span class="c1">#</span>
+<span class="c1">#         # get all ancestors in entry table</span>
+<span class="c1">#         df_entry_ancestors = db_select_entry_by_id(conn, all_ancestors.entry2.values.flatten())</span>
+<span class="c1">#</span>
+<span class="c1">#         # get max freq used for calculating the Information Content (IC)</span>
+<span class="c1">#         max_freq = get_max_dest(conn)</span>
+<span class="c1">#</span>
+<span class="c1">#         # calculates Ic for original IDs</span>
+<span class="c1">#         df_entry_ic = calculate_information_content_intrinsic(df_entry, max_freq)</span>
+<span class="c1">#</span>
+<span class="c1">#         # calculates IC for all ancestors</span>
+<span class="c1">#         df_entry_ancestors = calculate_information_content_intrinsic(df_entry_ancestors, max_freq)</span>
+<span class="c1">#</span>
+<span class="c1">#         if metric == &#39;resnik&#39;:</span>
+<span class="c1">#</span>
+<span class="c1">#             for it1 in ids_list_1:</span>
+<span class="c1">#                 pool = mp.Pool(20)</span>
+<span class="c1">#                 results.append(pool.starmap(fast_resnik,</span>
+<span class="c1">#                                             [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in</span>
+<span class="c1">#                                              ids_list_1]))</span>
+<span class="c1">#</span>
+<span class="c1">#                 pool.close()</span>
+<span class="c1">#</span>
+<span class="c1">#                 mask = np.where(ids_list_1 == it1)</span>
+<span class="c1">#                 ids_list_1 = np.delete(ids_list_1, mask)</span>
+<span class="c1">#</span>
+<span class="c1">#         elif metric == &#39;lin&#39;:</span>
+<span class="c1">#             count = 0</span>
+<span class="c1">#             for it1 in ids_list_1:</span>
+<span class="c1">#                 print(count, ..., len(ids_list_1))</span>
+<span class="c1">#                 count += 1</span>
+<span class="c1">#</span>
+<span class="c1">#                 pool = mp.Pool(20)</span>
+<span class="c1">#                 results.append(pool.starmap(fast_lin,</span>
+<span class="c1">#                                             [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in</span>
+<span class="c1">#                                              ids_list_1]))</span>
+<span class="c1">#</span>
+<span class="c1">#                 pool.close()</span>
+<span class="c1">#</span>
+<span class="c1">#                 mask = np.where(ids_list_1 == it1)</span>
+<span class="c1">#                 ids_list_1 = np.delete(ids_list_1, mask)</span>
+<span class="c1">#</span>
+<span class="c1">#         elif metric == &#39;jc&#39;:</span>
+<span class="c1">#</span>
+<span class="c1">#             for it1 in ids_list_1:</span>
+<span class="c1">#                 pool = mp.Pool(20)</span>
+<span class="c1">#                 results.append(pool.starmap(fast_jc,</span>
+<span class="c1">#                                             [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in</span>
+<span class="c1">#                                              ids_list_1]))</span>
+<span class="c1">#</span>
+<span class="c1">#                 pool.close()</span>
+<span class="c1">#</span>
+<span class="c1">#                 mask = np.where(ids_list_1 == it1)</span>
+<span class="c1">#                 ids_list_1 = np.delete(ids_list_1, mask)</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#         elif metric == &#39;all&#39;:</span>
+<span class="c1">#</span>
+<span class="c1">#             for it1 in ids_list_1:</span>
+<span class="c1">#                 pool = mp.Pool(20)</span>
+<span class="c1">#</span>
+<span class="c1">#                 results.append(pool.starmap(fast_resn_lin_jc,</span>
+<span class="c1">#                                             [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in</span>
+<span class="c1">#                                              ids_list_1]))</span>
+<span class="c1">#</span>
+<span class="c1">#                 pool.close()</span>
+<span class="c1">#                 mask = np.where(ids_list_1 == it1)</span>
+<span class="c1">#                 ids_list_1 = np.delete(ids_list_1, mask)</span>
+<span class="c1">#</span>
+<span class="c1">#     else:</span>
+<span class="c1">#</span>
+<span class="c1">#         # get all the ancestors for test_ids in transitive table</span>
+<span class="c1">#         all_ancestors = db_select_transitive(conn, ids_list)</span>
+<span class="c1">#</span>
+<span class="c1">#         # get all ancestors in entry table</span>
+<span class="c1">#         df_entry_ancestors = db_select_entry_by_id(conn, all_ancestors.entry2.values.flatten())</span>
+<span class="c1">#</span>
+<span class="c1">#         # get max freq used for calculating the Information Content (IC)</span>
+<span class="c1">#         max_freq = get_max_dest(conn)</span>
+<span class="c1">#</span>
+<span class="c1">#         # calculates Ic for original IDs</span>
+<span class="c1">#         df_entry_ic = calculate_information_content_intrinsic(df_entry, max_freq)</span>
+<span class="c1">#</span>
+<span class="c1">#         # calculates IC for all ancestors</span>
+<span class="c1">#         df_entry_ancestors = calculate_information_content_intrinsic(df_entry_ancestors, max_freq)</span>
+<span class="c1">#</span>
+<span class="c1">#         if metric == &#39;resnik&#39;:</span>
+<span class="c1">#</span>
+<span class="c1">#             for it1 in ids_list_1:</span>
+<span class="c1">#                 pool = mp.Pool(20)</span>
+<span class="c1">#                 results.append(pool.starmap(fast_resnik,</span>
+<span class="c1">#                                             [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in</span>
+<span class="c1">#                                              ids_list_2]))</span>
+<span class="c1">#</span>
+<span class="c1">#                 pool.close()</span>
+<span class="c1">#</span>
+<span class="c1">#                 mask = np.where(ids_list_1 == it1)</span>
+<span class="c1">#                 ids_list_1 = np.delete(ids_list_1, mask)</span>
+<span class="c1">#</span>
+<span class="c1">#         elif metric == &#39;lin&#39;:</span>
+<span class="c1">#             count = 0</span>
+<span class="c1">#             for it1 in ids_list_1:</span>
+<span class="c1">#                 print(count, ..., len(ids_list_1))</span>
+<span class="c1">#                 count += 1</span>
+<span class="c1">#</span>
+<span class="c1">#                 pool = mp.Pool(20)</span>
+<span class="c1">#                 results.append(pool.starmap(fast_lin,</span>
+<span class="c1">#                                             [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in</span>
+<span class="c1">#                                              ids_list_2]))</span>
+<span class="c1">#</span>
+<span class="c1">#                 pool.close()</span>
+<span class="c1">#</span>
+<span class="c1">#                 mask = np.where(ids_list_1 == it1)</span>
+<span class="c1">#                 ids_list_1 = np.delete(ids_list_1, mask)</span>
+<span class="c1">#</span>
+<span class="c1">#         elif metric == &#39;jc&#39;:</span>
+<span class="c1">#</span>
+<span class="c1">#             for it1 in ids_list_1:</span>
+<span class="c1">#                 pool = mp.Pool(20)</span>
+<span class="c1">#                 results.append(pool.starmap(fast_jc,</span>
+<span class="c1">#                                             [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in</span>
+<span class="c1">#                                              ids_list_2]))</span>
+<span class="c1">#</span>
+<span class="c1">#                 pool.close()</span>
+<span class="c1">#</span>
+<span class="c1">#                 mask = np.where(ids_list_1 == it1)</span>
+<span class="c1">#                 ids_list_1 = np.delete(ids_list_1, mask)</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#         elif metric == &#39;all&#39;:</span>
+<span class="c1">#</span>
+<span class="c1">#             for it1 in ids_list_1:</span>
+<span class="c1">#                 pool = mp.Pool(20)</span>
+<span class="c1">#</span>
+<span class="c1">#                 results.append(pool.starmap(fast_resn_lin_jc,</span>
+<span class="c1">#                                             [(all_ancestors, df_entry_ancestors, df_entry_ic, it1, it2) for it2 in</span>
+<span class="c1">#                                              ids_list_2]))</span>
+<span class="c1">#</span>
+<span class="c1">#                 pool.close()</span>
+<span class="c1">#                 mask = np.where(ids_list_1 == it1)</span>
+<span class="c1">#                 ids_list_1 = np.delete(ids_list_1, mask)</span>
+<span class="c1">#</span>
+<span class="c1">#     return results</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, A. Lamurias and F. Couto.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
