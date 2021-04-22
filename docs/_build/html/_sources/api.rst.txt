@@ -3,4 +3,7 @@ API
 ###
 
 .. automodule:: ssmpy
-    :members:
+   :members:
+
+.. raw:: html
+     :file: _static/api.html
