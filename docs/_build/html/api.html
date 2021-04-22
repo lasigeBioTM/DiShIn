@@ -160,7 +160,7 @@
 <span id="api"></span><h1>API<a class="headerlink" href="#module-ssmpy" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="ssmpy.calculate_information_content_intrinsic">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">calculate_information_content_intrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_freq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/calculations.html#calculate_information_content_intrinsic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.calculate_information_content_intrinsic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">calculate_information_content_intrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_freq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.calculate_information_content_intrinsic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the information content
 of a dataframe of entries
 :param df: pandas DataFrame
@@ -170,7 +170,7 @@ of a dataframe of entries
 
 <dl class="py function">
 <dt id="ssmpy.common_ancestors">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">common_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#common_ancestors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.common_ancestors" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">common_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.common_ancestors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get common ancestors between two semantic base entries</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -203,7 +203,7 @@ of a dataframe of entries
 
 <dl class="py function">
 <dt id="ssmpy.create_connection">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">create_connection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/data.html#create_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.create_connection" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">create_connection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.create_connection" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>create a database connection to the SQLite database</dt><dd><p>specified by db_file</p>
 </dd>
@@ -269,7 +269,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.db_select_entry">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_entry</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/data.html#db_select_entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.db_select_entry" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_entry</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.db_select_entry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query all rows in the entry table, where name is in entry_list
 :param conn: the Connection object
 :param entry_list: list of entity names</p>
@@ -282,7 +282,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.db_select_entry_by_id">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_entry_by_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/data.html#db_select_entry_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.db_select_entry_by_id" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_entry_by_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.db_select_entry_by_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query all rows in the entry table, where name is in entry_list
 :param conn: the Connection object
 :param entry_list: list of entity ids</p>
@@ -295,7 +295,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.db_select_transitive">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_transitive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/data.html#db_select_transitive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.db_select_transitive" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_transitive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.db_select_transitive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query all rows in the transitive table, where id is in ids_list
 :param conn: the Connection object
 :param ids_list: list of entity ids</p>
@@ -308,7 +308,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.fast_jc">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_jc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/metrics.html#fast_jc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.fast_jc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_jc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_jc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the JC MICA INTRINSIC similarity between it1 and it2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -328,7 +328,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.fast_lin">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_lin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/metrics.html#fast_lin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.fast_lin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_lin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_lin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the LIN MICA INTRINSIC similarity between it1 and it2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -348,7 +348,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.fast_resn_lin_jc">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_resn_lin_jc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/metrics.html#fast_resn_lin_jc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.fast_resn_lin_jc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_resn_lin_jc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_resn_lin_jc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the RESNIK, LIN and JC MICA INTRINSIC similarity between it1 and it2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -368,7 +368,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.fast_resnik">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_resnik</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/metrics.html#fast_resnik"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.fast_resnik" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_resnik</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_resnik" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the RESNIK MICA INTRINSIC similarity between it1 and it2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -388,7 +388,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.get_all_commom_ancestors">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_all_commom_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/metrics.html#get_all_commom_ancestors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.get_all_commom_ancestors" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_all_commom_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_all_commom_ancestors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all common ancestors for it1 and it2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -406,7 +406,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.get_ancestors">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#get_ancestors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.get_ancestors" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_ancestors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get ancestors of a given semantic base entry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -435,7 +435,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.get_id">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#get_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.get_id" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get semantic base ID of ontolgy concept by its original label (name).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -463,7 +463,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.get_name">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#get_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.get_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get ontology label (name) for a given semantic base ID.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -491,7 +491,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.get_uniprot_annotations">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_uniprot_annotations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protein_acc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/annotations.html#get_uniprot_annotations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.get_uniprot_annotations" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_uniprot_annotations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protein_acc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_uniprot_annotations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve GO annotations for a UniProt ID using UniProt API</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -525,7 +525,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.information_content">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#information_content"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.information_content" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.information_content" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get information content of a semantic base entry according to intrinsic.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -555,7 +555,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 
 <dl class="py function">
 <dt id="ssmpy.information_content_extrinsic">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content_extrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#information_content_extrinsic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.information_content_extrinsic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content_extrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.information_content_extrinsic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the extrinsic information content of a semantic base entry.</p>
 <p>The values are precomputated at the time of creation of the semantic base according to
 the annotations file provided.</p>
@@ -586,7 +586,7 @@ the annotations file provided.</p>
 
 <dl class="py function">
 <dt id="ssmpy.information_content_intrinsic">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content_intrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#information_content_intrinsic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.information_content_intrinsic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content_intrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.information_content_intrinsic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the intrinsic information content of a semantic base entry.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -615,7 +615,7 @@ the annotations file provided.</p>
 
 <dl class="py function">
 <dt id="ssmpy.light_similarity">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">light_similarity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_ids_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_ids_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpu_cores</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#light_similarity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.light_similarity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">light_similarity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_ids_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_ids_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpu_cores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.light_similarity" title="Permalink to this definition">¶</a></dt>
 <dd><p>main function
 :param conn: db_connection
 :param entry_ids_1: list of entries 1
@@ -643,7 +643,7 @@ the annotations file provided.</p>
 
 <dl class="py function">
 <dt id="ssmpy.num_paths">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">num_paths</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancestor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#num_paths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.num_paths" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">num_paths</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancestor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.num_paths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get number of paths (edges) between two concepts.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -676,7 +676,7 @@ the annotations file provided.</p>
 
 <dl class="py function">
 <dt id="ssmpy.run_query">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">run_query</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#run_query"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.run_query" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">run_query</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.run_query" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run any query on the semantic base.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -708,7 +708,7 @@ the annotations file provided.</p>
 
 <dl class="py function">
 <dt id="ssmpy.semantic_base">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">semantic_base</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sb_file</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#semantic_base"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.semantic_base" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">semantic_base</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sb_file</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.semantic_base" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize global connection object.</p>
 <p>You can also pass other arguments to be given to the sqlite3.connect method, for example <code class="docutils literal notranslate"><span class="pre">check_same_thread</span></code>.
 After this method is called, the other methods will be applied to the semantic base.</p>
@@ -730,7 +730,7 @@ After this method is called, the other methods will be applied to the semantic b
 
 <dl class="py function">
 <dt id="ssmpy.shared_ic">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#shared_ic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.shared_ic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.shared_ic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the shared information content of two concepts according to the value of ssmpy.ssm.mica</p>
 <p>Previously computed values are stored in memory for faster computation.</p>
 <dl class="field-list simple">
@@ -765,7 +765,7 @@ After this method is called, the other methods will be applied to the semantic b
 
 <dl class="py function">
 <dt id="ssmpy.shared_ic_dca">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic_dca</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#shared_ic_dca"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.shared_ic_dca" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic_dca</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.shared_ic_dca" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the shared information content of two concepts using disjunctive common ancestors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -798,7 +798,7 @@ After this method is called, the other methods will be applied to the semantic b
 
 <dl class="py function">
 <dt id="ssmpy.shared_ic_mica">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic_mica</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#shared_ic_mica"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.shared_ic_mica" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic_mica</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.shared_ic_mica" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the shared information content of two concepts using the most informative common ancestor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -831,7 +831,7 @@ After this method is called, the other methods will be applied to the semantic b
 
 <dl class="py function">
 <dt id="ssmpy.ssm_jiang_conrath">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_jiang_conrath</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#ssm_jiang_conrath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.ssm_jiang_conrath" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_jiang_conrath</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_jiang_conrath" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate JC’s semantic similarity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -864,7 +864,7 @@ After this method is called, the other methods will be applied to the semantic b
 
 <dl class="py function">
 <dt id="ssmpy.ssm_lin">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_lin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#ssm_lin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.ssm_lin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_lin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_lin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate Lin’s semantic similarity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -897,7 +897,7 @@ After this method is called, the other methods will be applied to the semantic b
 
 <dl class="py function">
 <dt id="ssmpy.ssm_multiple">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_multiple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry1_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#ssm_multiple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.ssm_multiple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_multiple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry1_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_multiple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate semantic similarity over two lists of concepts.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -936,7 +936,7 @@ After this method is called, the other methods will be applied to the semantic b
 
 <dl class="py function">
 <dt id="ssmpy.ssm_resnik">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_resnik</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#ssm_resnik"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.ssm_resnik" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_resnik</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_resnik" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate Resnik’s semantic similarity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -969,7 +969,7 @@ After this method is called, the other methods will be applied to the semantic b
 
 <dl class="py function">
 <dt id="ssmpy.calculate_information_content_intrinsic">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">calculate_information_content_intrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_freq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/calculations.html#calculate_information_content_intrinsic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.calculate_information_content_intrinsic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">calculate_information_content_intrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_freq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.calculate_information_content_intrinsic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the information content
 of a dataframe of entries
 :param df: pandas DataFrame
@@ -978,7 +978,7 @@ of a dataframe of entries
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.common_ancestors">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">common_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#common_ancestors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.common_ancestors" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">common_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.common_ancestors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get common ancestors between two semantic base entries</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1010,7 +1010,7 @@ of a dataframe of entries
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.create_connection">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">create_connection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/data.html#create_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.create_connection" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">create_connection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.create_connection" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>create a database connection to the SQLite database</dt><dd><p>specified by db_file</p>
 </dd>
@@ -1074,7 +1074,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.db_select_entry">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_entry</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/data.html#db_select_entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.db_select_entry" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_entry</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.db_select_entry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query all rows in the entry table, where name is in entry_list
 :param conn: the Connection object
 :param entry_list: list of entity names</p>
@@ -1086,7 +1086,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.db_select_entry_by_id">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_entry_by_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/data.html#db_select_entry_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.db_select_entry_by_id" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_entry_by_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.db_select_entry_by_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query all rows in the entry table, where name is in entry_list
 :param conn: the Connection object
 :param entry_list: list of entity ids</p>
@@ -1098,7 +1098,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.db_select_transitive">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_transitive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/data.html#db_select_transitive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.db_select_transitive" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_transitive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.db_select_transitive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query all rows in the transitive table, where id is in ids_list
 :param conn: the Connection object
 :param ids_list: list of entity ids</p>
@@ -1110,7 +1110,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.fast_jc">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_jc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/metrics.html#fast_jc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.fast_jc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_jc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_jc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the JC MICA INTRINSIC similarity between it1 and it2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1129,7 +1129,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.fast_lin">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_lin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/metrics.html#fast_lin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.fast_lin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_lin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_lin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the LIN MICA INTRINSIC similarity between it1 and it2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1148,7 +1148,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.fast_resn_lin_jc">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_resn_lin_jc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/metrics.html#fast_resn_lin_jc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.fast_resn_lin_jc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_resn_lin_jc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_resn_lin_jc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the RESNIK, LIN and JC MICA INTRINSIC similarity between it1 and it2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1167,7 +1167,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.fast_resnik">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_resnik</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/metrics.html#fast_resnik"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.fast_resnik" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_resnik</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_resnik" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the RESNIK MICA INTRINSIC similarity between it1 and it2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1186,7 +1186,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.get_all_commom_ancestors">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_all_commom_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/metrics.html#get_all_commom_ancestors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.get_all_commom_ancestors" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_all_commom_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_all_commom_ancestors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all common ancestors for it1 and it2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1203,7 +1203,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.get_ancestors">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#get_ancestors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.get_ancestors" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_ancestors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get ancestors of a given semantic base entry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1231,7 +1231,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.get_id">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#get_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.get_id" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get semantic base ID of ontolgy concept by its original label (name).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1258,7 +1258,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.get_name">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#get_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.get_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get ontology label (name) for a given semantic base ID.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1285,7 +1285,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.get_uniprot_annotations">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_uniprot_annotations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protein_acc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/annotations.html#get_uniprot_annotations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.get_uniprot_annotations" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_uniprot_annotations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protein_acc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_uniprot_annotations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve GO annotations for a UniProt ID using UniProt API</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1318,7 +1318,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.information_content">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#information_content"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.information_content" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.information_content" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get information content of a semantic base entry according to intrinsic.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1347,7 +1347,7 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.information_content_extrinsic">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content_extrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#information_content_extrinsic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.information_content_extrinsic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content_extrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.information_content_extrinsic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the extrinsic information content of a semantic base entry.</p>
 <p>The values are precomputated at the time of creation of the semantic base according to
 the annotations file provided.</p>
@@ -1377,7 +1377,7 @@ the annotations file provided.</p>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.information_content_intrinsic">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content_intrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#information_content_intrinsic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.information_content_intrinsic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content_intrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.information_content_intrinsic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the intrinsic information content of a semantic base entry.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1405,7 +1405,7 @@ the annotations file provided.</p>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.light_similarity">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">light_similarity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_ids_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_ids_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpu_cores</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#light_similarity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.light_similarity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">light_similarity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_ids_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_ids_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpu_cores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.light_similarity" title="Permalink to this definition">¶</a></dt>
 <dd><p>main function
 :param conn: db_connection
 :param entry_ids_1: list of entries 1
@@ -1432,7 +1432,7 @@ the annotations file provided.</p>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.num_paths">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">num_paths</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancestor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#num_paths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.num_paths" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">num_paths</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancestor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.num_paths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get number of paths (edges) between two concepts.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1464,7 +1464,7 @@ the annotations file provided.</p>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.run_query">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">run_query</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#run_query"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.run_query" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">run_query</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.run_query" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run any query on the semantic base.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1495,7 +1495,7 @@ the annotations file provided.</p>
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.semantic_base">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">semantic_base</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sb_file</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#semantic_base"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.semantic_base" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">semantic_base</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sb_file</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.semantic_base" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize global connection object.</p>
 <p>You can also pass other arguments to be given to the sqlite3.connect method, for example <code class="docutils literal notranslate"><span class="pre">check_same_thread</span></code>.
 After this method is called, the other methods will be applied to the semantic base.</p>
@@ -1516,7 +1516,7 @@ After this method is called, the other methods will be applied to the semantic b
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.shared_ic">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#shared_ic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.shared_ic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.shared_ic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the shared information content of two concepts according to the value of ssmpy.ssm.mica</p>
 <p>Previously computed values are stored in memory for faster computation.</p>
 <dl class="field-list simple">
@@ -1550,7 +1550,7 @@ After this method is called, the other methods will be applied to the semantic b
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.shared_ic_dca">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic_dca</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#shared_ic_dca"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.shared_ic_dca" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic_dca</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.shared_ic_dca" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the shared information content of two concepts using disjunctive common ancestors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1582,7 +1582,7 @@ After this method is called, the other methods will be applied to the semantic b
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.shared_ic_mica">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic_mica</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#shared_ic_mica"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.shared_ic_mica" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic_mica</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.shared_ic_mica" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the shared information content of two concepts using the most informative common ancestor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1614,7 +1614,7 @@ After this method is called, the other methods will be applied to the semantic b
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.ssm_jiang_conrath">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_jiang_conrath</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#ssm_jiang_conrath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.ssm_jiang_conrath" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_jiang_conrath</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_jiang_conrath" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate JC’s semantic similarity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1646,7 +1646,7 @@ After this method is called, the other methods will be applied to the semantic b
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.ssm_lin">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_lin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#ssm_lin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.ssm_lin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_lin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_lin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate Lin’s semantic similarity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1678,7 +1678,7 @@ After this method is called, the other methods will be applied to the semantic b
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.ssm_multiple">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_multiple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry1_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#ssm_multiple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.ssm_multiple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_multiple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry1_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_multiple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate semantic similarity over two lists of concepts.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1716,7 +1716,7 @@ After this method is called, the other methods will be applied to the semantic b
 </dd></dl>
 <dl class="py function">
 <dt id="ssmpy.ssm_resnik">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_resnik</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ssmpy/ssm.html#ssm_resnik"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ssmpy.ssm_resnik" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_resnik</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_resnik" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate Resnik’s semantic similarity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
