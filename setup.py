@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="ssmpy",
-    version="0.2.4",
+    version="0.2.5",
     description="Basic functions to start using semantic similarity measures directly from a rdf or owl file.",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -23,5 +23,5 @@ setup(
         "Operating System :: OS Independent",
     ],
     package_data={"ssmpy": ["data/*"]},
-    install_requires=["rdflib"],
+    install_requires=["rdflib","pandas","sqlite3","math","multiprocessing","numpy"],
 )
