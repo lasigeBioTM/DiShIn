@@ -16,8 +16,7 @@
 FROM python:3.7.5-slim
 LABEL maintainer="fcouto@di.fc.ul.pt"
 
-RUN python -m pip install \
-        ssmpy 
+RUN python -m pip install ssmpy 
         
 # Labels
 LABEL org.label-schema.description="DiShIn (Semantic Similarity Measures using Disjunctive Shared Information)"
@@ -25,8 +24,8 @@ LABEL org.label-schema.url="http://labs.rd.ciencias.ulisboa.pt/dishin/"
 LABEL org.label-schema.vcs-url="https://github.com/lasigeBioTM/DiShIn"
 LABEL org.label-schema.docker.cmd="docker run -it --rm --name mer-container fjmc/dishin-image"
 
-COPY metals.owl .
-COPY metals.txt .
+COPY metals.owl /usr/src/myapp/
+COPY metals.txt /usr/src/myapp/
 
-COPY *.db /
+COPY *.db /usr/src/myapp/
 
