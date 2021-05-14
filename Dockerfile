@@ -13,12 +13,19 @@
 ## docker run -it --rm --name dishin-container -v "$PWD":/usr/src/myapp -w /usr/src/myapp fjmc/dishin-image:databases202104 python example2.py
 
 
-FROM python:3.7.5-slim
+FROM ubuntu:18.04
 LABEL maintainer="fcouto@di.fc.ul.pt"
 
-WORKDIR /usr/src/app
+RUN apt-get update 
+RUN apt-get install -y \
+    gawk \
+    unzip \
+    bc \
+    locales \
+    curl \
+    python3
 
-RUN python -m pip install ssmpy 
+RUN python3 -m pip install ssmpy 
         
 # Labels
 LABEL org.label-schema.description="DiShIn (Semantic Similarity Measures using Disjunctive Shared Information)"
@@ -26,8 +33,12 @@ LABEL org.label-schema.url="http://labs.rd.ciencias.ulisboa.pt/dishin/"
 LABEL org.label-schema.vcs-url="https://github.com/lasigeBioTM/DiShIn"
 LABEL org.label-schema.docker.cmd="docker run -it --rm --name mer-container fjmc/dishin-image"
 
+WORKDIR /DiShIn
+
 COPY metals.owl ./
 COPY metals.txt ./
 
-COPY *.db ./
+RUN apt-get autoremove
+RUN apt-get clean
+
 
