@@ -10,7 +10,7 @@
 ## cat Dockerfile-Databases >> Dockerfile
 ## docker build . -t fjmc/dishin-image:databases202104
 #### To test it:
-## docker run -it --rm --name dishin-container fjmc/dishin-image ./example2.py
+## docker run -it --rm --name dishin-container fjmc/dishin-image:databases202104 ./example2.py
 
 
 FROM ubuntu:18.04

@@ -8,6 +8,9 @@ A web tool using this package is available at: http://labs.fc.ul.pt/dishin/
 
 Package documentation: https://dishin.readthedocs.io/en/latest/
 
+** **NEW** **
+- Docker image available: https://hub.docker.com/r/fjmc/dishin-image
+
 ## Reference: 
 
 - F. Couto and A. Lamurias, “Semantic similarity definition,” in Encyclopedia of Bioinformatics and Computational Biology (S. Ranganathan, K. Nakai, C. Schönbach, and M. Gribskov, eds.), vol. 1, pp. 870–876, Oxford: Elsevier, 2019
