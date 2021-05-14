@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import ssmpy
 
 ssmpy.semantic_base("go.db")

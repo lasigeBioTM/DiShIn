@@ -18,14 +18,11 @@ LABEL maintainer="fcouto@di.fc.ul.pt"
 
 RUN apt-get update 
 RUN apt-get install -y \
-    gawk \
-    unzip \
-    bc \
-    locales \
     curl \
-    python3
+    python3 \
+    python3-pip
 
-RUN python3 -m pip install ssmpy 
+RUN pip3 install ssmpy 
         
 # Labels
 LABEL org.label-schema.description="DiShIn (Semantic Similarity Measures using Disjunctive Shared Information)"
@@ -37,6 +34,10 @@ WORKDIR /DiShIn
 
 COPY metals.owl ./
 COPY metals.txt ./
+
+COPY example*.py ./
+
+COPY *.db ./
 
 RUN apt-get autoremove
 RUN apt-get clean
