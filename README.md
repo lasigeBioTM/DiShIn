@@ -327,12 +327,12 @@ python dishin.py cl.db CL_0000047 CL_0000101
 
 Output:
 ```txt
-Resnik 	 DiShIn 	 intrinsic 	1.9063375764548978
-Resnik 	 MICA 	 intrinsic 	2.6866433997198857
-Lin 	 DiShIn 	 intrinsic 	0.3272258822885516
-Lin 	 MICA 	 intrinsic 	0.4611666200814948
-JC 	 DiShIn 	 intrinsic 	0.11313710298029131
-JC 	 MICA 	 intrinsic 	0.1373961991624287
+Resnik    DiShIn   intrinsic        1.9063375764548978
+Resnik    MICA     intrinsic        2.6866433997198857
+Lin       DiShIn   intrinsic        0.3272258822885516
+Lin       MICA     intrinsic        0.4611666200814948
+JC        DiShIn   intrinsic        0.11313710298029131
+JC        MICA     intrinsic        0.1373961991624287
 ```
 
 To create an updated version of the database, download the ontology:
@@ -361,12 +361,12 @@ python dishin.py ecto.db ENVO_01000829 ENVO_09200011
 
 Output:
 ```txt
-Resnik 	 DiShIn 	 intrinsic 	0.4783673341124399
-Resnik 	 MICA 	 intrinsic 	0.4783673341124399
-Lin 	 DiShIn 	 intrinsic 	0.052996013929053794
-Lin 	 MICA 	 intrinsic 	0.052996013929053794
-JC 	 DiShIn 	 intrinsic 	0.05526015750810917
-JC 	 MICA 	 intrinsic 	0.05526015750810917
+Resnik    DiShIn   intrinsic        0.4783673341124399
+Resnik    MICA     intrinsic        0.4783673341124399
+Lin       DiShIn   intrinsic        0.052996013929053794
+Lin       MICA     intrinsic        0.052996013929053794
+JC        DiShIn   intrinsic        0.05526015750810917
+JC        MICA     intrinsic        0.05526015750810917
 ```
 
 To create an updated version of the database, download the ontology:
@@ -394,12 +394,12 @@ python dishin.py envo.db ENVO_01000829 ENVO_09200011
 
 Output:
 ```txt
-Resnik 	 DiShIn 	 intrinsic 	0.10095128489526445
-Resnik 	 MICA 	 intrinsic 	0.10095128489526445
-Lin 	 DiShIn 	 intrinsic 	0.012723633698085534
-Lin 	 MICA 	 intrinsic 	0.012723633698085534
-JC 	 DiShIn 	 intrinsic 	0.06000093158424831
-JC 	 MICA 	 intrinsic 	0.06000093158424831
+Resnik    DiShIn   intrinsic        0.10095128489526445
+Resnik    MICA     intrinsic        0.10095128489526445
+Lin       DiShIn   intrinsic        0.012723633698085534
+Lin       MICA     intrinsic        0.012723633698085534
+JC        DiShIn   intrinsic        0.06000093158424831
+JC        MICA     intrinsic        0.06000093158424831
 ```
 
 To create an updated version of the database, download the ontology:
