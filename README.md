@@ -133,18 +133,18 @@ python dishin.py go.db GO_0000023 GO_0000025
 
 Output:
 ```txt
-Resnik     DiShIn    intrinsic          3.775439615001474
-Resnik     MICA      intrinsic          8.880063901891981
-Lin        DiShIn    intrinsic          0.4091891133909429
-Lin        MICA      intrinsic          0.9624377146523844
-JC         DiShIn    intrinsic          0.08401669887638269
-JC         MICA      intrinsic          0.5906161091496418
-Resnik     DiShIn    extrinsic          4.315813746201754
-Resnik     MICA      extrinsic          10.575802576015931
-Lin        DiShIn    extrinsic          0.38793452313030363
-Lin        MICA      extrinsic          0.950624649327762
-JC         DiShIn    extrinsic          0.06840605034663635
-JC         MICA      extrinsic          0.4765053580405049
+Resnik    DiShIn   intrinsic        3.78921500847647
+Resnik    MICA     intrinsic        8.851627638869019
+Lin       DiShIn   intrinsic        0.41195174078911123
+Lin       MICA     intrinsic        0.9623215907495385
+JC        DiShIn   intrinsic        0.08461688373053834
+JC        MICA     intrinsic        0.5906161091496406
+Resnik    DiShIn   extrinsic        4.310175268311233
+Resnik    MICA     extrinsic        10.13641508423437
+Lin       DiShIn   extrinsic        0.39394227804683757
+Lin       MICA     extrinsic        0.9264501327520663
+JC        DiShIn   extrinsic        0.07011679859284012
+JC        MICA     extrinsic        0.3832242933372551
 ```
 
 Now to calculate the similarity between proteins [Q12345](http://www.uniprot.org/uniprot/Q12345) and [Q12346](http://www.uniprot.org/uniprot/Q12346) execute:
@@ -155,18 +155,18 @@ python dishin.py go.db Q12345 Q12346
 
 Output:
 ```txt
-Resnik     DiShIn    intrinsic          1.4462923030269426
-Resnik     MICA      intrinsic          1.4462923030269426
-Lin        DiShIn    intrinsic          0.18745282441602068
-Lin        MICA      intrinsic          0.18745282441602068
-JC         DiShIn    intrinsic          0.08633506268285998
-JC         MICA      intrinsic          0.08633506268285998
-Resnik     DiShIn    extrinsic          0.6015115682274214
-Resnik     MICA      extrinsic          0.6015115682274214
-Lin        DiShIn    extrinsic          0.12201023476842265
-Lin        MICA      extrinsic          0.12201023476842265
-JC         DiShIn    extrinsic          0.09317326288224918
-JC         MICA      extrinsic          0.09317326288224918
+Resnik    DiShIn   intrinsic        1.0570711021304315
+Resnik    MICA     intrinsic        1.0570711021304315
+Lin       DiShIn   intrinsic        0.12958973249230304
+Lin       MICA     intrinsic        0.12958973249230304
+JC        DiShIn   intrinsic        0.07363762393108407
+JC        MICA     intrinsic        0.07363762393108407
+Resnik    DiShIn   extrinsic        0.47838902966531843
+Resnik    MICA     extrinsic        0.47838902966531843
+Lin       DiShIn   extrinsic        0.09255485176480098
+Lin       MICA     extrinsic        0.09255485176480098
+JC        DiShIn   extrinsic        0.09036345699860157
+JC        MICA     extrinsic        0.09036345699860157
 ```
 
 To create an updated version of the database, download the ontology and annotations:
@@ -196,12 +196,12 @@ python dishin.py chebi.db CHEBI_31236 CHEBI_3131
 
 Output:
 ```txt
-Resnik     DiShIn    intrinsic          1.4393842298350599
-Resnik     MICA      intrinsic          5.5106315826160674
-Lin        DiShIn    intrinsic          0.12935491517581163
-Lin        MICA      intrinsic          0.4952307147453835
-JC         DiShIn    intrinsic          0.049077257018319796
-JC         MICA      intrinsic          0.0817424736051902
+Resnik    DiShIn   intrinsic        1.476632415671022
+Resnik    MICA     intrinsic        5.641314851207291
+Lin       DiShIn   intrinsic        0.13064609500712546
+Lin       MICA     intrinsic        0.4991193124261839
+JC        DiShIn   intrinsic        0.048421904489541145
+JC        MICA     intrinsic        0.08115272103316418
 ```
 To create an updated version of the database, download the ontology:
 ```shell
@@ -228,12 +228,12 @@ python dishin.py hp.db HP_0000588 HP_0001093
 
 Output:
 ```txt
-Resnik     DiShIn    intrinsic          4.593979372426621
-Resnik     MICA      intrinsic          6.005278943833842
-Lin        DiShIn    intrinsic          0.5118244533189668
-Lin        MICA      intrinsic          0.6690601683812312
-JC         DiShIn    intrinsic          0.10242304162282165
-JC         MICA      intrinsic          0.14407501033681872
+Resnik    DiShIn   intrinsic        4.617876786673204
+Resnik    MICA     intrinsic        5.995918897457362
+Lin       DiShIn   intrinsic        0.5108021406767812
+Lin       MICA     intrinsic        0.6632329855539579
+JC        DiShIn   intrinsic        0.10157307132754399
+JC        MICA     intrinsic        0.14106272672409434
 ```
 
 To create an updated version of the database, download the ontology:
@@ -261,12 +261,12 @@ python dishin.py doid.db DOID_2841 DOID_1324
 
 Output:
 ```txt
-Resnik     DiShIn    intrinsic          2.3627836143597176
-Resnik     MICA      intrinsic          3.791674698804828
-Lin        DiShIn    intrinsic          0.4328907089097581
-Lin        MICA      intrinsic          0.6946809425735787
-JC         DiShIn    intrinsic          0.13906777879867938
-JC         MICA      intrinsic          0.2307893214756218
+Resnik    DiShIn   intrinsic        2.4006601711893345
+Resnik    MICA     intrinsic        3.8437441646748516
+Lin       DiShIn   intrinsic        0.4363310773119593
+Lin       MICA     intrinsic        0.6986182602651521
+JC        DiShIn   intrinsic        0.13884016970564805
+JC        MICA     intrinsic        0.23167677096337774
 ```
 To create an updated version of the database, download the ontology:
 ```shell
@@ -427,12 +427,12 @@ python dishin.py mesh.db D008305 D005334
 
 Output:
 ```txt
-Resnik     DiShIn    intrinsic          1.2582571367910345
-Resnik     MICA      intrinsic          1.2582571367910345
-Lin        DiShIn    intrinsic          0.17390901691859173
-Lin        MICA      intrinsic          0.17390901691859173
-JC         DiShIn    intrinsic          0.07719755683816652
-JC         MICA      intrinsic          0.07719755683816652
+Resnik    DiShIn   intrinsic        3.652230798230297
+Resnik    MICA     intrinsic        6.113436328571005
+Lin       DiShIn   intrinsic        0.510133103212917
+Lin       MICA     intrinsic        0.8539072194176971
+JC        DiShIn   intrinsic        0.1247773485102854
+JC        MICA     intrinsic        0.3234294846252581
 ```
 
 To create an updated version of the database, download the _NT_ version from ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz and unzip it:
