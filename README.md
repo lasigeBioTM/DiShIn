@@ -9,6 +9,8 @@ A web tool using this package is available at: http://labs.fc.ul.pt/dishin/
 Package documentation: https://dishin.readthedocs.io/en/latest/
 
 ** **NEW** **
+- New examples addes, namely the ontologies: OSCI, CL, ECTO, and ENVO
+- Databases updated: 202302
 - Docker image available: https://hub.docker.com/r/fjmc/dishin-image
 
 ## Reference: 
@@ -120,8 +122,8 @@ Using the python function directly (first download metals.db and metals.txt from
 
 Download the latest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/go202104.db.gz
-gunzip -N go202104.db.gz
+curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/go202302.db.gz
+gunzip -N go202302.db.gz
 ```
 
 Now to calculate the similarity between _maltose biosynthetic process_ and _maltose catabolic process_ execute:
@@ -169,8 +171,8 @@ JC         MICA      extrinsic          0.09317326288224918
 
 To create an updated version of the database, download the ontology and annotations:
 ```shell
-wget http://purl.obolibrary.org/obo/go.owl
-wget http://geneontology.org/gene-associations/goa_uniprot_all_noiea.gaf.gz
+curl -L -O http://purl.obolibrary.org/obo/go.owl
+curl -L -O http://geneontology.org/gene-associations/goa_uniprot_all_noiea.gaf.gz
 gunzip goa_uniprot_all_noiea.gaf.gz 
 ```
 
@@ -183,8 +185,8 @@ python dishin.py go.owl go.db http://purl.obolibrary.org/obo/ http://www.w3.org/
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/chebi202104.db.gz
-gunzip -N chebi202104.db.gz
+curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/chebi202302.db.gz
+gunzip -N chebi202302.db.gz
 ```
 
 Now to calculate the similarity between _aripiprazole_ and _bithionol_ execute:
@@ -203,7 +205,7 @@ JC         MICA      intrinsic          0.0817424736051902
 ```
 To create an updated version of the database, download the ontology:
 ```shell
-wget http://purl.obolibrary.org/obo/chebi/chebi_lite.owl
+curl -L -O http://purl.obolibrary.org/obo/chebi/chebi_lite.owl
 ```
 
 And then create the new database:
@@ -215,8 +217,8 @@ python dishin.py chebi_lite.owl chebi.db http://purl.obolibrary.org/obo/ http://
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/hp202104.db.gz
-gunzip -N hp202104.db.gz
+curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/hp202302.db.gz
+gunzip -N hp202302.db.gz
 ```
 
 Now to calculate the similarity between _Optic nerve coloboma_ and _Optic nerve dysplasia_ execute:
@@ -236,7 +238,7 @@ JC         MICA      intrinsic          0.14407501033681872
 
 To create an updated version of the database, download the ontology:
 ```shell
-wget http://purl.obolibrary.org/obo/hp.owl
+curl -L -O http://purl.obolibrary.org/obo/hp.owl
 ```
 
 And then create the new database:
@@ -248,8 +250,8 @@ python dishin.py hp.owl hp.db http://purl.obolibrary.org/obo/ http://www.w3.org/
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/doid202104.db.gz
-gunzip -N doid202104.db.gz
+curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/doid202302.db.gz
+gunzip -N doid202302.db.gz
 ```
 
 Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
@@ -268,7 +270,7 @@ JC         MICA      intrinsic          0.2307893214756218
 ```
 To create an updated version of the database, download the ontology:
 ```shell
-wget http://purl.obolibrary.org/obo/doid.owl
+curl -L -O http://purl.obolibrary.org/obo/doid.owl
 ```
 
 And then create the new database:
@@ -276,12 +278,146 @@ And then create the new database:
 python dishin.py doid.owl doid.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
 ```
 
+###  Ontology for Stem Cell Investigations (OSCI) Example
+
+Download the lastest version of the database we created:
+```shell
+curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/osci202302.db.gz
+gunzip -N osci202302.db.gz
+```
+
+Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
+```shell
+python dishin.py osci.db CL_0000047 CL_0000101
+```
+
+Output:
+```txt
+Resnik    DiShIn   intrinsic        3.1560550137337486
+Resnik    MICA     intrinsic        4.1255971057262055
+Lin       DiShIn   intrinsic        0.6369806275261506
+Lin       MICA     intrinsic        0.8326614782980606
+JC        DiShIn   intrinsic        0.21751839842873807
+JC        MICA     intrinsic        0.3761904438530041
+```
+
+To create an updated version of the database, download the ontology:
+```shell
+curl -L -O https://raw.githubusercontent.com/stemcellontologyresource/OSCI/master/src/ontology/osci.owl
+```
+
+And then create the new database:
+```shell
+python dishin.py osci.owl osci.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
+```
+
+
+###  Cell Ontology (CL) Example
+
+Download the lastest version of the database we created:
+```shell
+curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/cl202302.db.gz
+gunzip -N cl202302.db.gz
+```
+
+Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
+```shell
+python dishin.py cl.db CL_0000047 CL_0000101
+```
+
+Output:
+```txt
+Resnik 	 DiShIn 	 intrinsic 	1.9063375764548978
+Resnik 	 MICA 	 intrinsic 	2.6866433997198857
+Lin 	 DiShIn 	 intrinsic 	0.3272258822885516
+Lin 	 MICA 	 intrinsic 	0.4611666200814948
+JC 	 DiShIn 	 intrinsic 	0.11313710298029131
+JC 	 MICA 	 intrinsic 	0.1373961991624287
+```
+
+To create an updated version of the database, download the ontology:
+```shell
+curl -L -O http://purl.obolibrary.org/obo/cl.owl
+```
+
+And then create the new database:
+```shell
+python dishin.py cl.owl cl.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
+```
+
+
+###  Environmental conditions, treatments and exposures ontology (ECTO) Example
+
+Download the lastest version of the database we created:
+```shell
+curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/ecto202302.db.gz
+gunzip -N ecto202302.db.gz
+```
+
+Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
+```shell
+python dishin.py ecto.db ENVO_01000829 ENVO_09200011
+```
+
+Output:
+```txt
+Resnik 	 DiShIn 	 intrinsic 	0.4783673341124399
+Resnik 	 MICA 	 intrinsic 	0.4783673341124399
+Lin 	 DiShIn 	 intrinsic 	0.052996013929053794
+Lin 	 MICA 	 intrinsic 	0.052996013929053794
+JC 	 DiShIn 	 intrinsic 	0.05526015750810917
+JC 	 MICA 	 intrinsic 	0.05526015750810917
+```
+
+To create an updated version of the database, download the ontology:
+```shell
+curl -L -O http://purl.obolibrary.org/obo/ecto.owl
+```
+
+And then create the new database:
+```shell
+python dishin.py ecto.owl ecto.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
+```
+
+###  Environment Ontology (ENVO) Example
+
+Download the lastest version of the database we created:
+```shell
+curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/envo202302.db.gz
+gunzip -N envo202302.db.gz
+```
+
+Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
+```shell
+python dishin.py envo.db ENVO_01000829 ENVO_09200011
+```
+
+Output:
+```txt
+Resnik 	 DiShIn 	 intrinsic 	0.10095128489526445
+Resnik 	 MICA 	 intrinsic 	0.10095128489526445
+Lin 	 DiShIn 	 intrinsic 	0.012723633698085534
+Lin 	 MICA 	 intrinsic 	0.012723633698085534
+JC 	 DiShIn 	 intrinsic 	0.06000093158424831
+JC 	 MICA 	 intrinsic 	0.06000093158424831
+```
+
+To create an updated version of the database, download the ontology:
+```shell
+curl -L -O http://purl.obolibrary.org/obo/envo.owl
+```
+
+And then create the new database:
+```shell
+python dishin.py envo.owl envo.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf ''
+```
+
 ###  Medical Subject Headings (MeSH) Example
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/mesh202104.db.gz
-gunzip -N mesh202104.db.gz
+curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/mesh202302.db.gz
+gunzip -N mesh202302.db.gz
 ```
 
 Now to calculate the similarity between _Malignant Hyperthermia_ and _Fever_ execute:
@@ -301,7 +437,7 @@ JC         MICA      intrinsic          0.07719755683816652
 
 To create an updated version of the database, download the _NT_ version from ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz and unzip it:
 ```shell
-wget ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz
+curl -L -O ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz
 gunzip mesh.nt.gz
 ```
 And then create the new database:
@@ -313,8 +449,8 @@ python dishin.py mesh.nt mesh.db http://id.nlm.nih.gov/mesh/ http://id.nlm.nih.g
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/radlex202104.db.gz
-gunzip -N radlex202104.db.gz
+curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/radlex202302.db.gz
+gunzip -N radlex202302.db.gz
 ```
 
 Now to calculate the similarity between _nervous system of right upper limb_ and _nervous system of left upper limb_ execute:
@@ -340,8 +476,8 @@ python dishin.py radlex.rdf radlex.db http://radlex.org/RID/ http://www.w3.org/2
 
 Download the lastest version of the database we created:
 ```shell
-wget http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet202104.db.gz
-gunzip -N wordnet202104.db.gz
+curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/wordnet202302.db.gz
+gunzip -N wordnet202302.db.gz
 ```
 
 Now to calculate the similarity between the nouns _ambulance_ and _motorcycle_ execute:
@@ -358,7 +494,7 @@ JC         MICA      intrinsic          0.14327549414725688
 
 To create an updated version of the database, download the ontology:
 ```shell
-wget http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
+curl -L -O http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf
 ```
 
 And then create the new database:
