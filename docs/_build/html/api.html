@@ -1,69 +1,41 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>API &mdash; DiShIn  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>API &mdash; DiShIn  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+      <script>
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Data Sources" href="data_sources.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> DiShIn
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -71,18 +43,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
@@ -91,151 +52,80 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">DiShIn</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>API</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">API</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="module-ssmpy">
 <span id="api"></span><h1>API<a class="headerlink" href="#module-ssmpy" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
-<dt id="ssmpy.calculate_information_content_intrinsic">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">calculate_information_content_intrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_freq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.calculate_information_content_intrinsic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the information content
-of a dataframe of entries
-:param df: pandas DataFrame
-:param max_freq: maximum frequency in the ontology
-:return: df with extra column ‘IC’</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.common_ancestors">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">common_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.common_ancestors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get common ancestors between two semantic base entries</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>entry1</strong> (<em>int</em>) – first semantic base ID</p></li>
-<li><p><strong>entry1</strong> – second semantic base ID</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>List of common ancestors</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<dl class="function">
+<dt id="ssmpy.semantic_base">
+<code class="descclassname">ssmpy.</code><code class="descname">semantic_base</code><span class="sig-paren">(</span><em>sb_file</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.semantic_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize global connection object.</p>
+<p>You can also pass other arguments to be given to the sqlite3.connect method, for example <code class="docutils literal"><span class="pre">check_same_thread</span></code>.
+After this method is called, the other methods will be applied to the semantic base.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sb_file</strong> (<em>string</em>) – sqlite database filename</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">&#39;metals.db&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">silver</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">common_ancestors</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">silver</span><span class="p">)</span>
-<span class="go">[6, 2, 10]</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="py function">
-<dt id="ssmpy.create_connection">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">create_connection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.create_connection" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>create a database connection to the SQLite database</dt><dd><p>specified by db_file</p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>db_file</strong> – database file</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Connection object or None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
+<dl class="function">
 <dt id="ssmpy.create_semantic_base">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">create_semantic_base</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">owl_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotation_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.create_semantic_base" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">ssmpy.</code><code class="descname">create_semantic_base</code><span class="sig-paren">(</span><em>owl_file</em>, <em>sb_file</em>, <em>name_prefix</em>, <em>relation</em>, <em>annotation_file=''</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.create_semantic_base" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create sqlite3 semantic base using a owl file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>owl_file</strong> (<em>string</em>) – File name of ontolgy in owl format</p></li>
-<li><p><strong>sb_file</strong> (<em>string</em>) – File name of database where semantic base will be stored</p></li>
-<li><p><strong>name_prefix</strong> (<em>string</em>) – Prefix of the concepts to be extracted from the ontology</p></li>
-<li><p><strong>relation</strong> (<em>string</em>) – Type of relation to be extracted from the ontology</p></li>
-<li><p><strong>annotation_file</strong> (<em>string</em>) – File containing ontology concepts to use as annotations and calculate
-concept frequency. Empty string if this file is not available.</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>owl_file</strong> (<em>string</em>) – File name of ontolgy in owl format</li>
+<li><strong>sb_file</strong> (<em>string</em>) – File name of database where semantic base will be stored</li>
+<li><strong>name_prefix</strong> (<em>string</em>) – Prefix of the concepts to be extracted from the ontology</li>
+<li><strong>relation</strong> (<em>string</em>) – Type of relation to be extracted from the ontology</li>
+<li><strong>annotation_file</strong> (<em>string</em>) – File containing ontology concepts to use as annotations and calculate
+concept frequency. Empty string if this file is not available.</li>
 </ul>
-</dd>
-</dl>
-<dl>
-<dt>Example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;http://purl.obolibrary.org/obo/go.owl&quot;</span><span class="p">,</span> <span class="s2">&quot;go.owl&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">&#39;go.owl&#39;</span>
@@ -267,246 +157,25 @@ concept frequency. Empty string if this file is not available.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py function">
-<dt id="ssmpy.db_select_entry">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_entry</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.db_select_entry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Query all rows in the entry table, where name is in entry_list
-:param conn: the Connection object
-:param entry_list: list of entity names</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>pandas dataframe with all columns in entry</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.db_select_entry_by_id">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_entry_by_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.db_select_entry_by_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Query all rows in the entry table, where name is in entry_list
-:param conn: the Connection object
-:param entry_list: list of entity ids</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>pandas dataframe with all columns in entry</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.db_select_transitive">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">db_select_transitive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.db_select_transitive" title="Permalink to this definition">¶</a></dt>
-<dd><p>Query all rows in the transitive table, where id is in ids_list
-:param conn: the Connection object
-:param ids_list: list of entity ids</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>pandas dataframe with all columns in transitive</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.fast_jc">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_jc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_jc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the JC MICA INTRINSIC similarity between it1 and it2</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>all_ancestors</strong> – pandas DataFrame of all ancestors (from table transitive)</p></li>
-<li><p><strong>df_entry_ancestors</strong> – pandas DataFrame of all ancestors (from table entry) with column IC</p></li>
-<li><p><strong>df_entry_ic</strong> – pandas DataFrame of all entities (from table entry) with column IC</p></li>
-<li><p><strong>it1</strong> – entity 1 (id)</p></li>
-<li><p><strong>it2</strong> – entity 2 (id)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list: [e1, e2, sim_jc]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.fast_lin">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_lin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_lin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the LIN MICA INTRINSIC similarity between it1 and it2</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>all_ancestors</strong> – pandas DataFrame of all ancestors (from table transitive)</p></li>
-<li><p><strong>df_entry_ancestors</strong> – pandas DataFrame of all ancestors (from table entry) with column IC</p></li>
-<li><p><strong>df_entry_ic</strong> – pandas DataFrame of all entities (from table entry) with column IC</p></li>
-<li><p><strong>it1</strong> – entity 1 (id)</p></li>
-<li><p><strong>it2</strong> – entity 2 (id)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list: [e1, e2, sim_lin]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.fast_resn_lin_jc">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_resn_lin_jc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_resn_lin_jc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the RESNIK, LIN and JC MICA INTRINSIC similarity between it1 and it2</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>all_ancestors</strong> – pandas DataFrame of all ancestors (from table transitive)</p></li>
-<li><p><strong>df_entry_ancestors</strong> – pandas DataFrame of all ancestors (from table entry) with column IC</p></li>
-<li><p><strong>df_entry_ic</strong> – pandas DataFrame of all entities (from table entry) with column IC</p></li>
-<li><p><strong>it1</strong> – entity 1 (id)</p></li>
-<li><p><strong>it2</strong> – entity 2 (id)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list: [e1, e2, sim_resnik, sim_lin, sim_jc]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.fast_resnik">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">fast_resnik</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_entry_ic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_resnik" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the RESNIK MICA INTRINSIC similarity between it1 and it2</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>all_ancestors</strong> – pandas DataFrame of all ancestors (from table transitive)</p></li>
-<li><p><strong>df_entry_ancestors</strong> – pandas DataFrame of all ancestors (from table entry) with column IC</p></li>
-<li><p><strong>df_entry_ic</strong> – pandas DataFrame of all entities (from table entry) with column IC</p></li>
-<li><p><strong>it1</strong> – entity 1 (id)</p></li>
-<li><p><strong>it2</strong> – entity 2 (id)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list: [e1, e2, sim_resnik]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.get_all_commom_ancestors">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_all_commom_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ancestors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_all_commom_ancestors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get all common ancestors for it1 and it2</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>all_ancestors</strong> – pandas DataFrame of all ancestors</p></li>
-<li><p><strong>it1</strong> – entity 1 (id)</p></li>
-<li><p><strong>it2</strong> – entity 2 (id)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>pandas DataDrame of common ancestors or zero</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.get_ancestors">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_ancestors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get ancestors of a given semantic base entry</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>entry</strong> (<em>int</em>) – semantic base ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>List of ancestors</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">get_ancestors</span><span class="p">(</span><span class="n">gold</span><span class="p">)</span>
-<span class="go">[3, 6, 2, 10]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.get_id">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get semantic base ID of ontolgy concept by its original label (name).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> (<em>string</em>) – ontology label (depends on the ontolgy)</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>semantic base ID or -1 if not found</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>int</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
-<span class="go">3</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.get_name">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get ontology label (name) for a given semantic base ID.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cid</strong> (<em>int</em>) – semantic base ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>ontology label (name)</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>string</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">get_name</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="go">&#39;gold&#39;</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
+<dl class="function">
 <dt id="ssmpy.get_uniprot_annotations">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">get_uniprot_annotations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protein_acc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_uniprot_annotations" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">ssmpy.</code><code class="descname">get_uniprot_annotations</code><span class="sig-paren">(</span><em>protein_acc</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_uniprot_annotations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve GO annotations for a UniProt ID using UniProt API</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>protein_acc</strong> (<em>string</em>) – UniProt protein ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list of GO terms</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>protein_acc</strong> (<em>string</em>) – UniProt protein ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of GO terms</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gzip</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">shutil</span>
@@ -523,400 +192,32 @@ concept frequency. Empty string if this file is not available.</p></li>
 </div>
 </dd></dl>
 
-<dl class="py function">
-<dt id="ssmpy.information_content">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.information_content" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get information content of a semantic base entry according to intrinsic.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>entry</strong> (<em>int</em>) – semantic base ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>information content</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">intrinsic</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">information_content</span><span class="p">(</span><span class="n">gold</span><span class="p">)</span>
-<span class="go">1.5040773967762742</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.information_content_extrinsic">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content_extrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.information_content_extrinsic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the extrinsic information content of a semantic base entry.</p>
-<p>The values are precomputated at the time of creation of the semantic base according to
-the annotations file provided.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>entry</strong> (<em>int</em>) – semantic base ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>extrinsic information content</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">information_content_extrinsic</span><span class="p">(</span><span class="n">gold</span><span class="p">)</span>
-<span class="go">1.2992829841302609</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.information_content_intrinsic">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">information_content_intrinsic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.information_content_intrinsic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the intrinsic information content of a semantic base entry.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>entry</strong> (<em>int</em>) – semantic base ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>intrinsic information content</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">information_content_intrinsic</span><span class="p">(</span><span class="n">gold</span><span class="p">)</span>
-<span class="go">1.5040773967762742</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.light_similarity">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">light_similarity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_ids_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_ids_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpu_cores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.light_similarity" title="Permalink to this definition">¶</a></dt>
-<dd><p>main function
-:param conn: db_connection
-:param entry_ids_1: list of entries 1
-:param entry_ids_2: list of entries 2
-:param cpu_cores: number of cores to be used
-:param metric: ‘lin’, ‘resnick’, ‘jc’ or ‘all’
-:return: list with results ([e1, e2, similarity] or [e1, e2, similarity resnik, similarity lin, similarity jc])</p>
-<dl class="field-list simple">
-<dt class="field-odd">Example</dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s1">&#39;doid.owl&#39;</span><span class="p">,</span> <span class="s1">&#39;doid.db&#39;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span><span class="s1">&#39;doid.db&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DOID_10587&#39;</span><span class="p">,</span> <span class="s1">&#39;DOID_2841&#39;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DOID_1927&#39;</span><span class="p">,</span> <span class="s1">&#39;DOID_1324&#39;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">light_similarity</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">,</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="go">[[[&#39;DOID_10587&#39;, &#39;DOID_1324&#39;, -0.0, -0.0, 0.068819810490695],</span>
-<span class="go">[&#39;DOID_10587&#39;, &#39;DOID_1927&#39;, 5.937536205082426, 0.8269561090992177, 0.28695173228265203]],</span>
-<span class="go">[[&#39;DOID_2841&#39;, &#39;DOID_1324&#39;, 3.703943983575332, 0.659762410973656, 0.20745912457314464],</span>
-<span class="go">[&#39;DOID_2841&#39;, &#39;DOID_1927&#39;, -0.0, -0.0, 0.07658496040867407]]]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.num_paths">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">num_paths</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancestor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.num_paths" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get number of paths (edges) between two concepts.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>entry1</strong> (<em>int</em>) – Child concept</p></li>
-<li><p><strong>ancestor</strong> (<em>int</em>) – Parent concept</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>number of edges between the two concepts</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>int</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">metal</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;metal&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">num_paths</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">metal</span><span class="p">)</span>
-<span class="go">5</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.run_query">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">run_query</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.run_query" title="Permalink to this definition">¶</a></dt>
-<dd><p>Run any query on the semantic base.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>query</strong> (<em>string</em>) – query to run on the semantic base</p></li>
-<li><p><strong>params</strong> (<em>tuple</em>) – query parameters</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>query result</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>sqlite3.Cursor</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT id FROM entry WHERE name = ?&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">run_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">,))</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
-<span class="go">(3,)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.semantic_base">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">semantic_base</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sb_file</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.semantic_base" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize global connection object.</p>
-<p>You can also pass other arguments to be given to the sqlite3.connect method, for example <code class="docutils literal notranslate"><span class="pre">check_same_thread</span></code>.
-After this method is called, the other methods will be applied to the semantic base.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>sb_file</strong> (<em>string</em>) – sqlite database filename</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.shared_ic">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.shared_ic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the shared information content of two concepts according to the value of ssmpy.ssm.mica</p>
-<p>Previously computed values are stored in memory for faster computation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>entry1</strong> (<em>int</em>) – First concept</p></li>
-<li><p><strong>ancestor</strong> (<em>int</em>) – Second concept</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Shared information content</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">silver</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">mica</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">shared_ic</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">silver</span><span class="p">)</span>
-<span class="go">0.587786664902119</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.shared_ic_dca">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic_dca</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.shared_ic_dca" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the shared information content of two concepts using disjunctive common ancestors.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>entry1</strong> (<em>int</em>) – First concept</p></li>
-<li><p><strong>ancestor</strong> (<em>int</em>) – Second concept</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Shared information content</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">silver</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">shared_ic_dca</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">silver</span><span class="p">)</span>
-<span class="go">0.587786664902119</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.shared_ic_mica">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">shared_ic_mica</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.shared_ic_mica" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the shared information content of two concepts using the most informative common ancestor.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>entry1</strong> (<em>int</em>) – First concept</p></li>
-<li><p><strong>ancestor</strong> (<em>int</em>) – Second concept</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Shared information content</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">silver</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">shared_ic_mica</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">silver</span><span class="p">)</span>
-<span class="go">0.587786664902119</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.ssm_jiang_conrath">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_jiang_conrath</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_jiang_conrath" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate JC’s semantic similarity.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>entry1</strong> (<em>int</em>) – First concept</p></li>
-<li><p><strong>ancestor</strong> (<em>int</em>) – Second concept</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Semantic similarity</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">silver</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_jiang_conrath</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">silver</span><span class="p">)</span>
-<span class="go">0.5456783339686456</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ssmpy.ssm_lin">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_lin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_lin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate Lin’s semantic similarity.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>entry1</strong> (<em>int</em>) – First concept</p></li>
-<li><p><strong>ancestor</strong> (<em>int</em>) – Second concept</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Semantic similarity</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">&#39;metals.db&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">silver</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_lin</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">silver</span><span class="p">)</span>
-<span class="go">0.39079549108439265</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
+<dl class="function">
 <dt id="ssmpy.ssm_multiple">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_multiple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry1_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_multiple" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">ssmpy.</code><code class="descname">ssm_multiple</code><span class="sig-paren">(</span><em>m</em>, <em>entry1_list</em>, <em>entry2_list</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_multiple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate semantic similarity over two lists of concepts.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>m</strong> – semantic similarity function</p></li>
-<li><p><strong>entry1_list</strong> – First concept list</p></li>
-<li><p><strong>entry2_list</strong> – Second concept list</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>m</strong> – semantic similarity function</li>
+<li><strong>entry1_list</strong> – First concept list</li>
+<li><strong>entry2_list</strong> – Second concept list</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Aggregate Similarity Measure</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Aggregate Similarity Measure</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gzip</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">shutil</span>
@@ -934,27 +235,60 @@ After this method is called, the other methods will be applied to the semantic b
 </div>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
+<dt id="ssmpy.get_id">
+<code class="descclassname">ssmpy.</code><code class="descname">get_id</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get semantic base ID of ontolgy concept by its original label (name).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string</em>) – ontology label (depends on the ontolgy)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">semantic base ID or -1 if not found</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="ssmpy.ssm_resnik">
-<code class="sig-prename descclassname"><span class="pre">ssmpy.</span></code><code class="sig-name descname"><span class="pre">ssm_resnik</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_resnik" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">ssmpy.</code><code class="descname">ssm_resnik</code><span class="sig-paren">(</span><em>entry1</em>, <em>entry2</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_resnik" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate Resnik’s semantic similarity.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>entry1</strong> (<em>int</em>) – First concept</p></li>
-<li><p><strong>ancestor</strong> (<em>int</em>) – Second concept</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entry1</strong> (<em>int</em>) – First concept</li>
+<li><strong>ancestor</strong> (<em>int</em>) – Second concept</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Semantic similarity</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-<dt class="field-even">Example</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Semantic similarity</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">&#39;metals.db&#39;</span>
@@ -965,6 +299,682 @@ After this method is called, the other methods will be applied to the semantic b
 <span class="go">0.587786664902119</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.ssm_lin">
+<code class="descclassname">ssmpy.</code><code class="descname">ssm_lin</code><span class="sig-paren">(</span><em>entry1</em>, <em>entry2</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_lin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate Lin’s semantic similarity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entry1</strong> (<em>int</em>) – First concept</li>
+<li><strong>ancestor</strong> (<em>int</em>) – Second concept</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Semantic similarity</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">silver</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_lin</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">silver</span><span class="p">)</span>
+<span class="go">0.39079549108439265</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.ssm_jiang_conrath">
+<code class="descclassname">ssmpy.</code><code class="descname">ssm_jiang_conrath</code><span class="sig-paren">(</span><em>entry1</em>, <em>entry2</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.ssm_jiang_conrath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate JC’s semantic similarity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entry1</strong> (<em>int</em>) – First concept</li>
+<li><strong>ancestor</strong> (<em>int</em>) – Second concept</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Semantic similarity</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">silver</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm_jiang_conrath</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">silver</span><span class="p">)</span>
+<span class="go">0.5456783339686456</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.run_query">
+<code class="descclassname">ssmpy.</code><code class="descname">run_query</code><span class="sig-paren">(</span><em>query</em>, <em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.run_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run any query on the semantic base.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>query</strong> (<em>string</em>) – query to run on the semantic base</li>
+<li><strong>params</strong> (<em>tuple</em>) – query parameters</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">query result</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">sqlite3.Cursor</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT id FROM entry WHERE name = ?&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">run_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">,))</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+<span class="go">(3,)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.get_name">
+<code class="descclassname">ssmpy.</code><code class="descname">get_name</code><span class="sig-paren">(</span><em>cid</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ontology label (name) for a given semantic base ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cid</strong> (<em>int</em>) – semantic base ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">ontology label (name)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">get_name</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">&#39;gold&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.common_ancestors">
+<code class="descclassname">ssmpy.</code><code class="descname">common_ancestors</code><span class="sig-paren">(</span><em>entry1</em>, <em>entry2</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.common_ancestors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get common ancestors between two semantic base entries</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entry1</strong> (<em>int</em>) – first semantic base ID</li>
+<li><strong>entry1</strong> – second semantic base ID</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of common ancestors</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">silver</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">common_ancestors</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">silver</span><span class="p">)</span>
+<span class="go">[6, 2, 10]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.information_content">
+<code class="descclassname">ssmpy.</code><code class="descname">information_content</code><span class="sig-paren">(</span><em>entry</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.information_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get information content of a semantic base entry according to intrinsic.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entry</strong> (<em>int</em>) – semantic base ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">information content</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">intrinsic</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">information_content</span><span class="p">(</span><span class="n">gold</span><span class="p">)</span>
+<span class="go">1.5040773967762742</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.information_content_intrinsic">
+<code class="descclassname">ssmpy.</code><code class="descname">information_content_intrinsic</code><span class="sig-paren">(</span><em>entry</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.information_content_intrinsic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the intrinsic information content of a semantic base entry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entry</strong> (<em>int</em>) – semantic base ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">intrinsic information content</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">information_content_intrinsic</span><span class="p">(</span><span class="n">gold</span><span class="p">)</span>
+<span class="go">1.5040773967762742</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.information_content_extrinsic">
+<code class="descclassname">ssmpy.</code><code class="descname">information_content_extrinsic</code><span class="sig-paren">(</span><em>entry</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.information_content_extrinsic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the extrinsic information content of a semantic base entry.</p>
+<p>The values are precomputated at the time of creation of the semantic base according to
+the annotations file provided.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entry</strong> (<em>int</em>) – semantic base ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">extrinsic information content</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">information_content_extrinsic</span><span class="p">(</span><span class="n">gold</span><span class="p">)</span>
+<span class="go">1.2992829841302609</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.get_ancestors">
+<code class="descclassname">ssmpy.</code><code class="descname">get_ancestors</code><span class="sig-paren">(</span><em>entry</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_ancestors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ancestors of a given semantic base entry</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entry</strong> (<em>int</em>) – semantic base ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of ancestors</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">get_ancestors</span><span class="p">(</span><span class="n">gold</span><span class="p">)</span>
+<span class="go">[3, 6, 2, 10]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.num_paths">
+<code class="descclassname">ssmpy.</code><code class="descname">num_paths</code><span class="sig-paren">(</span><em>entry1</em>, <em>ancestor</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.num_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get number of paths (edges) between two concepts.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entry1</strong> (<em>int</em>) – Child concept</li>
+<li><strong>ancestor</strong> (<em>int</em>) – Parent concept</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">number of edges between the two concepts</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">int</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metal</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;metal&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">num_paths</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">metal</span><span class="p">)</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.shared_ic_dca">
+<code class="descclassname">ssmpy.</code><code class="descname">shared_ic_dca</code><span class="sig-paren">(</span><em>entry1</em>, <em>entry2</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.shared_ic_dca" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the shared information content of two concepts using disjunctive common ancestors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entry1</strong> (<em>int</em>) – First concept</li>
+<li><strong>ancestor</strong> (<em>int</em>) – Second concept</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Shared information content</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">silver</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">shared_ic_dca</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">silver</span><span class="p">)</span>
+<span class="go">0.587786664902119</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.shared_ic_mica">
+<code class="descclassname">ssmpy.</code><code class="descname">shared_ic_mica</code><span class="sig-paren">(</span><em>entry1</em>, <em>entry2</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.shared_ic_mica" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the shared information content of two concepts using the most informative common ancestor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entry1</strong> (<em>int</em>) – First concept</li>
+<li><strong>ancestor</strong> (<em>int</em>) – Second concept</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Shared information content</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">silver</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">shared_ic_mica</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">silver</span><span class="p">)</span>
+<span class="go">0.587786664902119</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.shared_ic">
+<code class="descclassname">ssmpy.</code><code class="descname">shared_ic</code><span class="sig-paren">(</span><em>entry1</em>, <em>entry2</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.shared_ic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the shared information content of two concepts according to the value of ssmpy.ssm.mica</p>
+<p>Previously computed values are stored in memory for faster computation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entry1</strong> (<em>int</em>) – First concept</li>
+<li><strong>ancestor</strong> (<em>int</em>) – Second concept</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Shared information content</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://github.com/lasigeBioTM/DiShIn/raw/master/metals.db&quot;</span><span class="p">,</span> <span class="s2">&quot;metals.db&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;metals.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">semantic_base</span><span class="p">(</span><span class="s2">&quot;metals.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gold</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">silver</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">ssm</span><span class="o">.</span><span class="n">mica</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">shared_ic</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">silver</span><span class="p">)</span>
+<span class="go">0.587786664902119</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.light_similarity">
+<code class="descclassname">ssmpy.</code><code class="descname">light_similarity</code><span class="sig-paren">(</span><em>conn</em>, <em>entry_ids_1</em>, <em>entry_ids_2</em>, <em>metric</em>, <em>cpu_cores</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.light_similarity" title="Permalink to this definition">¶</a></dt>
+<dd><p>main function
+:param conn: db_connection
+:param entry_ids_1: list of entries 1
+:param entry_ids_2: list of entries 2
+:param cpu_cores: number of cores to be used
+:param metric: ‘lin’, ‘resnick’, ‘jc’ or ‘all’
+:return: list with results ([e1, e2, similarity] or [e1, e2, similarity resnik, similarity lin, similarity jc])</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ssmpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">create_semantic_base</span><span class="p">(</span><span class="s1">&#39;doid.owl&#39;</span><span class="p">,</span> <span class="s1">&#39;doid.db&#39;</span><span class="p">,</span> <span class="s2">&quot;http://purl.obolibrary.org/obo/&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#subClassOf&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span> <span class="o">=</span> <span class="n">ssmpy</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span><span class="s1">&#39;doid.db&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DOID_10587&#39;</span><span class="p">,</span> <span class="s1">&#39;DOID_2841&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DOID_1927&#39;</span><span class="p">,</span> <span class="s1">&#39;DOID_1324&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssmpy</span><span class="o">.</span><span class="n">light_similarity</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">,</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">[[[&#39;DOID_10587&#39;, &#39;DOID_1324&#39;, -0.0, -0.0, 0.068819810490695],</span>
+<span class="go">[&#39;DOID_10587&#39;, &#39;DOID_1927&#39;, 5.937536205082426, 0.8269561090992177, 0.28695173228265203]],</span>
+<span class="go">[[&#39;DOID_2841&#39;, &#39;DOID_1324&#39;, 3.703943983575332, 0.659762410973656, 0.20745912457314464],</span>
+<span class="go">[&#39;DOID_2841&#39;, &#39;DOID_1927&#39;, -0.0, -0.0, 0.07658496040867407]]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.get_all_commom_ancestors">
+<code class="descclassname">ssmpy.</code><code class="descname">get_all_commom_ancestors</code><span class="sig-paren">(</span><em>all_ancestors</em>, <em>it1</em>, <em>it2</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.get_all_commom_ancestors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all common ancestors for it1 and it2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>all_ancestors</strong> – pandas DataFrame of all ancestors</li>
+<li><strong>it1</strong> – entity 1 (id)</li>
+<li><strong>it2</strong> – entity 2 (id)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">pandas DataDrame of common ancestors or zero</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.fast_resnik">
+<code class="descclassname">ssmpy.</code><code class="descname">fast_resnik</code><span class="sig-paren">(</span><em>all_ancestors</em>, <em>df_entry_ancestors</em>, <em>df_entry_ic</em>, <em>it1</em>, <em>it2</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_resnik" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the RESNIK MICA INTRINSIC similarity between it1 and it2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>all_ancestors</strong> – pandas DataFrame of all ancestors (from table transitive)</li>
+<li><strong>df_entry_ancestors</strong> – pandas DataFrame of all ancestors (from table entry) with column IC</li>
+<li><strong>df_entry_ic</strong> – pandas DataFrame of all entities (from table entry) with column IC</li>
+<li><strong>it1</strong> – entity 1 (id)</li>
+<li><strong>it2</strong> – entity 2 (id)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list: [e1, e2, sim_resnik]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.fast_lin">
+<code class="descclassname">ssmpy.</code><code class="descname">fast_lin</code><span class="sig-paren">(</span><em>all_ancestors</em>, <em>df_entry_ancestors</em>, <em>df_entry_ic</em>, <em>it1</em>, <em>it2</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_lin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the LIN MICA INTRINSIC similarity between it1 and it2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>all_ancestors</strong> – pandas DataFrame of all ancestors (from table transitive)</li>
+<li><strong>df_entry_ancestors</strong> – pandas DataFrame of all ancestors (from table entry) with column IC</li>
+<li><strong>df_entry_ic</strong> – pandas DataFrame of all entities (from table entry) with column IC</li>
+<li><strong>it1</strong> – entity 1 (id)</li>
+<li><strong>it2</strong> – entity 2 (id)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list: [e1, e2, sim_lin]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.fast_jc">
+<code class="descclassname">ssmpy.</code><code class="descname">fast_jc</code><span class="sig-paren">(</span><em>all_ancestors</em>, <em>df_entry_ancestors</em>, <em>df_entry_ic</em>, <em>it1</em>, <em>it2</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_jc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the JC MICA INTRINSIC similarity between it1 and it2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>all_ancestors</strong> – pandas DataFrame of all ancestors (from table transitive)</li>
+<li><strong>df_entry_ancestors</strong> – pandas DataFrame of all ancestors (from table entry) with column IC</li>
+<li><strong>df_entry_ic</strong> – pandas DataFrame of all entities (from table entry) with column IC</li>
+<li><strong>it1</strong> – entity 1 (id)</li>
+<li><strong>it2</strong> – entity 2 (id)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list: [e1, e2, sim_jc]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.fast_resn_lin_jc">
+<code class="descclassname">ssmpy.</code><code class="descname">fast_resn_lin_jc</code><span class="sig-paren">(</span><em>all_ancestors</em>, <em>df_entry_ancestors</em>, <em>df_entry_ic</em>, <em>it1</em>, <em>it2</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.fast_resn_lin_jc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the RESNIK, LIN and JC MICA INTRINSIC similarity between it1 and it2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>all_ancestors</strong> – pandas DataFrame of all ancestors (from table transitive)</li>
+<li><strong>df_entry_ancestors</strong> – pandas DataFrame of all ancestors (from table entry) with column IC</li>
+<li><strong>df_entry_ic</strong> – pandas DataFrame of all entities (from table entry) with column IC</li>
+<li><strong>it1</strong> – entity 1 (id)</li>
+<li><strong>it2</strong> – entity 2 (id)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list: [e1, e2, sim_resnik, sim_lin, sim_jc]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.create_connection">
+<code class="descclassname">ssmpy.</code><code class="descname">create_connection</code><span class="sig-paren">(</span><em>db_file</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.create_connection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>create a database connection to the SQLite database</dt>
+<dd>specified by db_file</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>db_file</strong> – database file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Connection object or None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.db_select_entry">
+<code class="descclassname">ssmpy.</code><code class="descname">db_select_entry</code><span class="sig-paren">(</span><em>conn</em>, <em>entry_list</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.db_select_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query all rows in the entry table, where name is in entry_list
+:param conn: the Connection object
+:param entry_list: list of entity names</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">pandas dataframe with all columns in entry</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.db_select_entry_by_id">
+<code class="descclassname">ssmpy.</code><code class="descname">db_select_entry_by_id</code><span class="sig-paren">(</span><em>conn</em>, <em>entry_list</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.db_select_entry_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query all rows in the entry table, where name is in entry_list
+:param conn: the Connection object
+:param entry_list: list of entity ids</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">pandas dataframe with all columns in entry</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.db_select_transitive">
+<code class="descclassname">ssmpy.</code><code class="descname">db_select_transitive</code><span class="sig-paren">(</span><em>conn</em>, <em>ids_list</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.db_select_transitive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query all rows in the transitive table, where id is in ids_list
+:param conn: the Connection object
+:param ids_list: list of entity ids</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">pandas dataframe with all columns in transitive</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ssmpy.calculate_information_content_intrinsic">
+<code class="descclassname">ssmpy.</code><code class="descname">calculate_information_content_intrinsic</code><span class="sig-paren">(</span><em>df</em>, <em>max_freq</em><span class="sig-paren">)</span><a class="headerlink" href="#ssmpy.calculate_information_content_intrinsic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the information content
+of a dataframe of entries
+:param df: pandas DataFrame
+:param max_freq: maximum frequency in the ontology
+:return: df with extra column ‘IC’</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1750,49 +1760,32 @@ After this method is called, the other methods will be applied to the semantic b
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="data_sources.html" class="btn btn-neutral float-left" title="Data Sources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, A. Lamurias and F. Couto.
-
-    </p>
+    <p>&#169; Copyright 2021, A. Lamurias and F. Couto.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
