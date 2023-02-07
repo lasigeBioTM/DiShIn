@@ -6,14 +6,14 @@ with open("README.md", "r") as fh:
 
 setup(
     name="ssmpy",
-    version="0.2.5",
+    version="0.2.6",
     description="Basic functions to start using semantic similarity measures directly from a rdf or owl file.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Andre Lamurias",
     author_email="alamurias@lasige.di.fc.ul.pt",
     maintainer="Francisco M Couto",
-    maintainer_email="fcouto@di.fc.ul.pt",
+    maintainer_email="fjcouto@edu.ulisboa.pt",
     packages=["ssmpy"],
     keywords=["graphs", "semantic similarity", "ontologies"],
     url="https://github.com/lasigeBioTM/DiShIn",
@@ -23,5 +23,5 @@ setup(
         "Operating System :: OS Independent",
     ],
     package_data={"ssmpy": ["data/*"]},
-    install_requires=["rdflib","pandas","sqlite3","math","multiprocessing","numpy"],
+    install_requires=["rdflib","pandas","sqlite3","math","multiprocessing",'numpy <= 1.19.5; python_version < "3.8.0"', 'numpy; python_version >= "3.8.0"'], 
 )
