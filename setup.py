@@ -23,5 +23,5 @@ setup(
         "Operating System :: OS Independent",
     ],
     package_data={"ssmpy": ["data/*"]},
-    install_requires=["rdflib","pandas","sqlite3","math","numpy<=1.19.5"], 
+    install_requires=["rdflib","pandas","sqlite3","numpy<=1.19.5"], # "math", "multiprocessing"
 )
