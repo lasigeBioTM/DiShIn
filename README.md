@@ -286,7 +286,7 @@ curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/osci202302.db.gz
 gunzip -N osci202302.db.gz
 ```
 
-Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
+Now to calculate the similarity between _neuronal stem cell_ and _sensory neuron_ execute:
 ```shell
 python dishin.py osci.db CL_0000047 CL_0000101
 ```
@@ -320,7 +320,7 @@ curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/cl202302.db.gz
 gunzip -N cl202302.db.gz
 ```
 
-Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
+Now to calculate the similarity between _neuronal stem cell_ and _sensory neuron_ execute:
 ```shell
 python dishin.py cl.db CL_0000047 CL_0000101
 ```
@@ -354,7 +354,7 @@ curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/ecto202302.db.gz
 gunzip -N ecto202302.db.gz
 ```
 
-Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
+Now to calculate the similarity between _water vapour saturated air_ and _pressure of air_ execute:
 ```shell
 python dishin.py ecto.db ENVO_01000829 ENVO_09200011
 ```
@@ -387,7 +387,7 @@ curl -L -O http://labs.rd.ciencias.ulisboa.pt/dishin/envo202302.db.gz
 gunzip -N envo202302.db.gz
 ```
 
-Now to calculate the similarity between _Asthma_ and _Lung cancer_ execute:
+Now to calculate the similarity between _water vapour saturated air_ and _pressure of air_ execute:
 ```shell
 python dishin.py envo.db ENVO_01000829 ENVO_09200011
 ```
