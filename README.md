@@ -4,7 +4,7 @@
 
 This software package offers essential functions for utilizing semantic similarity measures directly from RDF or OWL files.
 
-Access the web tool utilizing this package here: [DiShIn Demo](https://labs.rd.ciencias.ulisboa.pt/dishin/)
+A demo is available at: [DiShIn Demo](https://labs.rd.ciencias.ulisboa.pt/dishin/)
 
 [Package](https://pypi.org/project/ssmpy/)
 
