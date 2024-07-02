@@ -179,13 +179,13 @@ JC           MICA        extrinsic  0.09082772814721791
 To create an updated version of the database, download the ontology and annotations:
 ```shell
 curl -L -O http://purl.obolibrary.org/obo/go.owl
-curl -L -O http://geneontology.org/gene-associations/goa_uniprot_all_noiea.gaf.gz
-gunzip goa_uniprot_all_noiea.gaf.gz 
+curl -L -O https://release.geneontology.org/2024-06-17/annotations/filtered_goa_uniprot_all_noiea.gaf.gz
+gunzip filtered_goa_uniprot_all_noiea.gaf.gz
 ```
 
 And then create the new database:
 ```shell
-python dishin.py go.owl go.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf goa_uniprot_all_noiea.gaf
+python dishin.py go.owl go.db http://purl.obolibrary.org/obo/ http://www.w3.org/2000/01/rdf-schema#subClassOf filtered_goa_uniprot_all_noiea.gaf
 ```
 
 ###  Chemical Entities of Biological Interest (ChEBI) Example
