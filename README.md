@@ -6,7 +6,9 @@ This software package offers essential functions for utilizing semantic similari
 
 Access the web tool utilizing this package here: [DiShIn Demo](https://labs.rd.ciencias.ulisboa.pt/dishin/)
 
-Package documentation: https://dishin.readthedocs.io/en/latest/
+[Package](https://pypi.org/project/ssmpy/)
+
+[Package documentation](https://dishin.readthedocs.io/en/latest/)
 
 ## New Stuff
 
