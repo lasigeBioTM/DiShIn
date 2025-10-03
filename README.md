@@ -12,6 +12,11 @@ A demo is available at: [DiShIn Demo](https://labs.rd.ciencias.ulisboa.pt/dishin
 
 ## New Stuff
 
+### 2025
+- **DATABASES**: Databases updated: 202506;
+
+  Available for download https://labs.rd.ciencias.ulisboa.pt/dishin/doid202506.db.gz, just replace _doid_ by other acronym to download other ontology.
+  
 ### 2024
 - **DATABASES**: Databases updated: 202407
 
